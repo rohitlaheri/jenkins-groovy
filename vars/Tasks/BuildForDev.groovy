@@ -1,8 +1,8 @@
 #!/usr/bin/groovy
 
-import pipelinejob.Factories.AEMBuildAbstractFactory
+/*import pipelinejob.Factories.AEMBuildAbstractFactory
 import pipelinejob.Factories.BuildAemCode
-import pipelinejob.Factories.FactoryProducer
+import pipelinejob.Factories.FactoryProducer*/
 import pipelinejob.ADT.AemPipelineParameters
 
 /*
