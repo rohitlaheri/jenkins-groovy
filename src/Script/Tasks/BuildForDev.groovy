@@ -1,11 +1,6 @@
-#!groovy
-package Script.Tasks
-
 import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
 import Script.Factories.FactoryProducer
-import Script.ADT.AemPipelineParameters
-
 
 /*public class BuildForDev {
     public static void main(String[] args) {
@@ -17,7 +12,7 @@ import Script.ADT.AemPipelineParameters
 
     }
 }*/
-@NonCPS
+
 def buildAem()
 {
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
