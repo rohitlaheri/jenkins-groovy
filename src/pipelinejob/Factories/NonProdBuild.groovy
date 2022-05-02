@@ -1,6 +1,5 @@
 package pipelinejob.Factories
 
-
 //concrete class implementing interface BuildAemCode
 public class NonProdBuild implements BuildAemCode {
     /*private AemPipelineParameters _parameters
@@ -32,12 +31,4 @@ public class NonProdBuild implements BuildAemCode {
         pushToArtifact();
     }
 
-}
-
-//concrete class implementing interface BuildAemCode
-public class ProductionBuild implements BuildAemCode {
-    @Override
-    public void runBuild() {
-        System.out.println("Inside ProductionBuild::runBuild() method.");
-    }
 }
