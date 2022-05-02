@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 package pipelinejob.Tasks
 
-import ADT.*
+import vars.ADT.*
 
 /*import pipelinejob.ADT.AemPipelineParameters
 import pipelinejob.Factories.AEMBuildAbstractFactory
