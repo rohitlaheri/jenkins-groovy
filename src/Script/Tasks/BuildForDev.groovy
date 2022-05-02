@@ -1,9 +1,8 @@
 #!/usr/bin/env groovy
-/*import Script.Factories.AEMBuildAbstractFactory
+import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
-import Script.Factories.FactoryProducer*/
+import Script.Factories.FactoryProducer
 
-/*
 public class BuildForDev {
     public static void main(String[] args) {
         //get AEMBuild factory
@@ -14,7 +13,7 @@ public class BuildForDev {
 
     }
 }
-*/
+/*
 @NonCPS
 def buildAem()
 {
@@ -23,3 +22,4 @@ def buildAem()
     buildAem.runBuild()
 }
 return this
+*/
