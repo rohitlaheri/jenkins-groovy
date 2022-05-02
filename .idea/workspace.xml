@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a323895-02ee-4b93-8f62-4529e1042814" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/vars/Constants.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroovyTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GroovyTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildImplement.groovy" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
