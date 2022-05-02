@@ -10,19 +10,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy/tasks" />
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy/Factories" />
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy" />
-      <excludeFolder url="file://$MODULE_DIR$/src/pipelinejob/ADT" />
+      <excludeFolder url="file://$MODULE_DIR$/vars/ADT" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pipelinejob/Tasks" />
     </content>
     <orderEntry type="jdk" jdkName="openjdk-18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="groovy-4.0.0" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>
