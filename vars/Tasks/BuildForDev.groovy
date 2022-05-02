@@ -1,9 +1,9 @@
 #!/usr/bin/groovy
-import pipelinejob.ADT.AemPipelineParameters
+
 import pipelinejob.Factories.AEMBuildAbstractFactory
 import pipelinejob.Factories.BuildAemCode
 import pipelinejob.Factories.FactoryProducer
-
+import pipelinejob.ADT.AemPipelineParameters
 
 /*
 
@@ -19,16 +19,15 @@ public class BuildForDev {
 */
 
 //@NonCPS
-def buildAem(AemPipelineParameters _parameters)
+def buildAem()
 {
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
 }
-return this
+//return this
 
 
-/*
 def callParam()
 {
     def param = new AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
@@ -37,4 +36,4 @@ def callParam()
     def aurl = param.getDeploymentTarget()
     println(aurl)
 }
-return this*/
+return this
