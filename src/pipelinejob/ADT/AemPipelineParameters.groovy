@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 package pipelinejob.ADT
 
-import pipelinejob.pipelineConstants
+
 
 public class AemPipelineParameters {
     String imageTag
@@ -18,7 +18,7 @@ public class AemPipelineParameters {
         return ['Zip1, Zip2'] as String[]
     }
 */
-    def String getDeploymentTarget() {
+    /*def String getDeploymentTarget() {
         println("inside getDeploymentTarget")
         if (previousTarget == '') {
             return pipelineConstants.DevEnv
@@ -27,7 +27,7 @@ public class AemPipelineParameters {
             return pipelineConstants.SIT1
         else
             return pipelineConstants.PRD1
-    }
+    }*/
     def String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
