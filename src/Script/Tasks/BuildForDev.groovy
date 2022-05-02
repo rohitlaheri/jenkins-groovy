@@ -1,6 +1,8 @@
+/*
 import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
 import Script.Factories.FactoryProducer
+*/
 
 /*public class BuildForDev {
     public static void main(String[] args) {
@@ -15,8 +17,8 @@ import Script.Factories.FactoryProducer
 
 def buildAem()
 {
-    AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
-    BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
+    Script.Factories.AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
+    Script.Factories.BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
 }
 return this
