@@ -10,7 +10,6 @@ public class AemPipelineParameters {
         releaseBranch = pReleaseBranch
         this.imageTag = image_tag
         this.previousTarget = previous_Target
-        println(this.previousTarget)
     }
 
     final String releaseBranch
@@ -19,7 +18,7 @@ public class AemPipelineParameters {
         return ['Zip1, Zip2'] as String[]
     }
 */
-    def String getDeploymentTarget() {
+    /*def String getDeploymentTarget() {
         println("inside getDeploymentTarget")
         if (previousTarget == '') {
             return Constants.DevEnv
@@ -28,7 +27,7 @@ public class AemPipelineParameters {
             return Constants.SIT1
         else
             return Constants.PRD1
-    }
+    }*/
     def String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
