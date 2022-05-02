@@ -29,7 +29,7 @@ public class AemPipelineParameters {
     def String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
-         {constants.Ima
+         {
              return "create-artifactory-url"
          }
          else

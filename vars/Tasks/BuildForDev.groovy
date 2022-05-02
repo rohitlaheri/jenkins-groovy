@@ -37,3 +37,4 @@ def callParam()
     def param = new AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
     return param.getArtifactoryUrl()
 }
+return this
