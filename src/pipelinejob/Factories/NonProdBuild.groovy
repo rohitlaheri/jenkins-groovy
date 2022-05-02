@@ -18,13 +18,13 @@ public class NonProdBuild implements BuildAemCode {
     }
     def pushToArtifact()
     {
-        print("pushing to artifact: https://artifact.url.com")
+        println("pushing to artifact: https://artifact.url.com")
     }
 
     //endregion
 
     @Override
-    public void runBuild() {
+     public void runBuild() {
         System.out.println("Inside NonProdBuild::runBuild() method.");
         scmCheckout();
         mavenBuild();

@@ -5,8 +5,9 @@ import pipelinejob.Factories.BuildAemCode
 import pipelinejob.Factories.FactoryProducer
 import pipelinejob.ADT.AemPipelineParameters
 
+/*
 
-/*public class BuildForDev {
+public class BuildForDev {
     public static void main(String[] args) {
         //get AEMBuild factory
         AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
@@ -14,7 +15,8 @@ import pipelinejob.ADT.AemPipelineParameters
         BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
         buildAem.runBuild()
     }
-}*/
+}
+*/
 
 //@NonCPS
 def AemBuild()
@@ -24,7 +26,7 @@ def AemBuild()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
 }
-return this
+//return this
 
 
 /*def callParam()
