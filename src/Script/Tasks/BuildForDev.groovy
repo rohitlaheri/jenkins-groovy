@@ -7,7 +7,7 @@ import Script.Factories.FactoryProducer
 import Script.ADT.AemPipelineParameters
 
 
-public class BuildForDev {
+/*public class BuildForDev {
     public static void main(String[] args) {
         //get AEMBuild factory
         AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
@@ -16,12 +16,12 @@ public class BuildForDev {
         buildAem.runBuild()
 
     }
-}
-
-/*def buildAem()
+}*/
+@NonCPS
+def buildAem()
 {
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
-}*/
-//return this
+}
+return this
