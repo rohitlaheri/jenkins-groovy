@@ -6,10 +6,11 @@ import pipelinejob.Constants
 public class AemPipelineParameters {
     String imageTag
     String previousTarget
-    AemPipelineParameters(String pReleaseBranch, String previousTarget, String image_tag) {
+    AemPipelineParameters(String pReleaseBranch, String previous_Target, String image_tag) {
         releaseBranch = pReleaseBranch
         this.imageTag = image_tag
-        this.previousTarget = previousTarget
+        this.previousTarget = previous_Target
+        println(this.previousTarget)
     }
 
     final String releaseBranch
