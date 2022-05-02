@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
-package pipelinejob.ADT
+package ADT
 
-import pipelinejob.Constants
+import Constants
 
 public class AemPipelineParameters {
     String imageTag
@@ -29,7 +29,7 @@ public class AemPipelineParameters {
     def String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
-         {constants.Ima
+         {
              return "create-artifactory-url"
          }
          else

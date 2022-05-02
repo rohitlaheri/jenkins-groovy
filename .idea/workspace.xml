@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a323895-02ee-4b93-8f62-4529e1042814" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/vars/ADT/AemPipelineParameters.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vars/Constants.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GroovyTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GroovyTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Script/ADT/AemPipelineParameters.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Script/Constants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Constants.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Script/Factories/AEMBuildFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Script/Mediators/AEMPipelineMediator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Mediators/AEMPipelineMediator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Script/Tasks/BuildForDev.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Tasks/BuildForDev.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Constants.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Tasks/BuildForDev.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Tasks/BuildForDev.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/RohitLaheri/Documents/Verizon/Practice/GroovyTest/src",
+    "last_opened_file_path": "C:/Users/RohitLaheri/Documents/Verizon/Practice/GroovyTest/src/pipelinejob",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -44,11 +44,18 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Script.Tasks" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RohitLaheri\Documents\Verizon\Practice\GroovyTest\src\pipelinejob" />
+      <recent name="C:\Users\RohitLaheri\Documents\Verizon\Practice\GroovyTest\vars" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RohitLaheri\Documents\Verizon\Practice\GroovyTest\vars" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Script.ADT" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BuildForDev (1)">
+  <component name="RunManager" selected="Application.pipelinejob.Tasks.BuildForDev">
     <configuration name="BuildForDev" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BuildForDev" />
       <module name="GroovyTest" />
@@ -58,6 +65,19 @@
     </configuration>
     <configuration name="Script.Tasks.BuildForDev" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Script.Tasks.BuildForDev" />
+      <module name="GroovyTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pipelinejob.Tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pipelinejob.Tasks.BuildForDev" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pipelinejob.Tasks.BuildForDev" />
       <module name="GroovyTest" />
       <extension name="coverage">
         <pattern>
@@ -80,17 +100,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuildForDev" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="GroovyTest" />
-      <setting name="path" value="file://$PROJECT_DIR$/src/pipeline-groovy/Tasks/BuildForDev.groovy" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$/src/pipeline-groovy/Tasks" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Demo" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="GroovyTest" />
       <setting name="path" value="file://$PROJECT_DIR$/src/pipeline-groovy/Factories/Demo.groovy" />
@@ -104,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BuildForDev (1)" />
+        <item itemvalue="Application.pipelinejob.Tasks.BuildForDev" />
+        <item itemvalue="Application.BuildForDev" />
         <item itemvalue="Groovy.BuildForDev (1)" />
         <item itemvalue="Application.Script.Tasks.BuildForDev" />
         <item itemvalue="Groovy.Demo" />
-        <item itemvalue="Groovy.BuildForDev" />
       </list>
     </recent_temporary>
   </component>
@@ -133,16 +142,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/pipelinejob/Tasks/BuildForDev.groovy</url>
-          <line>17</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

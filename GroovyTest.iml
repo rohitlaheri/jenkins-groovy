@@ -10,6 +10,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy/tasks" />
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy/Factories" />
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pipelinejob/ADT" />
     </content>
     <orderEntry type="jdk" jdkName="openjdk-18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
