@@ -5,7 +5,7 @@ import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
 import Script.Factories.FactoryProducer
 
-public class BuildForDev {
+/*public class BuildForDev {
     public static void main(String[] args) {
         //get AEMBuild factory
         AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
@@ -14,12 +14,12 @@ public class BuildForDev {
         buildAem.runBuild()
 
     }
-}
+}*/
 
-/*
 def BuildForDev()
 {
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
-}*/
+}
+return this
