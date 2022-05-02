@@ -35,6 +35,8 @@ return this
 def callParam()
 {
     def param = new AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
-    return param.getArtifactoryUrl()
+    println("inside the call param")
+    def aurl = param.getArtifactoryUrl()
+    println(aurl)
 }
 return this

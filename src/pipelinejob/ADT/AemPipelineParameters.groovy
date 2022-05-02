@@ -12,11 +12,11 @@ public class AemPipelineParameters {
 
     final String releaseBranch
 
-    def String[] getAllDeploymentPackageZipFiles() {
+   /* def String[] getAllDeploymentPackageZipFiles() {
         return ['Zip1, Zip2'] as String[]
     }
-
-    def String getDeploymentTarget(String previousTarget) {
+*/
+  /*  def String getDeploymentTarget(String previousTarget) {
         if (previousTarget == '') {
             return Constants.DevEnv
         }
@@ -25,7 +25,7 @@ public class AemPipelineParameters {
         else
             return Constants.PRD1
     }
-
+*/
     def String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
