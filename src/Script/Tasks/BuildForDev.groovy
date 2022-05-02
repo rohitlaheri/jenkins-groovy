@@ -4,6 +4,7 @@ package Script.Tasks
 import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
 import Script.Factories.FactoryProducer
+import Script.ADT.AemPipelineParameters
 
 
 public class BuildForDev {
