@@ -18,8 +18,8 @@ public class BuildForDev {
 }
 */
 
-@NonCPS
-def static buildAem()
+//@NonCPS
+def buildAem()
 {
     println("inside buildAem")
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
