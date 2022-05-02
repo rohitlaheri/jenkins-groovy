@@ -22,7 +22,7 @@ def AemBuild()
     println("inside buildAem")
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
-    buildAem.runBuild()
+    return buildAem.runBuild()
 }
 return this
 
