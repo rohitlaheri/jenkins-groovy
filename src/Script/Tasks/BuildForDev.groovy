@@ -18,7 +18,7 @@ public class BuildForDev {
 
 def buildAem()
 {
-    Script.Factories.AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
+    Script.Factories.AEMBuildAbstractFactory aemBuildFactory = Script.Factories.FactoryProducer.getFactory()
     Script.Factories.BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
 }
