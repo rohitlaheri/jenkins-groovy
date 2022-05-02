@@ -15,7 +15,7 @@ public class BuildForDev {
     }
 }
 */
-
+@NonCPS
 def buildAem()
 {
     Script.Factories.AEMBuildAbstractFactory aemBuildFactory = Script.Factories.FactoryProducer.getFactory()
