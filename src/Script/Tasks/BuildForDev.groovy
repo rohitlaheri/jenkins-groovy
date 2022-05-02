@@ -1,4 +1,4 @@
-#!/usr/bin/env groovy
+#!/usr/bin/groovy
 import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
 import Script.Factories.FactoryProducer
