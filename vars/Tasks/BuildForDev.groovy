@@ -1,5 +1,4 @@
 #!/usr/bin/groovy
-//package pipelinejob.Tasks
 
 import pipelinejob.ADT.AemPipelineParameters
 
@@ -18,25 +17,26 @@ public class BuildForDev {
         //get an object of aemBuildFactory for dev env
         BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
         buildAem.runBuild()
+        buildAem.pus
 
     }
 }*/
-/*
+
 @NonCPS
-def buildAem()
+/*def buildAem()
 {
     Script.Factories.AEMBuildAbstractFactory aemBuildFactory = Script.Factories.FactoryProducer.getFactory()
     Script.Factories.BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
 }
-return this
-*/
+return this*/
+
 
 def callParam()
 {
-    def param = new AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
+    def param = new AemPipelineParameters('release2.2.0', '', 'latest' )
     println("inside the call param")
-    def aurl = param.getArtifactoryUrl()
+    def aurl = param.getDeploymentTarget()
     println(aurl)
 }
 return this

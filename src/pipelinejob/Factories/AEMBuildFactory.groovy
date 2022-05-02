@@ -4,6 +4,7 @@ package pipelinejob.Factories
 //interface
 public interface BuildAemCode {
     void runBuild();
+
 }
 
 //concrete class implementing interface
@@ -11,6 +12,21 @@ public class NonProdBuild implements BuildAemCode {
     @Override
     public void runBuild() {
         System.out.println("Inside NonProdBuild::runBuild() method.");
+        scmCheckout()
+        mavenBuild()
+        pushToArtifact()
+    }
+    def scmCheckout()
+    {
+
+    }
+    def mavenBuild()
+    {
+
+    }
+    def pushToArtifact()
+    {
+
     }
 }
 

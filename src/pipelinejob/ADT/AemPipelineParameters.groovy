@@ -5,9 +5,11 @@ import pipelinejob.Constants
 
 public class AemPipelineParameters {
     String imageTag
+    String previousTarget
     AemPipelineParameters(String pReleaseBranch, String previousTarget, String image_tag) {
         releaseBranch = pReleaseBranch
         this.imageTag = image_tag
+        this.previousTarget = previousTarget
     }
 
     final String releaseBranch
@@ -16,7 +18,7 @@ public class AemPipelineParameters {
         return ['Zip1, Zip2'] as String[]
     }
 */
-  /*  def String getDeploymentTarget(String previousTarget) {
+    def String getDeploymentTarget() {
         if (previousTarget == '') {
             return Constants.DevEnv
         }
@@ -25,7 +27,6 @@ public class AemPipelineParameters {
         else
             return Constants.PRD1
     }
-*/
     def String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
