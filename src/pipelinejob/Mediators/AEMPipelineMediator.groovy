@@ -1,6 +1,7 @@
-package Script.Mediators
-import Script.ADT.AemPipelineParameters
-import Script.Tasks.BuildForDev
+#!/usr/bin/env groovy
+package pipelinejob.Mediators
+import pipelinejob.ADT.AemPipelineParameters
+//import Script.Tasks.BuildForDev
 
 class AEMPipelineMediator
 {

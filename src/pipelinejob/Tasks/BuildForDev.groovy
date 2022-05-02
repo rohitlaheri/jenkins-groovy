@@ -1,4 +1,5 @@
 #!/usr/bin/groovy
+package pipelinejob.Tasks
 /*import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
 import Script.Factories.FactoryProducer*/
@@ -28,8 +29,7 @@ return this
 
 def callParam()
 {
-    def param = new Script.ADT.AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
+    def param = new pipelinejob.ADT.AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
     return param.getArtifactoryUrl()
 
 }
-return this

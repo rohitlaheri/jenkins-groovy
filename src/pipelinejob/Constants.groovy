@@ -1,4 +1,4 @@
-package Script
+package pipelinejob
 
 interface Constants {
 

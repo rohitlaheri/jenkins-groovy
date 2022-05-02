@@ -1,4 +1,5 @@
-package Script.Factories
+#!/usr/bin/env groovy
+package pipelinejob.Factories
 
 //interface
 public interface BuildAemCode {
@@ -52,19 +53,12 @@ public class AEMBuildFactory extends AEMBuildAbstractFactory {
         return null;
     }
 }
+
+//Create a Factory generator class to get factories
 public class FactoryProducer {
     public static AEMBuildAbstractFactory getFactory(){
         return new AEMBuildFactory();
     }
 }
-//Create a Factory generator class to get factories
-/*
-public class FactoryProducer {
-    public static AEMBuildFactory getFactory(String environment){
-        if(environment == 'prod')
-            return new ProductionBuild();
-        else
-            return new ShapeFactory();
-    }
-}
-*/
+
+

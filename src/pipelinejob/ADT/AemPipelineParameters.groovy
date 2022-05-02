@@ -1,14 +1,13 @@
-package Script.ADT
+#!/usr/bin/groovy
+package pipelinejob.ADT
 
-import Script.Constants
-import groovy.transform.CompileStatic
+import pipelinejob.Constants
 
-
-@CompileStatic
 public class AemPipelineParameters {
-
+    String imageTag
     AemPipelineParameters(String pReleaseBranch, String previousTarget, String image_tag) {
         releaseBranch = pReleaseBranch
+        this.imageTag = image_tag
     }
 
     final String releaseBranch
@@ -27,13 +26,13 @@ public class AemPipelineParameters {
             return Constants.PRD1
     }
 
-    def String getArtifactoryUrl(String image_tag)
+    def String getArtifactoryUrl()
     {
-         if(image_tag.equalsIgnoreCase('latest'))
+         if(imageTag.equalsIgnoreCase('latest'))
          {
              return "create-artifactory-url"
          }
          else
-             return image_tag
+             return imageTag
     }
 }
