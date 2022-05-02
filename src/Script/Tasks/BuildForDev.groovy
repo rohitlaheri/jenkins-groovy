@@ -16,7 +16,7 @@ import Script.Factories.FactoryProducer
     }
 }*/
 
-def BuildForDev()
+def buildAem()
 {
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
