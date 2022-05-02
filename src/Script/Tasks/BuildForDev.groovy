@@ -1,18 +1,20 @@
 #!/usr/bin/groovy
-import Script.Factories.AEMBuildAbstractFactory
+/*import Script.Factories.AEMBuildAbstractFactory
 import Script.Factories.BuildAemCode
-import Script.Factories.FactoryProducer
+import Script.Factories.FactoryProducer*/
+import Script.ADT.AemPipelineParameters
 
-public class BuildForDev {
+
+/*public class BuildForDev {
     public static void main(String[] args) {
         //get AEMBuild factory
         AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
         //get an object of aemBuildFactory for dev env
-        BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
+        BuildAemCode buildAem = aemBuildFactory.getBuild('prod')
         buildAem.runBuild()
 
     }
-}
+}*/
 /*
 @NonCPS
 def buildAem()
@@ -23,3 +25,11 @@ def buildAem()
 }
 return this
 */
+
+def callParam()
+{
+    AemPipelineParameters param = new AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
+    param.getArtifactoryUrl()
+
+}
+return this
