@@ -19,6 +19,7 @@ public class AemPipelineParameters {
     }
 */
     def String getDeploymentTarget() {
+        println("inside getDeploymentTarget")
         if (previousTarget == '') {
             return Constants.DevEnv
         }

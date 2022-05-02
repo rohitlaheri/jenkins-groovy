@@ -34,8 +34,9 @@ return this*/
 
 def callParam()
 {
-    def param = new AemPipelineParameters('release2.2.0', '', 'latest' )
+    def param = new AemPipelineParameters('release2.2.0', 'DIT', 'latest' )
     println("inside the call param")
+
     def aurl = param.getDeploymentTarget()
     println(aurl)
 }

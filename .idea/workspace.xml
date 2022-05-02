@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pipelinejob/Constants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Constants.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildFactory.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vars/Tasks/BuildForDev.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/Tasks/BuildForDev.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
