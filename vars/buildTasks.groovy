@@ -1,29 +1,27 @@
 #!/usr/bin/groovy
 
-/*import pipelinejob.Factories.AEMBuildAbstractFactory
-import pipelinejob.Factories.BuildAemCode
-import pipelinejob.Factories.FactoryProducer*/
-
 
 def call()
 {
-    print("inside build call")
     echo "inside build"
+    pipeline {
+        agent any
+        stages {
+            stage("build from lib") {
+                steps {
+                    script {
+                        echo "testing from lib"
+                    }
+                }
+
+            }
+        }
+    }
     /*AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()*/
 }
-//return this
-
-//@NonCPS
-/*def static AemBuild()
-{
-    println("inside buildAem")
-    AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
-    BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
-    buildAem.runBuild()
-}*/
-//return this
+return this
 
 
 /*def callParam()
