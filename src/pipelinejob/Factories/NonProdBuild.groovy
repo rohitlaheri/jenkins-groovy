@@ -10,15 +10,15 @@ public class NonProdBuild implements BuildAemCode {
     //region Methods for build steps --start
     String scmCheckout()
     {
-        echo "git checkout......"
+        print "git checkout......"
     }
     String mavenBuild()
     {
-        echo "Performing maven build"
+        print "Performing maven build"
     }
     String pushToArtifact()
     {
-        echo "pushing to artifact: https://artifact.url.com"
+        print "pushing to artifact: https://artifact.url.com"
     }
 
     //endregion
