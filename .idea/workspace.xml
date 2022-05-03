@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a323895-02ee-4b93-8f62-4529e1042814" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vars/PipelineTasks/buildTasks.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/buildTasks.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
     </configuration>
     <configuration name="Build" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="GroovyTest" />
-      <setting name="path" value="file://$PROJECT_DIR$/vars/PipelineTasks/buildTasks.groovy" />
+      <setting name="path" value="file://$PROJECT_DIR$/vars/buildTasks.groovy" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
       <setting name="workDir" value="file://$PROJECT_DIR$/vars/PipelineTasks" />
