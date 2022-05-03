@@ -3,12 +3,12 @@
 import pipelinejob.Factories.AEMBuildAbstractFactory
 import pipelinejob.Factories.BuildAemCode
 import pipelinejob.Factories.FactoryProducer
-import pipelinejob.ADT.AemPipelineParameters
 
 
 def call()
 {
-    echo "inside buildAem"
+    print("inside build call")
+    echo "inside build"
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
