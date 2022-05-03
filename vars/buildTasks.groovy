@@ -9,9 +9,9 @@ def call()
 {
     print("inside build call")
     echo "inside build"
-    AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
+    /*AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
-    buildAem.runBuild()
+    buildAem.runBuild()*/
 }
 return this
 
