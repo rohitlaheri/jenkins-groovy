@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a323895-02ee-4b93-8f62-4529e1042814" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/NonProdBuild.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/NonProdBuild.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vars/Pipelines/AEMPipeline.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildAbstractFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/AEMBuildAbstractFactory.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Mediators/AEMPipelineMediator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Mediators/AEMPipelineMediator.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vars/Tasks/BuildForDev.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/PipelineTasks/buildTasks.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,17 +27,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/RohitLaheri/Documents/Verizon/Practice/GroovyTest/vars",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RohitLaheri/Documents/Verizon/Practice/GroovyTest/vars&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Script.Tasks" />
@@ -49,7 +53,7 @@
       <recent name="Script.ADT" />
     </key>
   </component>
-  <component name="RunManager" selected="Groovy.BuildForDev">
+  <component name="RunManager" selected="Groovy.Build">
     <configuration name="BuildForDev (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BuildForDev" />
       <module name="GroovyTest" />
@@ -71,15 +75,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pipelinejob.Tasks.BuildForDev" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="pipelinejob.Tasks.BuildForDev" />
+    <configuration name="Build" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="GroovyTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pipelinejob.Tasks.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <setting name="path" value="file://$PROJECT_DIR$/vars/PipelineTasks/buildTasks.groovy" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$/vars/PipelineTasks" />
+      <setting name="debug" value="false" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Groovy.Build" />
         <item itemvalue="Groovy.BuildForDev" />
         <item itemvalue="Application.BuildForDev (3)" />
         <item itemvalue="Application.BuildForDev (2)" />
         <item itemvalue="Application.BuildForDev (1)" />
-        <item itemvalue="Application.pipelinejob.Tasks.BuildForDev" />
       </list>
     </recent_temporary>
   </component>
