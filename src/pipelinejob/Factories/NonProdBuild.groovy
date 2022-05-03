@@ -10,22 +10,22 @@ public class NonProdBuild implements BuildAemCode {
     //region Methods for build steps --start
     def scmCheckout()
     {
-        println("git checkout......")
+        echo "git checkout......"
     }
     def mavenBuild()
     {
-        println("Performing maven build")
+        echo "Performing maven build"
     }
     def pushToArtifact()
     {
-        println("pushing to artifact: https://artifact.url.com")
+        echo "pushing to artifact: https://artifact.url.com"
     }
 
     //endregion
 
     @Override
      public void runBuild() {
-        println("Inside NonProdBuild::runBuild() method.");
+        echo "Inside NonProdBuild::runBuild() method."
         scmCheckout();
         mavenBuild();
         pushToArtifact();
