@@ -25,7 +25,7 @@ public class NonProdBuild implements BuildAemCode {
 
     @Override
      public String runBuild() {
-        echo "Inside NonProdBuild::runBuild() method."
+        print("Inside NonProdBuild::runBuild() method.")
         scmCheckout();
         mavenBuild();
         pushToArtifact();
