@@ -13,7 +13,7 @@ def call()
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     buildAem.runBuild()
 }
-
+return this
 
 //@NonCPS
 /*def static AemBuild()
