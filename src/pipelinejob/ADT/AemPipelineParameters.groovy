@@ -29,7 +29,7 @@ public class AemPipelineParameters {
     {
          if(imageTag.equalsIgnoreCase('latest'))
          {
-             println("artifactory URl:")
+             echo "artifactory url"
              return "create-artifactory-url"
          }
          else
