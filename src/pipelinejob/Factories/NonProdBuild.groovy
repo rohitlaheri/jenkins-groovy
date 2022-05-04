@@ -2,21 +2,22 @@ package pipelinejob.Factories
 
 //concrete class implementing interface BuildAemCode
 public class NonProdBuild implements BuildAemCode {
+
     /*private AemPipelineParameters _parameters
     public NonProdBuild(AemPipelineParameters parameters){
         _parameters = parameters;
     }*/
 
     //region Methods for build steps --start
-    String scmCheckout()
+    def scmCheckout()
     {
         print "git checkout......"
     }
-    String mavenBuild()
+    def mavenBuild()
     {
         print "Performing maven build"
     }
-    String pushToArtifact()
+    def pushToArtifact()
     {
         print "pushing to artifact: https://artifact.url.com"
     }
@@ -30,5 +31,4 @@ public class NonProdBuild implements BuildAemCode {
         mavenBuild();
         pushToArtifact();
     }
-
 }

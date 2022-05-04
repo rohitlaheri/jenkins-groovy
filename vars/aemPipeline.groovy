@@ -1,5 +1,6 @@
 #!/usr/bin/groovy
 // import dependent class from src directory
+
 def call() {
 
     pipeline {
@@ -9,7 +10,8 @@ def call() {
                     {
                         Steps {
                             //What ever steps that need to be called to build for non-prod
-
+                            echo "calling Buildtasks"
+                            buildTasks
                         }
                     }
 

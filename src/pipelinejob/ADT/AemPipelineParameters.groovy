@@ -1,8 +1,6 @@
 #!/usr/bin/groovy
 package pipelinejob.ADT
 
-
-
 public class AemPipelineParameters {
     String imageTag
     String previousTarget
