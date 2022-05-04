@@ -28,5 +28,6 @@ public class buildTasks{
 def paramInit(){
     def aemParam = new AemPipelineParameters ('release2.0.0', 'DIT', 'latest')
     echo aemParam.imageTag
-    aemParam.artifactoryUrl()
+    def arurl = aemParam.artifactoryUrl()
+    echo arurl
 }
