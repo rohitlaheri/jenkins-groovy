@@ -22,13 +22,11 @@ def call() {
                     }
                 }
             }
-            /*stage('execute') {
+            stage("Get Env Variables") {
                 steps {
-                    script {
-                        code.buildTasks
-                    }
+                    sh "printenv"
                 }
-            }*/
+            }
         }
     }
 }

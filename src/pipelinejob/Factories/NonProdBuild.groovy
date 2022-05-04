@@ -20,6 +20,9 @@ public class NonProdBuild implements BuildAemCode {
     def pushToArtifact()
     {
         print "pushing to artifact: https://artifact.url.com"
+        script {
+
+        }
     }
 
     //endregion
@@ -27,6 +30,7 @@ public class NonProdBuild implements BuildAemCode {
     @Override
      public void runBuild() {
         print("Inside NonProdBuild::runBuild() method.")
+        env.name="rohit"
         scmCheckout();
         mavenBuild();
         pushToArtifact();
