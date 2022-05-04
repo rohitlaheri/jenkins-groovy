@@ -1,14 +1,16 @@
 package pipelinejob.Factories
 
+import pipelinejob.ADT.AemPipelineParameters
+
 //concrete class implementing interface BuildAemCode
 public class NonProdBuild implements BuildAemCode {
     def steps
     def NonProdBuild(steps) {this.steps = steps}
 
-    /*private AemPipelineParameters _parameters
+    private AemPipelineParameters _parameters
     public NonProdBuild(AemPipelineParameters parameters){
         _parameters = parameters;
-    }*/
+    }
 
     //region Methods for build steps --start
     def scmCheckout()

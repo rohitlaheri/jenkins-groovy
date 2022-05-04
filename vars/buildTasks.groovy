@@ -1,8 +1,6 @@
 #!/usr/bin/groovy
 
-import pipelinejob.ADT.AemPipelineParameters
 import pipelinejob.Factories.*
-
 
 def call()
 {
@@ -26,11 +24,5 @@ public class buildTasks{
         buildAem.runBuild()
     }
 }*/
-/*
-def paramInit(){
-    def aemParam = new AemPipelineParameters ('release2.0.0', 'DIT', 'latest')
-    echo aemParam.imageTag
-    def arurl = aemParam.artifactoryUrl()
-    echo arurl
-}
-*/
+
+
