@@ -30,7 +30,7 @@ public class NonProdBuild implements BuildAemCode {
     @Override
      public void runBuild() {
         print("Inside NonProdBuild::runBuild() method.")
-        env.name="rohit"
+        sh "export NAME='Rohit'"
         scmCheckout();
         mavenBuild();
         pushToArtifact();
