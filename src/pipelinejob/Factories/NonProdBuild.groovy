@@ -25,7 +25,7 @@ public class NonProdBuild implements BuildAemCode {
     //endregion
 
     @Override
-     public String runBuild() {
+     public void runBuild() {
         print("Inside NonProdBuild::runBuild() method.")
         scmCheckout();
         mavenBuild();

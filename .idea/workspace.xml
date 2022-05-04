@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a323895-02ee-4b93-8f62-4529e1042814" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pipelinejob/buildTasks.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/ADT/AemPipelineParameters.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/BuildAemCode.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/BuildAemCode.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/NonProdBuild.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/NonProdBuild.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars/aeemPipeline.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/aemPipeline.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipelinejob/Factories/ProductionBuild.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipelinejob/Factories/ProductionBuild.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vars/aemPipeline.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/aemPipeline.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vars/buildTasks.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/buildTasks.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,14 +56,7 @@
       <recent name="Script.ADT" />
     </key>
   </component>
-  <component name="RunManager" selected="Groovy.Build">
-    <configuration name="BuildForDev (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BuildForDev" />
-      <module name="GroovyTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.pipelinejob.buildTasks">
     <configuration name="BuildForDev (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BuildForDev" />
       <module name="GroovyTest" />
@@ -68,9 +64,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuildForDev (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BuildForDev" />
+    <configuration name="buildAem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="buildAem" />
       <module name="GroovyTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="buildTasks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="buildTasks" />
+      <module name="GroovyTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pipelinejob.buildTasks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pipelinejob.buildTasks" />
+      <module name="GroovyTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pipelinejob.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -86,24 +102,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BuildForDev" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="GroovyTest" />
-      <setting name="path" value="file://$PROJECT_DIR$/vars/Tasks/BuildForDev.groovy" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$/vars/Tasks" />
-      <setting name="debug" value="false" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Groovy.Build" />
-        <item itemvalue="Groovy.BuildForDev" />
-        <item itemvalue="Application.BuildForDev (3)" />
+        <item itemvalue="Application.pipelinejob.buildTasks" />
+        <item itemvalue="Application.buildTasks" />
         <item itemvalue="Application.BuildForDev (2)" />
-        <item itemvalue="Application.BuildForDev (1)" />
+        <item itemvalue="Groovy.Build" />
+        <item itemvalue="Application.buildAem" />
       </list>
     </recent_temporary>
   </component>
