@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
-// import dependent class from src directory
 
 def call() {
+
     def code
     pipeline {
         agent any
