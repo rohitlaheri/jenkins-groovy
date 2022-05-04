@@ -6,7 +6,7 @@ import pipelinejob.Factories.*
 
 def call()
 {
-    def helper = new PipelineHelper(this)
+    def helper = new NonProdBuild(this)
     echo "inside build"
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     echo "Producer called"
