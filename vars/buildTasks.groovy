@@ -25,6 +25,7 @@ public class buildTasks{
         buildAem.runBuild()
     }
 }*/
+@NonCPS
 def paramInit(){
     def aemParam = new AemPipelineParameters ('release2.0.0', 'DIT', 'latest')
     echo aemParam.imageTag
