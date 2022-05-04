@@ -6,6 +6,7 @@ import pipelinejob.Factories.*
 
 def call()
 {
+    def helper = new PipelineHelper(this)
     echo "inside build"
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
     echo "Producer called"
@@ -25,9 +26,11 @@ public class buildTasks{
         buildAem.runBuild()
     }
 }*/
+/*
 def paramInit(){
     def aemParam = new AemPipelineParameters ('release2.0.0', 'DIT', 'latest')
     echo aemParam.imageTag
     def arurl = aemParam.artifactoryUrl()
     echo arurl
 }
+*/

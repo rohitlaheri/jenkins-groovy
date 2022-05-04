@@ -2,6 +2,8 @@ package pipelinejob.Factories
 
 //concrete class implementing interface BuildAemCode
 public class NonProdBuild implements BuildAemCode {
+    def steps
+    def NonProdBuild(steps) {this.steps = steps}
 
     /*private AemPipelineParameters _parameters
     public NonProdBuild(AemPipelineParameters parameters){
@@ -16,6 +18,7 @@ public class NonProdBuild implements BuildAemCode {
     def mavenBuild()
     {
         print "Performing maven build"
+        return "mavenBuild"
     }
     def pushToArtifact()
     {
@@ -28,7 +31,7 @@ public class NonProdBuild implements BuildAemCode {
     @Override
      public void runBuild() {
         print("Inside NonProdBuild::runBuild() method.")
-
+        steps.echo "echo from class"
         scmCheckout();
         mavenBuild();
         pushToArtifact();
