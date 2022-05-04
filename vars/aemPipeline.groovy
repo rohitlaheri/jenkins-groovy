@@ -2,6 +2,7 @@
 
 def call() {
     echo "pipeline call"
+
     def code
     pipeline {
         agent any
@@ -14,17 +15,18 @@ def call() {
             stage('buildTasks for Non-Prod') {
                 steps {
                     script {
-                        code = load "src/pipelinejob/buildTasks.groovy"
+                        //code = load "src/pipelinejob/buildTasks.groovy"
+                        buildTasks.call()
                     }
                 }
             }
-            stage('execute') {
+            /*stage('execute') {
                 steps {
                     script {
                         code.buildTasks
                     }
                 }
-            }
+            }*/
         }
     }
 }
