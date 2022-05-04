@@ -5,21 +5,21 @@ def call() {
     def code
     pipeline {
         agent any
-        Stages {
+        stages {
             stage('scm checkout'){
                 steps{
                     checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
                 }
             }
-            Stage('buildTasks for Non-Prod') {
-                Steps {
+            stage('buildTasks for Non-Prod') {
+                steps {
                     script {
                         code = load "src/pipelinejob/buildTasks.groovy"
                     }
                 }
             }
-            Stage('execute') {
-                Steps {
+            stage('execute') {
+                steps {
                     script {
                         code.buildTasks
                     }
