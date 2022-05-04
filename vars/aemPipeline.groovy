@@ -18,7 +18,7 @@ def call() {
                     script {
                         //code = load "src/pipelinejob/buildTasks.groovy"
                         //buildTasks.call()
-                        buildTasks.paramInit()
+                        buildTasks.call()
                     }
                 }
             }
