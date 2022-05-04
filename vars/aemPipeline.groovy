@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 def call() {
-
+    echo "pipeline call"
     def code
     pipeline {
         agent any
@@ -11,15 +11,13 @@ def call() {
                     checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
                 }
             }
-            Stage('buildTasks for Non-Prod')
-                    {
-                        Steps {
-                            script {
-                                code = load "src/pipelinejob/buildTasks.groovy"
-                            }
-                        }
+            Stage('buildTasks for Non-Prod') {
+                Steps {
+                    script {
+                        code = load "src/pipelinejob/buildTasks.groovy"
                     }
-
+                }
+            }
             Stage('execute')
                     {
                         Steps {
