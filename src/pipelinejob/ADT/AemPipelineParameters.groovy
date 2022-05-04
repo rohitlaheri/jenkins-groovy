@@ -25,10 +25,11 @@ public class AemPipelineParameters {
         else
             return pipelineConstants.PRD1
     }
-    def getArtifactoryUrl()
+    public def getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
          {
+             println("artifactory URl:")
              return "create-artifactory-url"
          }
          else
