@@ -7,8 +7,11 @@ def call()
 {
     echo "inside build"
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
+    echo "Producer called"
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
+    echo "Factory Generated"
     buildAem.runBuild()
+    echo "Completed"
 }
 //return this
 
