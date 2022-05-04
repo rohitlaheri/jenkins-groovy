@@ -17,16 +17,16 @@ def call() {
                 steps {
                     script {
                         //code = load "src/pipelinejob/buildTasks.groovy"
-                        //buildTasks.call()
-                        buildTasks.paramInit()
+                        buildTasks.call()
+                        //buildTasks.paramInit()
                     }
                 }
             }
-            stage("Get Env Variables") {
+           /* stage("Get Env Variables") {
                 steps {
                     sh "printenv"
                 }
-            }
+            }*/
         }
     }
 }
