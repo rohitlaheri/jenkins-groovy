@@ -6,6 +6,11 @@ def call() {
     pipeline {
         agent any
         Stages {
+            stage('scm checkout'){
+                steps{
+                    checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
+                }
+            }
             Stage('buildTasks for Non-Prod')
                     {
                         Steps {
