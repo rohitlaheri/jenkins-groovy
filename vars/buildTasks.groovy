@@ -8,7 +8,7 @@ def call()
 {
     def helper = new NonProdBuild(this)
     echo "inside build"
-    AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory()
+    AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory(this)
     echo "Producer called"
     BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
     echo "Factory Generated"
