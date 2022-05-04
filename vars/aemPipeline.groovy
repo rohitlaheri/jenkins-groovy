@@ -18,15 +18,13 @@ def call() {
                     }
                 }
             }
-            Stage('execute')
-                    {
-                        Steps {
-                            script {
-                                code.buildTasks
-                            }
-                        }
+            Stage('execute') {
+                Steps {
+                    script {
+                        code.buildTasks
                     }
-
+                }
+            }
         }
     }
 }
