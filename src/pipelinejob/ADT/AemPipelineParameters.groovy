@@ -25,7 +25,7 @@ public class AemPipelineParameters {
         else
             return pipelineConstants.PRD1
     }
-    String getArtifactoryUrl()
+    public String getArtifactoryUrl()
     {
          if(imageTag.equalsIgnoreCase('latest'))
          {
