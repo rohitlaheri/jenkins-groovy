@@ -1,10 +1,10 @@
 #!/usr/bin/groovy
 
-import pipelinejob.Factories.*
+import pipelinejob.Factories.BuildFactory.Configuration.*
+
 
 def call()
 {
-    //def helper = new NonProdBuild(this)
     echo "inside build"
     AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory(this)
     echo "Producer called"
@@ -24,5 +24,6 @@ public class buildTasks{
         buildAem.runBuild()
     }
 }*/
+
 
 

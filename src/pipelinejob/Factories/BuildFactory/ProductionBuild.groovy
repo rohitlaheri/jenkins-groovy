@@ -1,4 +1,6 @@
-package pipelinejob.Factories
+package pipelinejob.Factories.BuildFactory
+
+import pipelinejob.Factories.BuildFactory.Configuration.BuildAemCode
 
 //concrete class implementing interface BuildAemCode
 public class ProductionBuild implements BuildAemCode {

@@ -1,18 +1,19 @@
 #!/usr/bin/env groovy
-package pipelinejob.Factories
+package pipelinejob.Factories.DeployFactory
 
 //Factory class extending abstract factory  to generate object of concrete class
-public class AEMBuildFactory extends AEMBuildAbstractFactory {
+public class AEMDeployFactory extends AEMDeployAbstractFactory {
     private def steps
-    AEMBuildFactory(steps) {
+
+    AEMDeployFactory(steps) {
         this.steps = steps
     }
     @Override
-    public BuildAemCode getBuild(String environment) {
+    public DeployAemCode getDeploy(String environment) {
         if (environment.equalsIgnoreCase("dev")) {
-            return new NonProdBuild(steps);
+            return new NonProdDeploy(steps);
         } else if (environment.equalsIgnoreCase("prod")) {
-            return new ProductionBuild(steps);
+            return new ProductionDeploy(steps);
         }
         return null;
     }

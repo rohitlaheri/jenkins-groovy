@@ -1,4 +1,4 @@
-package pipelinejob.Factories
+package pipelinejob.Factories.BuildFactory.Configuration
 
 //abstract factory class
 public abstract class AEMBuildAbstractFactory {

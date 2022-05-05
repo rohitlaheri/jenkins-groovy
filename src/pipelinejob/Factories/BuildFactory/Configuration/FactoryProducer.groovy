@@ -1,4 +1,4 @@
-package pipelinejob.Factories
+package pipelinejob.Factories.BuildFactory.Configuration
 
 //Create a Factory generator class to get factories
 public class FactoryProducer {
