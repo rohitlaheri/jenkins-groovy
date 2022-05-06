@@ -4,13 +4,6 @@ def call() {
     echo "pipeline call"
 
     def code
-    def out
-    def config = new HashMap()
-    def bindings = getBinding()
-    config.putAll(bindings.getVariables())
-    out = config['out']
-
-
     pipeline {
         agent any
         stages {
@@ -24,7 +17,6 @@ def call() {
                 steps {
                     script {
                         //code = load "src/pipelinejob/buildTasks.groovy"
-                        out.println "Printed from Non-Prod."
                         startup.call()
                         //buildTasks.paramInit()
                     }
