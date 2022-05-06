@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 import pipelinejob.Factories.BuildFactory.Configuration.*
-
+import pipelinejob.Utils.*
 import java.util.logging.ConsoleHandler
 import java.util.logging.Level
 import java.util.logging.Logger
@@ -11,9 +11,10 @@ def call()
     def logger = Logger.getLogger("")
     logger.setLevel(Level.FINEST)
     logger.addHandler (new ConsoleHandler())
-
     logger.info("This printed")
 
+    def javaUtilLogger = new JavaUtilLoggerClass()
+    javaUtilLogger.print("Log test")
     echo "inside build"
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
