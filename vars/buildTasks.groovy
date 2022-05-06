@@ -13,6 +13,13 @@ def call()
     logger.addHandler (new ConsoleHandler())
     logger.info("This printed")
 
+    def out
+    def config = new HashMap()
+    def bindings = getBinding()
+    config.putAll(bindings.getVariables())
+    out = config['out']
+    out.println "Printed do Jenkins console."
+
     echo "inside build"
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
