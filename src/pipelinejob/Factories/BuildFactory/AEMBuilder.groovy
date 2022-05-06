@@ -1,6 +1,6 @@
 package pipelinejob.Factories.BuildFactory
 
-import pipelinejob.commonConstants
+import pipelinejob.constants
 import pipelinejob.ADT.AemPipelineParameters
 import pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 
@@ -20,8 +20,8 @@ public class AEMBuilder implements BuildCode {
 
     @Override
      public void runBuild() {
-        print("Inside NonProdBuild::runBuild() method.")
-        print(commonConstants.MYCONSTANT)
+        println("Inside NonProdBuild::runBuild() method.")
+        println(constants.MYCONSTANT)
         steps.echo "echo from class"
     }
 }
