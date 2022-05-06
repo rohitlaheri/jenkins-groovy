@@ -13,8 +13,6 @@ def call()
     logger.addHandler (new ConsoleHandler())
     logger.info("This printed")
 
-    def javaUtilLogger = new JavaUtilLoggerClass()
-    javaUtilLogger.printAndReturnValue(3)
     echo "inside build"
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
