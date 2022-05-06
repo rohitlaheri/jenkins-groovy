@@ -1,5 +1,5 @@
 package pipelinejob;
 
 public class commonConstants {
-        static final String MYCONSTANT = "CommonConstant";
+        public static final String MYCONSTANT = "CommonConstant";
 }
