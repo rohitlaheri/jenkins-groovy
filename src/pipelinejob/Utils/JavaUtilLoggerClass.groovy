@@ -10,4 +10,10 @@ class JavaUtilLoggerClass
         log.info "${this.printAndReturnValue(1)}"
         log.finer "${this.printAndReturnValue(2)}"
     }
+
+    public String printAndReturnValue(int newValue)
+    {
+        println "JDK: Print method invoked for ${newValue}"
+        return "JDK: ${newValue}"
+    }
 }
