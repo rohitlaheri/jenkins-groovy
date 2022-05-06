@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-import pipelinejob.Factories.BuildFactory.Configuration.*
+import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
 
 
 def call()
