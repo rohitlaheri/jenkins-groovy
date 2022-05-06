@@ -1,9 +1,12 @@
 package pipelinejob.Factories.DeployFactory
 
-//concrete class implementing interface DeployAemCode
-public class ProductionDeploy implements DeployAemCode {
+import pipelinejob.Factories.DeployFactory.Configuration.DeployCode
+
+//concrete class implementing interface DeployCode to Deploy React code
+public class ReactDeployer implements DeployCode {
     def steps
-    def ProductionDeploy(steps) {this.steps = steps}
+    def ReactDeployer(steps) {this.steps = steps}
+
     @Override
     public void runDeploy() {
         steps.echo "Inside ProductionDeploy::runDeploy() method."

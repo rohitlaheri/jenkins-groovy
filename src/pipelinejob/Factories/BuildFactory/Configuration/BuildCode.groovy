@@ -1,6 +1,6 @@
 package pipelinejob.Factories.BuildFactory.Configuration
 
-//interface BuildAemCode
-public interface BuildAemCode {
+//interface BuildCode
+public interface BuildCode {
     void runBuild();
 }

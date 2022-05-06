@@ -1,10 +1,10 @@
-package pipelinejob.Factories.DeployFactory
+package pipelinejob.Factories.DeployFactory.Configuration
 
 //Create a Factory generator class to get factories
 public class DeployFactoryProducer {
-    public static AEMDeployAbstractFactory getFactory(steps){
+    public static DeployAbstractFactory getFactory(steps){
         print "Returning Factory......"
-        return new AEMDeployFactory(steps);
+        return new DeployFactory(steps);
         print "Returned Factory......"
     }
 }

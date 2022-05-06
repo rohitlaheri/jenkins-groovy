@@ -6,9 +6,9 @@ import pipelinejob.Factories.BuildFactory.Configuration.*
 def call()
 {
     echo "inside build"
-    AEMBuildAbstractFactory aemBuildFactory = FactoryProducer.getFactory(this)
+    BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
-    BuildAemCode buildAem = aemBuildFactory.getBuild('dev')
+    BuildCode buildAem = aemBuildFactory.getBuild('AEM')
     echo "Factory Generated"
     buildAem.runBuild()
     echo "Completed"

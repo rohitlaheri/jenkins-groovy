@@ -1,10 +1,10 @@
 package pipelinejob.Factories.BuildFactory.Configuration
 
 //Create a Factory generator class to get factories
-public class FactoryProducer {
-    public static AEMBuildAbstractFactory getFactory(steps){
+public class BuildFactoryProducer {
+    public static BuildAbstractFactory getFactory(steps){
         print "Returning Factory......"
-        return new AEMBuildFactory(steps);
+        return new BuildFactory(steps);
         print "Returned Factory......"
     }
 }
