@@ -19,6 +19,7 @@ def call(param) {
                         echo tempParam
                         // add list of Params before passing
                         buildTasks.call(AEMBuilder) // will need to pass AEM build params at this phase.
+                        //will also need to ensure there is proper output generated at this stage
                     }
                 }
             }

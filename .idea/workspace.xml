@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a323895-02ee-4b93-8f62-4529e1042814" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vars/mediator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/mediator.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651389374004</updated>
       <workItem from="1652115635214" duration="339000" />
-      <workItem from="1652115984227" duration="891000" />
+      <workItem from="1652115984227" duration="1016000" />
     </task>
     <servers />
   </component>
