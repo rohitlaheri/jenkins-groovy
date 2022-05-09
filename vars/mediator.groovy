@@ -8,6 +8,7 @@ def call(param) {
             stage('scm checkout'){
                 steps{
                     //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: '']]])
+                    echo "git checkout"
                 }
             }
 
