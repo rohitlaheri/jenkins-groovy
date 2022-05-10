@@ -23,7 +23,7 @@ public class AEMBuilder implements BuildCode {
         def std_out = new StringBuilder()
         def std_err = new StringBuilder()
         //steps.echo ls
-        def proc = './src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
+        def proc = 'src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
         proc.waitForOrKill(1000)
         proc.consumeProcessOutput(std_out, std_err)
 
