@@ -2,12 +2,12 @@ package io.vz.pipelinejob.Utils
 
 class Logger implements ILogger, Serializable {
 
-    private final Object script
+    def steps
     private final boolean debugOn
     private final Map clockStore = [ : ]
 
-    Logger(script, debug) {
-        this.script = script
+    def Logger(steps, debug) {
+        this.steps = steps
         this.debugOn = debug
     }
 
@@ -21,7 +21,7 @@ class Logger implements ILogger, Serializable {
     }
 
     String info(String message) {
-        script.echo message
+        steps.echo message
         message
     }
 
