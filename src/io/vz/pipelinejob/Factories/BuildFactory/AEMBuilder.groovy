@@ -19,10 +19,10 @@ public class AEMBuilder implements BuildCode {
     //region Methods for build steps --start
     def execShell()
     {
-        def script = "io/vz/pipelinejob/Factories/BuildFactory/testscript.sh"
+       /* def script = "io/vz/pipelinejob/Factories/BuildFactory/testscript.sh"
         def std_out = new StringBuilder()
-        def std_err = new StringBuilder()
-        steps.echo "ls"
+        def std_err = new StringBuilder()*/
+        //steps.echo ls
         //def proc = script.execute()
         //proc.consumeProcessOutput(std_out, std_err)
 
@@ -36,7 +36,9 @@ public class AEMBuilder implements BuildCode {
      public void runBuild() {
 
         steps.echo "echo from class"
-        execShell();
+        steps.echo ls
+        steps.sh "ls"
+        //execShell();
 
     }
 }
