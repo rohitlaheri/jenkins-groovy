@@ -2,6 +2,7 @@ package io.vz.pipelinejob.Factories.BuildFactory
 
 
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
+import org.codehaus.groovy.runtime.StringBufferWriter
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode {
@@ -28,7 +29,7 @@ public class AEMBuilder implements BuildCode {
         steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //no longer needed- chmod'd via git index steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
-        def std_out = new String(), std_err = new String()
+        def std_out = new StringBufferWriter(), std_err = new StringBufferWriter()
         def proc = 'sh ./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
         proc.consumeProcessOutput(std_out, std_err)
         proc.waitForOrKill(1000)
