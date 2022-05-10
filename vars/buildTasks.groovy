@@ -8,7 +8,7 @@ import io.vz.pipelinejob.Utils.ILogger
 def call()
 {
     SingletonService.instance.add(Logger, new Logger(this, true))
-    ILogger logger = ServiceRegistry.instance.get(Logger)
+    ILogger logger = SingletonService.instance.get(Logger)
 
     echo "inside build"
     logger.info("Logger printed this");
