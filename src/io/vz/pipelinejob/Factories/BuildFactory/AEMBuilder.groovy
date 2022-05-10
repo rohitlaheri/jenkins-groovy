@@ -36,7 +36,7 @@ public class AEMBuilder implements BuildCode {
      public void runBuild() {
 
         steps.echo "echo from class"
-        steps.echo ls
+        //steps.echo ls
         steps.sh "ls"
         //execShell();
 
