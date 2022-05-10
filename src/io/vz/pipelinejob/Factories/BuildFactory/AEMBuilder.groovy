@@ -29,11 +29,11 @@ public class AEMBuilder implements BuildCode {
         steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //no longer needed- chmod'd via git index steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
-        def std_out = new StringBuffer(), std_err = new StringBuffer()
+        def std_out = new StringWriter(), std_err = new StringWriter()
         def proc = 'sh ./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
         proc.consumeProcessOutput(std_out, std_err)
         proc.waitForOrKill(1000)
-        println "out> $std_out\nerr> $std_err"
+        println std_out
 
 
         //
