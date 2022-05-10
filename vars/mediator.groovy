@@ -9,6 +9,7 @@ def call(param) {
         stages {
             stage('scm checkout'){
                 steps{
+                    cleanWs()
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
                     script {
                         log.info 'Starting'
@@ -23,7 +24,6 @@ def call(param) {
                 }
                 steps {
                     script {
-                        cleanWs()
                         echo tempParam
                         buildTasks.call()
                     }
