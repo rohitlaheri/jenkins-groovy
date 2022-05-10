@@ -14,7 +14,7 @@ def call(param) {
                         log.info 'Starting'
                         log.warning 'Nothing to do!'
                     }
-                    echo "git checkout"
+                    log.info "git checkout"
                 }
             }
             stage('build') {
