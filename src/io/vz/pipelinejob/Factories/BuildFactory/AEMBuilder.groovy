@@ -19,9 +19,11 @@ public class AEMBuilder implements BuildCode {
     def execShell()
     {
         //def script = './testscript.sh'
-        def std_out = new StringBuilder()
-        def std_err = new StringBuilder()
+        //def std_out = new StringBuilder()
+        //def std_err = new StringBuilder()
         //steps.echo ls
+
+        def std_out = new StringBuffer(), std_err = new StringBuffer()
         steps.sh "ls"
         steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //no longer needed- chmod'd via git index steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
