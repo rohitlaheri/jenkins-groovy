@@ -1,9 +1,8 @@
 #!/usr/bin/groovy
-import io.vz.pipelinejob.Utils.Logger
+
 def call(param) {
     def tempParam = param
     def buildStage= false
-    def logger = new Logger(this, true)
 
     pipeline {
         agent any
@@ -11,7 +10,10 @@ def call(param) {
             stage('scm checkout'){
                 steps{
                     //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: '']]])
-                    logger.debug("log checkout")
+                    script {
+                        log.info 'Starting'
+                        log.warning 'Nothing to do!'
+                    }
                     echo "git checkout"
                 }
             }
