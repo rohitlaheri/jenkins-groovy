@@ -1,7 +1,7 @@
 package io.vz.pipelinejob.Services
 
 @Singleton
-class SingletonService {
+public class SingletonService {
 
     private final registry = [:]
 

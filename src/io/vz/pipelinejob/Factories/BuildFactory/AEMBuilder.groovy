@@ -20,13 +20,18 @@ public class AEMBuilder implements BuildCode {
     }
 
     //region Methods for build steps --start
-
+    def execShell()
+    {
+        def proc ='./resources/testscript.sh -a "test" -b "sda" -c "dad"'.execute()
+        steps.echo proc
+    }
     //endregion
 
     @Override
      public void runBuild() {
         logger.debug("Log from class")
         steps.echo "echo from class"
+        execShell();
 
     }
 }
