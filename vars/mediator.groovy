@@ -14,7 +14,7 @@ def call(param) {
             }
             stage('build') {
                 when {
-                    expression { booleanParam(name: "buildStage", defaultValue: true) }
+                    expression { buildStage == true }
                 }
                 steps {
                     script {
