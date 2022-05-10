@@ -5,7 +5,7 @@ import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
 def call()
 {
     echo "inside build"
-    BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this, logger)
+    BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
     echo "Factory Generated"

@@ -25,7 +25,7 @@ public class AEMBuilder implements BuildCode {
 
     @Override
      public void runBuild() {
-       
+
         steps.echo "echo from class"
         execShell();
 
