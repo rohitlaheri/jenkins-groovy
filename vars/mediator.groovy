@@ -23,6 +23,7 @@ def call(param) {
                 }
                 steps {
                     script {
+                        cleanWs()
                         echo tempParam
                         buildTasks.call()
                     }
