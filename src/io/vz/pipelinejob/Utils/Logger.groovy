@@ -21,7 +21,8 @@ class Logger implements ILogger, Serializable {
     }
 
     String info(String message) {
-        steps.echo message
+        //steps.echo message
+        println(message)
         message
     }
 

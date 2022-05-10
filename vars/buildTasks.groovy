@@ -11,14 +11,14 @@ def call()
     ILogger logger = SingletonService.instance.get(Logger)
 
     echo "inside build"
-    logger.info("Logger printed this");
-    BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
+    logger.debug("Logger printed this");
+    BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this, logger)
     echo "Producer called"
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
     echo "Factory Generated"
     buildAem.runBuild()
     echo "Completed"
-    logger.info("Logger Completed");
+    logger.debug("Logger Completed");
 }
 //return this
 
