@@ -9,7 +9,7 @@ def call(param) {
         stages {
             stage('scm checkout'){
                 steps{
-                    //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: '']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
                     script {
                         log.info 'Starting'
                         log.warning 'Nothing to do!'
