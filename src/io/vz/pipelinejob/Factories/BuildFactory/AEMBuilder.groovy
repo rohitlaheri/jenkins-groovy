@@ -25,9 +25,9 @@ public class AEMBuilder implements BuildCode {
         //steps.echo ls
         steps.sh "ls"
         steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
-        steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
-        steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
-        def proc = 'src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
+        //no longer needed- chmod'd via git index steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
+        //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
+        def proc = './src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
         proc.waitForOrKill(1000)
         proc.consumeProcessOutput(std_out, std_err)
 
