@@ -1,24 +1,16 @@
 #!/usr/bin/groovy
 
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
-import io.vz.pipelinejob.Services.SingletonService
-import io.vz.pipelinejob.Utils.Logger
-import io.vz.pipelinejob.Utils.ILogger
 
 def call()
 {
-    SingletonService.instance.add(Logger, new Logger(this, true))
-    ILogger logger = SingletonService.instance.get(Logger)
-
     echo "inside build"
-    logger.debug("Logger printed this");
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this, logger)
     echo "Producer called"
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
     echo "Factory Generated"
     buildAem.runBuild()
     echo "Completed"
-    logger.debug("Logger Completed");
 }
 //return this
 

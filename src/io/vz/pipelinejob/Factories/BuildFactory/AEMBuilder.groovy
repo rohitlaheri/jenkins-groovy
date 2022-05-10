@@ -2,16 +2,14 @@ package io.vz.pipelinejob.Factories.BuildFactory
 
 import io.vz.pipelinejob.Model.pipelineParameters
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
-import io.vz.pipelinejob.Utils.ILogger
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode {
     def steps
-    private final ILogger logger
 
-    def AEMBuilder(steps, logger) {
+
+    def AEMBuilder(steps) {
         this.steps = steps
-        this.logger = logger
     }
 
     private pipelineParameters _parameters
@@ -29,7 +27,7 @@ public class AEMBuilder implements BuildCode {
 
     @Override
      public void runBuild() {
-        logger.debug("Log from class")
+        steps.log.info("Logger Test")
         steps.echo "echo from class"
         execShell();
 
