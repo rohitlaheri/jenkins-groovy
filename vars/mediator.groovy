@@ -2,6 +2,7 @@
 
 def call(param) {
     def tempParam = param
+    def buildStage= false
     pipeline {
         agent any
         stages {
@@ -11,8 +12,10 @@ def call(param) {
                     echo "git checkout"
                 }
             }
-
             stage('build') {
+                when {
+                    expression { booleanParam(name: "buildStage", defaultValue: true) }
+                }
                 steps {
                     script {
                         echo tempParam
@@ -20,21 +23,22 @@ def call(param) {
                     }
                 }
             }
-            /*stage('scan') {
+            stage('scan') {
                 steps {
                     script {
-                        scanTasks.call()
+                        //scanTasks.call()
+                        echo "scan steps"
                     }
                 }
-            }*/
-            /*stage('release') {
-
+            }
+            stage('release') {
                 steps {
                     script {
-                        deployTasks.call()
+                        //deployTasks.call()
+                        echo "release step"
                     }
                 }
-            }*/
+            }
         }
     }
 }
