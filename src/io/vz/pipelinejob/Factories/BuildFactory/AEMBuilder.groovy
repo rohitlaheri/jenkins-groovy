@@ -32,9 +32,9 @@ public class AEMBuilder implements BuildCode {
         def std_out = new StringBuffer()
         def std_err = new StringBuffer()
         def proc = 'sh ./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
-        proc.consumeProcessOutput(std_out, std_err)
+        //proc.consumeProcessOutput(std_out, std_err)
         proc.waitForOrKill(1000)
-        println std_out
+        //println std_out
 
 
         //
