@@ -19,7 +19,7 @@ public class AEMBuilder implements BuildCode {
     //region Methods for build steps --start
     def execShell()
     {
-        def script = "./testscript.sh"
+        def script = "io/vz/pipelinejob/Factories/BuildFactory/testscript.sh"
         def std_out = new StringBuilder()
         def std_err = new StringBuilder()
 
