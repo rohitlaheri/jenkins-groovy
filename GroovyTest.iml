@@ -9,8 +9,8 @@
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy/Factories" />
       <excludeFolder url="file://$MODULE_DIR$/src/pipeline-groovy" />
       <excludeFolder url="file://$MODULE_DIR$/vars/ADT" />
-      <excludeFolder url="file://$MODULE_DIR$/src/pipeline-api" />
-      <excludeFolder url="file://$MODULE_DIR$/src/pipeline-ui" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pipelineapi" />
+      <excludeFolder url="file://$MODULE_DIR$/src/pipelineui" />
     </content>
     <orderEntry type="jdk" jdkName="openjdk-18" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
