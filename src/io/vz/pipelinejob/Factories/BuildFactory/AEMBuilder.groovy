@@ -19,9 +19,17 @@ public class AEMBuilder implements BuildCode {
     //region Methods for build steps --start
     def execShell()
     {
-        def proc ='testscript.sh -a "test" -b "sda" -c "dad"'.execute()
-        steps.echo proc
+        def script = "./testscript.sh"
+        def std_out = new StringBuilder()
+        def std_err = new StringBuilder()
+
+        def proc = script.execute()
+        proc.consumeProcessOutput(std_out, std_err)
+
+        //
+        steps.echo std_out
     }
+
     //endregion
 
     @Override
