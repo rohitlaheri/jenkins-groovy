@@ -2,7 +2,7 @@
 
 def call(param) {
     def tempParam = param
-    def buildStage= false
+    def buildStage= true
 
     pipeline {
         agent any
@@ -24,7 +24,7 @@ def call(param) {
                 steps {
                     script {
                         echo tempParam
-                        //buildTasks.call()
+                        buildTasks.call()
                     }
                 }
             }
