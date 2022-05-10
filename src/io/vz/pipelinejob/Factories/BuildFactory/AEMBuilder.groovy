@@ -17,6 +17,12 @@ public class AEMBuilder implements BuildCode {
     }*/
 
     //region Methods for build steps --start
+    def std_out = new StringBuilder()
+    def std_err = new StringBuilder()
+    def proc = './src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
+    proc.waitForOrKill(1000)
+    proc.consumeProcessOutput(std_out, std_err)
+
     def execShell()
     {
         //def script = './testscript.sh'
@@ -27,7 +33,7 @@ public class AEMBuilder implements BuildCode {
         steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //no longer needed- chmod'd via git index steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
-        def proc = './src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
+        //def proc = './src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
         proc.waitForOrKill(1000)
         proc.consumeProcessOutput(std_out, std_err)
 
