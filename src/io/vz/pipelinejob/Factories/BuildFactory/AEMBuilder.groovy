@@ -25,7 +25,7 @@ public class AEMBuilder implements BuildCode {
 
     @Override
      public void runBuild() {
-        steps.log.info("Logger Test")
+       
         steps.echo "echo from class"
         execShell();
 
