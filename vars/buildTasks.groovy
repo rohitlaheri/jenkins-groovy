@@ -1,10 +1,13 @@
 #!/usr/bin/groovy
 
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
+import io.vz.pipelinejob.Util.Log
 
 def call()
 {
+    Log log = new Log(steps)
     echo "inside build"
+    log.info("Log: Inside build")
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
