@@ -47,9 +47,8 @@ public class AEMBuilder implements BuildCode {
      public void runBuild() {
 
         steps.echo "echo from class"
-        steps.script {
-            log.info 'log from class'
-        }
+        steps.log.info 'log from class'
+
         //steps.echo ls
         //steps.sh "ls"
         //steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
