@@ -1,16 +1,17 @@
 import java.util.*;
+import io.vz.pipelinejob.Util.Log
 
 def info(message) {
-    def now = new Date()
-    echo "INFO: ${now} -- ${message}"
+    Log log = new Log(steps)
+    log.info(message)
 }
 
 def warning(message) {
-    def now = new Date()
-    echo "WARNING: ${now} -- ${message}"
+    Log log = new Log(steps)
+    log.warning(message)
 }
 
 def error(message) {
-    def now = new Date()
-    echo "WARNING: ${now} -- ${message}"
+    Log log = new Log(steps)
+    log.error(message)
 }
