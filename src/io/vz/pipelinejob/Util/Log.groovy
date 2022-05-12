@@ -25,8 +25,6 @@ class Log implements Serializable {
     }
 
     private def spit(msg, color){
-        ansiColor('xterm') {
-            steps.echo color + msg + '\033[0m'
-        }
+        steps.echo color + msg + '\033[0m'
     }
 }
