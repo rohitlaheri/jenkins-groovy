@@ -2,6 +2,7 @@ package io.vz.pipelinejob.Factories.BuildFactory
 
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 import org.codehaus.groovy.runtime.StringBufferWriter
+import java.util.logging.Logger
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode {
@@ -45,6 +46,10 @@ public class AEMBuilder implements BuildCode {
     @Override
      public void runBuild() {
 
+        Logger logger = Logger.getLogger("")
+        steps.log.info 'before log statement'
+        logger.info ("I am a test info log")
+        steps.log.info 'after log statement'
         steps.log.info 'Log from class'
         //steps.echo ls
         //steps.sh "ls"
