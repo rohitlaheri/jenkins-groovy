@@ -12,7 +12,7 @@ def call(param) {
                     cleanWs()
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
                     script {
-                        log.info 'Starting'
+                        log.info 'git checkout'
                         log.warning 'Nothing to do!'
                     }
                     echo "git checkout"

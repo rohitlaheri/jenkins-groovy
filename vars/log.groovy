@@ -1,7 +1,14 @@
+import java.util.*;
+def now = new Date()
+
 def info(message) {
-    echo "INFO: ${message}"
+    echo "INFO: ${now} -- ${message}"
 }
 
 def warning(message) {
-    echo "WARNING: ${message}"
+    echo "WARNING: ${now} -- ${message}"
+}
+
+def error(message) {
+    echo "WARNING: ${now} -- ${message}"
 }
