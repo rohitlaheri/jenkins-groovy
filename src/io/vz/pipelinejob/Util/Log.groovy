@@ -9,19 +9,19 @@ class Log implements Serializable {
     }
 
     def info(message) {
-        printDetails("INFO", msg)
+        printDetails("INFO", message)
     }
 
     def warning(message) {
-        printDetails("WARNING", msg)
+        printDetails("WARNING", message)
     }
 
     def error(message) {
-        printDetails("ERROR", msg)
+        printDetails("ERROR", message)
     }
 
-    private def printDetails(level, msg) {
+    private def printDetails(level, message) {
         def now = new Date()
-        steps.echo level + ": " + now + ": " + msg
+        steps.echo level + ": " + now + ": " + message
     }
 }
