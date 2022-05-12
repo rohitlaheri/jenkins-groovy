@@ -46,7 +46,8 @@ public class AEMBuilder implements BuildCode {
     //endregion
 
     @Override
-     public void runBuild() {
+    @Slf4j
+     class runBuild {
 
         Logger logger = Logger.getLogger("")
 //        steps.log.info 'before log statement'
@@ -59,6 +60,6 @@ public class AEMBuilder implements BuildCode {
         //steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
 
-        execShell();
+//        execShell();
     }
 }
