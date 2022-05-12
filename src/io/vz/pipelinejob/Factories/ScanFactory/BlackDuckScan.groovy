@@ -9,7 +9,7 @@ public class BlackDuckScan implements ScanCode {
     @Override
     public void runScan() {
         print("Inside BlackDuckScan::runScan() method.")
-        steps.echo "echo from class"
+        steps.log.info "Log from class"
 
     }
 }

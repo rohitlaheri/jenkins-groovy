@@ -1,6 +1,5 @@
 package io.vz.pipelinejob.Factories.BuildFactory
 
-
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 import org.codehaus.groovy.runtime.StringBufferWriter
 
@@ -46,15 +45,12 @@ public class AEMBuilder implements BuildCode {
     @Override
      public void runBuild() {
 
-        steps.echo "echo from class"
-        steps.log.info 'log from class'
-
+        steps.log.info 'Log from class'
         //steps.echo ls
         //steps.sh "ls"
         //steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
         //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
 
         execShell();
-
     }
 }

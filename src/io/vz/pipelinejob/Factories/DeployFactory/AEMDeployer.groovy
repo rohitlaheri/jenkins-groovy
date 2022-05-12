@@ -98,7 +98,7 @@ public class AEMDeployer implements DeployCode {
     @Override
      public void runDeploy() {
         print("Inside NonProdDeploy::runDeploy() method.")
-        steps.echo "echo from class"
+        steps.log.info "Log from class"
         initializeEnvSetup();
         getRelVersion();
         getModule();
