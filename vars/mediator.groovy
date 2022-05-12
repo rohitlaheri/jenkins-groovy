@@ -7,7 +7,6 @@ def call(param) {
     pipeline {
         agent any
          options {
-             warnError()
              timestamps()
         }
         stages {
