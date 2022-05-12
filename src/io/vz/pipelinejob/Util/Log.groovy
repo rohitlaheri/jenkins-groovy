@@ -8,23 +8,20 @@ class Log implements Serializable {
         this.steps = steps
     }
 
-    def info(msg) {
-        spit(msg, '\033[34m')
+    def info(message) {
+        printDetails("INFO", msg)
     }
 
-    def error(msg) {
-        spit(msg, '\033[31m')
+    def warning(message) {
+        printDetails("WARNING", msg)
     }
 
-    def warning(msg){
-        spit(msg, '\033[33m')
+    def error(message) {
+        printDetails("ERROR", msg)
     }
 
-    def success(msg){
-        spit(msg, '\033[32m')
-    }
-
-    private def spit(msg, color){
-        steps.echo color + msg + '\033[0m'
+    private def printDetails(level, msg) {
+        def now = new Date()
+        steps.echo level + ": " + now + ": " + msg
     }
 }
