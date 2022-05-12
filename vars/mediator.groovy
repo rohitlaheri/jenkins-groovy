@@ -13,10 +13,8 @@ def call(param) {
                     cleanWs()
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
                     script {
-                        log.info 'git checkout'
-                        log.warning 'Nothing to do!'
+                        log.info 'Git checkout'
                     }
-                    echo "git checkout"
                 }
             }
             stage('build') {
@@ -25,7 +23,9 @@ def call(param) {
                 }
                 steps {
                     script {
-                        echo tempParam
+                        script {
+                            log.info tempParam
+                        }
                         buildTasks.call()
                     }
                 }
@@ -34,7 +34,9 @@ def call(param) {
                 steps {
                     script {
                         //scanTasks.call()
-                        echo "scan steps"
+                        script {
+                            log.info "Scan steps"
+                        }
                     }
                 }
             }
@@ -42,7 +44,9 @@ def call(param) {
                 steps {
                     script {
                         //deployTasks.call()
-                        echo "release step"
+                        script {
+                            log.info "Release step"
+                        }
                     }
                 }
             }
