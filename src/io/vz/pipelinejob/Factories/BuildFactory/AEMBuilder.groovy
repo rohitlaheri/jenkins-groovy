@@ -3,7 +3,7 @@ package io.vz.pipelinejob.Factories.BuildFactory
 import groovy.util.logging.Slf4j
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 import org.codehaus.groovy.runtime.StringBufferWriter
-import java.util.logging.Logger
+import groovy.util.Logging.log
 import groovy.util.logging.Slf4j
 
 //concrete class implementing interface BuildCode to Build AEM code
