@@ -46,12 +46,13 @@ public class AEMBuilder implements BuildCode {
     //endregion
 
     @Override
-    @Slf4j
+    @Log
      class runBuild {
 
         Logger logger = Logger.getLogger("")
 //        steps.log.info 'before log statement'
-        logger.info "I am a test info log"()
+        String message = "I am a test info log"
+        log.info(message)
 //        steps.log.info 'after log statement'
 //        steps.log.info 'Log from class'
         //log.info 'last log statement in AEMBuilder'
