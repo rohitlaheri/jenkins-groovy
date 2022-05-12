@@ -51,10 +51,10 @@ public class AEMBuilder implements BuildCode {
 
         Logger logger = Logger.getLogger("")
 //        steps.log.info 'before log statement'
-//        logger.info ("I am a test info log")
+        logger.info "I am a test info log"
 //        steps.log.info 'after log statement'
 //        steps.log.info 'Log from class'
-        log.info 'last log statement in AEMBuilder'
+        //log.info 'last log statement in AEMBuilder'
         //steps.echo ls
         //steps.sh "ls"
         //steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
