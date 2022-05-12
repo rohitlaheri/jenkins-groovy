@@ -1,8 +1,10 @@
 package io.vz.pipelinejob.Factories.BuildFactory
 
+import groovy.util.logging.Slf4j
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 import org.codehaus.groovy.runtime.StringBufferWriter
 import java.util.logging.Logger
+import groovy.util.logging.Slf4j
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode {
@@ -44,6 +46,7 @@ public class AEMBuilder implements BuildCode {
     //endregion
 
     @Override
+    @Slf4j
      public void runBuild() {
 
         Logger logger = Logger.getLogger("")
@@ -51,6 +54,7 @@ public class AEMBuilder implements BuildCode {
         logger.info ("I am a test info log")
         steps.log.info 'after log statement'
         steps.log.info 'Log from class'
+        log.info 'last log statement in AEMBuilder'
         //steps.echo ls
         //steps.sh "ls"
         //steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
