@@ -4,7 +4,7 @@ import groovy.util.logging.Slf4j
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 import org.codehaus.groovy.runtime.StringBufferWriter
 import groovy.util.Logging.log
-import groovy.util.logging.Slf4j
+
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode {
@@ -52,7 +52,7 @@ public class AEMBuilder implements BuildCode {
         Logger logger = Logger.getLogger("")
 //        steps.log.info 'before log statement'
         String message = "I am a test info log"
-        log.info(message)
+        log.info "Hello World"()
 //        steps.log.info 'after log statement'
 //        steps.log.info 'Log from class'
         //log.info 'last log statement in AEMBuilder'
