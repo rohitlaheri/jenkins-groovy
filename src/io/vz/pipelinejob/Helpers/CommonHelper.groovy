@@ -4,9 +4,12 @@ import groovy.json.JsonSlurper
 
 public class CommonHelper{
     def jsonParser
-
-    CommonHelper(){
+    def steps
+    CommonHelper(steps){
         this.jsonParser=new JsonSlurper()
+        this.steps = steps
+        this.steps.echo "test inside helper"
+
     }
 
     public def getModuleConfiguartion(){

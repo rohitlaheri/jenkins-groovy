@@ -5,7 +5,7 @@ public class PipelineHelper{
     def commonHelper
     PipelineHelper(steps) {
         this.steps = steps
-        this.commonHelper=new CommonHelper()
+        this.commonHelper=new CommonHelper(steps)
     }
     def setAEMModule(String moduleName){
         def modules=this.commonHelper.getModuleConfiguartion()
