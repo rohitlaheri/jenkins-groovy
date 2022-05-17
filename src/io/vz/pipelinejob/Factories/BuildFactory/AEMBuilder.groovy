@@ -12,7 +12,7 @@ public class AEMBuilder implements BuildCode {
     AEMBuilder(steps) {
         this.steps = steps
         //this.parameters=pipelineParameters PipelineHelper
-        //pipelineHelper= new PipelineHelper(this.steps)
+        pipelineHelper= new PipelineHelper(this.steps)
     }
 
 
@@ -24,7 +24,7 @@ public class AEMBuilder implements BuildCode {
             pipelineHelper.setAEMModule(moduleName);
             //print "aemModule details ${aemModule}";
         }catch (Exception e) {
-            print "Error occurred :" + e
+            steps.echo "Error occurred :" + e
         }
 
     }
