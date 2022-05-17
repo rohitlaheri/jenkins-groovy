@@ -1,6 +1,6 @@
 package io.vz.pipelinejob.Factories.BuildFactory
 
-import io.vz.pipelinejob.Model.pipelineParameters
+//import io.vz.pipelinejob.Model.pipelineParameters
 import io.vz.pipelinejob.Helpers.*
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 
