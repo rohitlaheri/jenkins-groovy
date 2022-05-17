@@ -11,12 +11,12 @@ public class PipelineHelper{
         def modules=this.commonHelper.getModuleConfiguartion()
         def module = modules.find{name == moduleName}
         // Need to handle null - Default case (Module not found)
-        this.steps.env.REPO = module.repo
-        this.steps.env.CORE_MODULE = module.coreModule
-        this.steps.env.APPLICATION_MODULE = module.applicationModule
-        this.steps.env.UI_MODULE = module.uiModule
-        this.steps.env.MVN_TARGET_PATH = module.mvnTargetPath
-        this.steps.env.ARTI_REPO = module.artiRepo
+        env.REPO = module.repo
+        env.CORE_MODULE = module.coreModule
+        env.APPLICATION_MODULE = module.applicationModule
+        env.UI_MODULE = module.uiModule
+        env.MVN_TARGET_PATH = module.mvnTargetPath
+        env.ARTI_REPO = module.artiRepo
     }
     def getAEMDevServer(String deployEnv,String bgTraffic) {
         def servers=this.commonHelper.getAEMDevServerConfiguration()
