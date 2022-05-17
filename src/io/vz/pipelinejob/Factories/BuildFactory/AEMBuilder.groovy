@@ -20,7 +20,8 @@ public class AEMBuilder implements BuildCode {
     def initializeEnvSetup(String moduleName){
         print "initialize environment......"
         try{
-            pipelineHelper.setAEMModule(parameters.moduleName);
+            this.steps.echo moduleName
+            pipelineHelper.setAEMModule(moduleName);
             //print "aemModule details ${aemModule}";
         }catch (Exception e) {
             print "Error occurred :" + e
