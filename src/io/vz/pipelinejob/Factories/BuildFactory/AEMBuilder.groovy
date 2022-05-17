@@ -12,7 +12,7 @@ public class AEMBuilder implements BuildCode {
     AEMBuilder(steps) {
         this.steps = steps
         //this.parameters=pipelineParameters PipelineHelper
-        pipelineHelper= new PipelineHelper(this.steps)
+        this.pipelineHelper= new PipelineHelper(this.steps)
     }
 
 
