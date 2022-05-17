@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="pipelinejob">
-    <CLASSES>
-      <root url="file://$PROJECT_DIR$/src/pipelinejob" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

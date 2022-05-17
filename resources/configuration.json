@@ -1,202 +1,309 @@
 {
-  "onevz-soe-aem-assisted-account-landing": {
-    "REPO": "onevz-soe-aem-assisted-account-landing",
-    "CORE_MODULE": "core-account-landing",
-    "APPLICATION_MODULE": "account-landing",
-    "UI_MODULE": "ui.apps-account-landing",
-    "MVN_TARGET_PATH": "com.verizon.vcg.soe.assisted.aem.ui.apps-account-landing",
-    "ARTI_REPO": "onevz-soe-aem-assisted-account-landing"
+  "module": {
+    "AEMModule":[
+      {
+        "name":"onevz-soe-aem-assisted-account-landing",
+        "repo": "onevz-soe-aem-assisted-account-landing",
+        "coreModule": "core-account-landing",
+        "applicationModule": "account-landing",
+        "uiModule": "ui.apps-account-landing",
+        "mvnTargetPath": "com.verizon.vcg.soe.assisted.aem.ui.apps-account-landing",
+        "artiRepo": "onevz-soe-aem-assisted-account-landing"
+      },
+      {
+        "name":"onevz-soe-aem-assisted-global-nav",
+        "repo": "onevz-soe-aem-assisted-global-nav",
+        "coreModule": "core-global-nav",
+        "applicationModule": "global-nav",
+        "uiModule": "ui.apps-global-nav",
+        "mvnTargetPath": "com.verizon.vcg.soe.assisted.aem.ui.apps-global-nav",
+        "artiRepo": "onevz-soe-aem-assisted-global-nav"
+      },
+      {
+        "name" : "onevz-soe-aem-assisted-landing-portal",
+        "repo" : "onevz-soe-aem-assisted-landing-portal",
+        "coreModule" : "core-landing-portal",
+        "applicationModule" : "landing-portal",
+        "uiModule" : "ui.apps-landing-portal",
+        "mvnTargetPath" : "com.verizon.vcg.soe.assisted.aem.ui.apps-landing-portal",
+        "artiRepo" : "onevz-soe-aem-assisted-landing-portal"
+      },
+      {
+        "name" : "onevz-soe-aem-assisted-msf",
+        "repo" : "onevz-soe-aem-assisted-msf",
+        "coreModule" : "core-msf-assisted",
+        "applicationModule" : "msf-assisted",
+        "uiModule" : "ui.apps-msf-assisted",
+        "mvnTargetPath" : "com.verizon.vcg.soe.assisted.aem.ui.apps-msf-assisted",
+        "artiRepo" : "onevz-soe-aem-assisted-msf-assisted"
+      },
+      {
+        "name" : "onevz-soe-aem-assited-new-customer",
+        "repo" : "onevz-soe-aem-assited-new-customer",
+        "coreModule" : "core",
+        "applicationModule" : "new-customer",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.newcustomer.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-assited-new-customer"
+      },
+      {
+        "name" : "onevz-soe-aem-assisted-ordering",
+        "repo" : "onevz-soe-aem-assisted-ordering",
+        "coreModule" : "core",
+        "applicationModule" : "soe-assisted",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.assisted.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-assisted-ordering"
+      },
+      {
+        "name" : "onevz-soe-aem-assisted-prepay-landing",
+        "repo" : "onevz-soe-aem-assisted-prepay-landing",
+        "coreModule" : "core-prepay-landing",
+        "applicationModule" : "prepay-landing",
+        "uiModule" : "ui.apps-prepay-landing",
+        "mvnTargetPath" : "com.verizon.vcg.soe.assisted.aem.ui.apps-prepay-landing",
+        "artiRepo" : "onevz-soe-aem-assisted-prepay-landing"
+      },
+      {
+        "name" : "onevz-soe-aem-assisted-admin",
+        "repo" : "onevz-soe-aem-assisted-admin",
+        "coreModule" : "core",
+        "applicationModule" : "assisted-admin",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.assistedadmin.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-assisted-admin"
+      },
+      {
+        "name" : "onevz-soe-aem-digital",
+        "repo" : "onevz-soe-aem-digital",
+        "coreModule" : "core-digital-rfex",
+        "applicationModule" : "soe-digital-rfex",
+        "uiModule" : "ui.apps-digital-rfex",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital.aem.ui.apps-digital-rfex",
+        "artiRepo" : "onevz-soe-aem-digital-rfex"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-bbportal",
+        "repo" : "onevz-soe-aem-digital-bbportal",
+        "coreModule" : "core",
+        "applicationModule" : "soe-digital-bbportal",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.bbportal.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-digital-bbportal"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-homeinternet",
+        "repo" : "onevz-soe-aem-digital-homeinternet",
+        "coreModule" : "core",
+        "applicationModule" : "soe-home-internet",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.fiveg.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-digital-homeinternet"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-prospect",
+        "repo" : "onevz-soe-aem-digital-prospect",
+        "coreModule" : "core",
+        "applicationModule" : "soe-digital-prospect",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.nse.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-digital-prospect"
+      },
+      {
+        "name" : "onevz-soe-aem-digital",
+        "repo" : "onevz-soe-aem-digital",
+        "coreModule" : "core",
+        "applicationModule" : "soe-digital",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-digital"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-next",
+        "repo" : "onevz-soe-aem-digital-next",
+        "coreModule" : "",
+        "applicationModule" : "soe-digital-next",
+        "uiModule" : "ui.apps-next",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital-next.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-digital-next"
+      },
+      {
+        "name" : "onevz-soe-aem-inspicio",
+        "repo" : "onevz-soe-aem-inspicio",
+        "coreModule" : "core",
+        "applicationModule" : "soe-inspicio",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.inspicio.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-inspicio"
+      },
+      {
+        "name" : "onevz-soe-aem-prospect",
+        "repo" : "onevz-soe-aem-prospect",
+        "coreModule" : "core",
+        "applicationModule" : "soe-prospect",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.prospect.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-prospect"
+      },
+      {
+        "name" : "onevz-soe-aem-activate-switch",
+        "repo" : "onevz-soe-aem-activate-switch",
+        "coreModule" : "core",
+        "applicationModule" : "soe-aem-activate-switch",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.activate-switch.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-activate-switch"
+      },
+      {
+        "name" : "onevz-soe-aem-tys",
+        "repo" : "onevz-soe-aem-tys",
+        "coreModule" : "core",
+        "applicationModule" : "soe-aem-tys",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.tys.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-tys"
+      },
+      {
+        "name" : "onevz-soe-aem-ryl",
+        "repo" : "onevz-soe-aem-ryl",
+        "coreModule" : "core",
+        "applicationModule" : "soe-aem-ryl",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.ryl.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-ryl"
+      },
+      {
+        "name" : "onevz-soe-aem-payment-terminal",
+        "repo" : "onevz-soe-aem-payment-terminal",
+        "coreModule" : "core",
+        "applicationModule" : "soe-paymentterminal",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.payment-terminal.aem.ui.apps",
+        "artiRepo" : "onevz-soe-aem-payment-terminal"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-rfex",
+        "repo" : "onevz-soe-aem-digital-rfex",
+        "coreModule" : "core-digital-nsa-rfex",
+        "applicationModule" : "soe-digital-nsa-rfex",
+        "uiModule" : "ui.apps-digital-nsa-rfex",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital.aem.ui.apps-digital-nsa-rfex",
+        "artiRepo" : "onevz-soe-aem-digital-nsa-rfex"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-content",
+        "repo" : "onevz-soe-aem-digital-content",
+        "coreModule" : "",
+        "applicationModule" : "",
+        "uiModule" : "ui.content",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital.aem.ui.content",
+        "artiRepo" : "onevz-soe-aem-digital-content"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-content",
+        "repo" : "onevz-soe-aem-digital-content",
+        "coreModule" : "",
+        "applicationModule" : "",
+        "uiModule" : "ui.content",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital.aem.ui.content",
+        "artiRepo" : "onevz-soe-aem-digital-content"
+      },
+      {
+        "name" : "onevz-soe-aem-digital-pct",
+        "repo" : "onevz-soe-aem-digital-pct",
+        "coreModule" : "core",
+        "applicationModule" : "soe-digital",
+        "uiModule" : "ui.apps",
+        "mvnTargetPath" : "com.verizon.vcg.soe.digital.aem.ui.apps-digital-pct",
+        "artiRepo" : "onevz-soe-aem-digital-pct"
+      },
+      {
+        "name" : "onevz-soe-aem-assisted-content",
+        "repo" : "onevz-soe-aem-assisted-content",
+        "coreModule" : "",
+        "applicationModule" : "",
+        "uiModule" : "ui.content",
+        "mvnTargetPath" : "com.verizon.vcg.soe.assisted.aem.ui.content",
+        "artiRepo" : "onevz-soe-aem-assisted-content"
+      }
+    ]
   },
-  "onevz-soe-aem-assisted-global-nav": {
-    "REPO": "onevz-soe-aem-assisted-global-nav",
-    "CORE_MODULE": "core-global-nav",
-    "APPLICATION_MODULE": "global-nav",
-    "UI_MODULE": "ui.apps-global-nav",
-    "MVN_TARGET_PATH": "com.verizon.vcg.soe.assisted.aem.ui.apps-global-nav",
-    "ARTI_REPO": "onevz-soe-aem-assisted-global-nav"
-  },
-  "onevz-soe-aem-assisted-landing-portal": {
-    "REPO" : "onevz-soe-aem-assisted-landing-portal",
-    "CORE_MODULE" : "core-landing-portal",
-    "APPLICATION_MODULE" : "landing-portal",
-    "UI_MODULE" : "ui.apps-landing-portal",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.assisted.aem.ui.apps-landing-portal",
-    "ARTI_REPO" : "onevz-soe-aem-assisted-landing-portal"
-  },
-  "onevz-soe-aem-assisted-msf-assisted": {
-    "REPO" : "onevz-soe-aem-assisted-msf",
-    "CORE_MODULE" : "core-msf-assisted",
-    "APPLICATION_MODULE" : "msf-assisted",
-    "UI_MODULE" : "ui.apps-msf-assisted",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.assisted.aem.ui.apps-msf-assisted",
-    "ARTI_REPO" : "onevz-soe-aem-assisted-msf-assisted"
-  },
-  "onevz-soe-aem-assited-new-customer": {
-    "REPO" : "onevz-soe-aem-assited-new-customer",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "new-customer",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.newcustomer.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-assited-new-customer"
-  },
-  "onevz-soe-aem-assisted-ordering": {
-    "REPO" : "onevz-soe-aem-assisted-ordering",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-assisted",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.assisted.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-assisted-ordering"
-  },
-  "onevz-soe-aem-assisted-prepay-landing": {
-    "REPO" : "onevz-soe-aem-assisted-prepay-landing",
-    "CORE_MODULE" : "core-prepay-landing",
-    "APPLICATION_MODULE" : "prepay-landing",
-    "UI_MODULE" : "ui.apps-prepay-landing",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.assisted.aem.ui.apps-prepay-landing",
-    "ARTI_REPO" : "onevz-soe-aem-assisted-prepay-landing"
-  },
-  "onevz-soe-aem-assisted-admin": {
-    "REPO" : "onevz-soe-aem-assisted-admin",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "assisted-admin",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.assistedadmin.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-assisted-admin"
-  },
-  "onevz-soe-aem-digital": {
-    "REPO" : "onevz-soe-aem-digital",
-    "CORE_MODULE" : "core-digital-rfex",
-    "APPLICATION_MODULE" : "soe-digital-rfex",
-    "UI_MODULE" : "ui.apps-digital-rfex",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital.aem.ui.apps-digital-rfex",
-    "ARTI_REPO" : "onevz-soe-aem-digital-rfex"
-  },
-  "onevz-soe-aem-digital-bbportal": {
-    "REPO" : "onevz-soe-aem-digital-bbportal",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-digital-bbportal",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.bbportal.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-digital-bbportal"
-  },
-  "onevz-soe-aem-digital-homeinternet": {
-    "REPO" : "onevz-soe-aem-digital-homeinternet",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-home-internet",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.fiveg.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-digital-homeinternet"
-  },
-  "onevz-soe-aem-digital-prospect": {
-    "REPO" : "onevz-soe-aem-digital-prospect",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-digital-prospect",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.nse.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-digital-prospect"
-  },
-  "onevz-soe-aem-digital": {
-    "REPO" : "onevz-soe-aem-digital",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-digital",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-digital"
-  },
-  "onevz-soe-aem-digital-next": {
-    "REPO" : "onevz-soe-aem-digital-next",
-    "CORE_MODULE" : "",
-    "APPLICATION_MODULE" : "soe-digital-next",
-    "UI_MODULE" : "ui.apps-next",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital-next.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-digital-next"
-  },
-  "onevz-soe-aem-inspicio": {
-    "REPO" : "onevz-soe-aem-inspicio",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-inspicio",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.inspicio.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-inspicio"
-  },
-  "onevz-soe-aem-prospect": {
-    "REPO" : "onevz-soe-aem-prospect",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-prospect",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.prospect.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-prospect"
-  },
-  "onevz-soe-aem-activate-switch": {
-    "REPO" : "onevz-soe-aem-activate-switch",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-aem-activate-switch",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.activate-switch.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-activate-switch"
-  },
-  "onevz-soe-aem-tys": {
-    "REPO" : "onevz-soe-aem-tys",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-aem-tys",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.tys.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-tys"
-  },
-  "onevz-soe-aem-ryl": {
-    "REPO" : "onevz-soe-aem-ryl",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-aem-ryl",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.ryl.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-ryl"
-  },
-  "onevz-soe-aem-payment-terminal": {
-    "REPO" : "onevz-soe-aem-payment-terminal",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-paymentterminal",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.payment-terminal.aem.ui.apps",
-    "ARTI_REPO" : "onevz-soe-aem-payment-terminal"
-  },
-  "onevz-soe-aem-digital-rfex": {
-    "REPO" : "onevz-soe-aem-digital-rfex",
-    "CORE_MODULE" : "core-digital-nsa-rfex",
-    "APPLICATION_MODULE" : "soe-digital-nsa-rfex",
-    "UI_MODULE" : "ui.apps-digital-nsa-rfex",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital.aem.ui.apps-digital-nsa-rfex",
-    "ARTI_REPO" : "onevz-soe-aem-digital-nsa-rfex"
-  },
-  "onevz-soe-aem-digital-content": {
-    "REPO" : "onevz-soe-aem-digital-content",
-    "CORE_MODULE" : "",
-    "APPLICATION_MODULE" : "",
-    "UI_MODULE" : "ui.content",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital.aem.ui.content",
-    "ARTI_REPO" : "onevz-soe-aem-digital-content"
-  },
-  "onevz-soe-aem-digital-content": {
-    "REPO" : "onevz-soe-aem-digital-content",
-    "CORE_MODULE" : "",
-    "APPLICATION_MODULE" : "",
-    "UI_MODULE" : "ui.content",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital.aem.ui.content",
-    "ARTI_REPO" : "onevz-soe-aem-digital-content"
-  },
-  "onevz-soe-aem-digital-pct": {
-    "REPO" : "onevz-soe-aem-digital-pct",
-    "CORE_MODULE" : "core",
-    "APPLICATION_MODULE" : "soe-digital",
-    "UI_MODULE" : "ui.apps",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.digital.aem.ui.apps-digital-pct",
-    "ARTI_REPO" : "onevz-soe-aem-digital-pct"
-  },
-  "onevz-soe-aem-assisted-content": {
-    "REPO" : "onevz-soe-aem-assisted-content",
-    "CORE_MODULE" : "",
-    "APPLICATION_MODULE" : "",
-    "UI_MODULE" : "ui.content",
-    "MVN_TARGET_PATH" : "com.verizon.vcg.soe.assisted.aem.ui.content",
-    "ARTI_REPO" : "onevz-soe-aem-assisted-content"
+  "AEMServer": {
+    "DevServer": [
+      {
+        "devEnvironmentName": "DIT1",
+        "stagingEnvironmentName": "SIT1",
+        "serverName": "soeaem-nsd1-east",
+        "traffic": ""
+      },
+      {
+        "devEnvironmentName": "DIT2",
+        "stagingEnvironmentName": "SIT2",
+        "serverName": "soeaem-nsd2-east",
+        "traffic": ""
+      },
+      {
+        "devEnvironmentName": "DIT3",
+        "stagingEnvironmentName": "SIT3",
+        "serverName": "soeaem-nsd3-east",
+        "traffic": ""
+      },
+      {
+        "devEnvironmentName": "DIT4",
+        "stagingEnvironmentName": "SIT4",
+        "serverName": "soeaem-nsd3-east",
+        "traffic": ""
+      }
+    ],
+    "QAServer": [
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT1",
+        "traffic": "GREEN",
+        "serverName": "soeaem-nsq1-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT1",
+        "traffic": "BLUE",
+        "serverName": "soeaem-nsq1bg-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT2",
+        "traffic": "GREEN",
+        "serverName": "soeaem-nsq2-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT2",
+        "traffic": "BLUE",
+        "serverName": "soeaem-nsq2bg-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT3",
+        "traffic": "GREEN",
+        "serverName": "soeaem-nsq3-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT3",
+        "traffic": "BLUE",
+        "serverName": "soeaem-nsq3bg-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT4",
+        "traffic": "GREEN",
+        "serverName": "soeaem-nsq4-east"
+      },
+      {
+        "devEnvironmentName": "",
+        "stagingEnvironmentName": "SIT4",
+        "traffic": "BLUE",
+        "serverName": "soeaem-nsq4bg-east"
+      }
+    ]
   }
 }

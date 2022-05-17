@@ -1,6 +1,6 @@
 package io.vz.pipelinejob.Model
 
-public final class pipelineConstants {
+public final class PipelineConstants {
     //Define all constants for the pipeline
     
     public static final String DIT = 'DIT'
@@ -92,7 +92,7 @@ public final class pipelineConstants {
     public static final String SOE_DIGITAL_NEXT_ARTI_REPO = "onevz-soe-aem-digital-next"
     public static final String SOE_INSPICIO_REPO = "onevz-soe-aem-inspicio"
     public static final String SOE_INSPICIO_APP_MODULE = "soe-inspicio"
-    public static final String SOE_INSPICIO_MVN_TARGET_PATH = "com.verizon.vcg.soe."
+    public static final String SOE_INSPICIO_MVN_TARGET_PATH = "com.verizon.vcg.soe"
     public static final String SOE_INSPICIO_ARTI_REPO = "onevz-soe-aem-inspicio"
     public static final String SOE_LEAD_MGMT_REPO = "onevz-soe-aem-lead-management"
     public static final String SOE_LEAD_MGMT_APP_MODULE = "soe-lead-management"

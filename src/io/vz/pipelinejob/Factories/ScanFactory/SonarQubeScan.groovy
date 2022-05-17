@@ -7,7 +7,7 @@ public class SonarQubeScan implements ScanCode {
     SonarQubeScan(steps) {this.steps = steps}
     
     def scanSonar(Map args){
-        steps.log.info "SONAR QUBE SCAN WIP"
+        steps.echo "SONAR QUBE SCAN WIP"
         steps.withSonarQubeEnv('onesonarcloud-prod') {
             
             steps.sh "sonar:sonar -Dsonar.host.url=\${SONAR_HOST_URL} "+
@@ -16,6 +16,7 @@ public class SonarQubeScan implements ScanCode {
             
         }
     }
+    
     def publishScanReport(){
         try {
             def formattedDate = date.format("yyyy-MM-dd")
@@ -32,7 +33,7 @@ public class SonarQubeScan implements ScanCode {
                 // Need to put the Logic to send the report to SQL DB
             }
             else {
-                echo "Coverage percentage  : ${coverage_percentage}"
+                echo "coverage percentage  : ${coverage_percentage}"
                 echo "Quality Gate Failed: Aborting build"
                 // Need to put the Logic to send the report to SQL DB
             
@@ -47,7 +48,7 @@ public class SonarQubeScan implements ScanCode {
     @Override
     public void runScan() {
         print("Inside SonarQubeScan::runScan() method.")
-        steps.log.info "Echo from class"
+        steps.echo "echo from class"
         Map objScan
         scanSonar(objScan)
         publishScanReport()

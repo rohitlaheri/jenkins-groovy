@@ -1,27 +1,40 @@
 package io.vz.pipelinejob.Factories.DeployFactory
 
-import io.vz.pipelinejob.Model.*
+import io.vz.pipelinejob.Model.PipelineParameters
 import io.vz.pipelinejob.Factories.DeployFactory.Configuration.DeployCode
-//import AEMPipelineHelper
+import jenkins.*
+import jenkins.model.*
+import hudson.*
+import hudson.model.*
 
 //concrete class implementing interface DeployCode to Deploy AEM code
 public class AEMDeployer implements DeployCode {
     def steps
-    def publisher_server
-    def repo
-    def core_module
-    def app_module
-    def mvn_target_path
-    def artifact_repo
-    def ui_module
-    def release_version
-    def artifactory_url
-    def AEMDeployer(steps) {this.steps = steps}
-    //def aemhelper = new AEMPipelineHelper(this)
+    def aemServer
+    def mvnTargetPath
+    def artiRepo
+    def releaseVersion
+    def artifactoryUrl
+    def parameters
+    def pipelineHelper
+    def aemModule
+    def aemPwd
+    def artifactorySOEPass
+    def oneDigitalArtifactPWD
+    def aemDeployEnvInject
+    def aemSetEnvForCache
+    def buildNumber = BUILD_NUMBER as int;
+    def jenkinsCredentials = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+            com.cloudbees.plugins.credentials.Credentials.class,
+            Jenkins.instance,
+            null,
+            null
+    );
 
-    private pipelineParameters _parameters
-    public AEMDeployer(pipelineParameters parameters){
-        _parameters = parameters;
+    def AEMDeployer(steps,pipelineParameters) {
+        this.steps = steps
+        this.parameters=pipelineParameters
+        pipelineHelper=new PipelineHelper(this.steps)
     }
 
 
@@ -29,30 +42,22 @@ public class AEMDeployer implements DeployCode {
     //region Methods for deploy steps --start
     def initializeEnvSetup(){
         print "initialize environment......"
-        publisher_server = aemhelper.getEnvSetup(_parameters.deploy_env,_parameters.bgtraffic);
-    }
-
-    def getRelVersion(){
-        release_version = aemhelper.getRelVersion(_parameters.branch_name)
-    }
-
-    def getModule(){
         try{
-            module_list = readJSON file: "/resources/configuration.json"
-            module_list.each{entry ->
-                if (entry.key == _parameters.module){
-                    repo = entry.value.REPO
-                    core_module = entry.value.CORE_MODULE
-                    app_module = entry.value.APPLICATION_MODULE
-                    ui_module = entry.value.UI_MODULE
-                    mvn_target_path = entry.value.MVN_TARGET_PATH
-                    artifact_repo = entry.value.ARTI_REPO
-                }
+            if (parameters.Env){
+                aemServer = pipelineHelper.getAEMDevServer(parameters.deployEnv,parameters.bgTraffic);
             }
-        } catch (Exception e) {
+            if (parameters.qa){
+                aemServer = pipelineHelper.getAEMQAServer(parameters.deployEnv,parameters.bgTraffic);
+            }
+            releaseVersion = pipelineHelper.getReleaseVersion(parameters.branchName);
+            aemModule = pipelineHelper.setAEMModule(parameters.moduleName);
+            print "aemModule details ${aemModule}";
+        }catch (Exception e) {
             print "Error occurred :" + e
         }
+
     }
+
 
     def getBuildNumber()
     {
@@ -62,49 +67,79 @@ public class AEMDeployer implements DeployCode {
     
     def getArtifactoryUrl()
     {
-        if (_parameters.image_tag == Constant.LATEST) {
-            artifactory_url = "${Constant.HIVV_SOE}/${artifact_repo}/${Constant.ICON}/${_parameters.branch_name}/${mvn_target_path}-${release_version}.${Constant.zip}".getBuildNumber()
+        if (parameters.imageTag == pipelineConstants.LATEST) {
+                artifactoryUrl = "${pipelineConstants.HIVV_SOE}/${aemModule.artiRepo}/${pipelineConstants.ICON}/${parameters.branchName}/${aemModule.mvnTargetPath}-${aemModule.releaseVersion}.${pipelineConstants.ZIP}".getBuildNumber()
         } else {
-            artifactory_url = _parameters.image_tag
+            artifactoryUrl = parameters.imageTag
         }
     }
-    
-    def Deploy()
-    {
-        try{
-            if (_parameters.dev){
-                getArtifactoryUrl()
-                print "artifactory_url = " + getArtifactoryUrl()
-                //ansible playbook execution block incomplete
-                def runbuildenv = sh(script: "resources/buildnonprodenv ${artifactory_url} ${publisher_server}", returnStdout: true).toString().trim()
-                steps.sh """
+
+    def getJenkinsGlobalPWD(){
+        for (credential in jenkinsCredentials) {
+            if(credential.id == pipelineConstants.SOE_ARTIFACTORY_PASSWORD){
+                artifactorySOEPass = credential.password
+            }
+            if (credential.id == pipelineConstants.AEM_PASSWORD){
+                aemPwd = credential.password
+            }
+            if (credential.id == pipelineConstants.ONEDIGITAL_ARTIFACTORY_PASSWORD){
+                oneDigitalArtifactPWD = credential.password
+            }
+        }
+    }
+
+
+    def runAnsible(Object aemDeployEnvInject){
+        steps.sh """
                 git branch: 'master', credentialsId: 'xxx', url: 'git@gitlab.verizon.com/IAAS.Cloud/aem_qa_deploy.git'
                 ansiblePlaybook become: true, colorized: true, credentialsId: 'xxxx', disableHostKeyChecking: true, installation: 'ansible', 
-                playbook: 'soe-aem-playbook.yml', extra-vars: '{"artifactory_url":"${artifactory_url}","env":"${publisher_server}","package":"${runbuildenv.package}","artifactory_soe_pass":"${runbuildenv.SOE_ARTIFACTORY_PASSWORD}","aem_pwd":"${runbuildenv.AEM_PASSWORD}"}'
+                playbook: 'soe-aem-playbook.yml', extra-vars: '{"artifactoryUrl":"${aemDeployEnvInject.artifactoryUrl}","env":"${aemServer}","package":"${aemDeployEnvInject.package}","artifactorySOEPass":"${artifactorySOEPass}","aemPwd":"${aemPwd}"}'
                 """
+    }
+    def cacheClear(Object aemServer)
+    {
+        print "Performing cache clear"
+        //ansible playbook execution block incomplete. Need to know how to execute ansible plugin playbook
+        steps.sh """
+                git branch: 'master', credentialsId: 'xxx', url: 'git@gitlab.verizon.com/TYPEB_MW/nsa_nonprod.git'
+                ansiblePlaybook become: true, colorized: true, credentialsId: 'xxxx', disableHostKeyChecking: true, installation: 'ansible', 
+                playbook: 'nsa.yml', extra-vars: '{"filePath":"${pipelineConstants.FILE_PATH}","envName":"${aemServer}"}'
+                """
+    }
+
+    def deploy()
+    {
+        try{
+            if (parameters.dev || parameters.qa){
+                getArtifactoryUrl()
+                print "artifactoryUrl = " + getArtifactoryUrl()
+                aemDeployEnvInject = sh(script: "resources/aemDeployEnv ${artifactoryUrl} ${aemServer}", returnStdout: true).toString().trim()
+                runAnsible(aemDeployEnvInject)
+                aemSetEnvForCache = sh(script: "resources/aemCacheClear ${pipelineConstants.FILE_PATH} ${aemServer}", returnStdout: true).toString().trim()
+                cacheClear(aemSetEnvForCache);
+            } else {
+                // For PROD TBD
             }
+
         }catch (Exception e) {
             print "Error occurred :" + e
         }
     }
-    def CacheClear()
-    {
-        print "Performing cache clear"
-        
-    }
+
+   /* def filePath() {
+        List filePath = ['/etc/clientlibs/vcg','/content/vcg','/etc.clientlibs/vcg','all']
+        return filePath
+    }*/
 
     //endregion
 
     @Override
      public void runDeploy() {
         print("Inside NonProdDeploy::runDeploy() method.")
-        steps.log.info "Log from class"
+        steps.echo "echo from class"
         initializeEnvSetup();
-        getRelVersion();
-        getModule();
         getBuildNumber();
         getArtifactoryUrl();
-        Deploy();
-        CacheClear();
+        deploy();
     }
 }

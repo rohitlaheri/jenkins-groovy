@@ -1,54 +1,46 @@
 #!/usr/bin/groovy
 
-def call(param) {
-    def tempParam = param
-    def buildStage= true
+def call(body) {
+    def pipelineParams = [: ]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = pipelineParams
+    body()
+    def repoUrl = pipelineParams.repo
 
     pipeline {
         agent any
-         options {
-             timestamps()
-        }
         stages {
             stage('scm checkout'){
                 steps{
-                    cleanWs()
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rohitlaheri/jenkins-groovy.git']]])
-                    script {
-                        log.info 'Git checkout'
-                    }
+                    checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
                 }
             }
+
             stage('build') {
-                when {
-                    expression { buildStage == true }
-                }
                 steps {
                     script {
-                        script {
-                            log.info tempParam
-                        }
-                        buildTasks.call()
+                        buildTasks.call(pipelineParams)
                     }
                 }
             }
             stage('scan') {
                 steps {
                     script {
-                        //scanTasks.call()
-                        script {
-                            log.info "Scan steps"
-                        }
+                        scanTasks.call()
+                    }
+                }
+            }
+            stage('upload to Artifactory') {
+                steps {
+                    script {
+                        artiFactory.call(pipelineParams.SRI)
                     }
                 }
             }
             stage('release') {
                 steps {
                     script {
-                        //deployTasks.call()
-                        script {
-                            log.info "Release step"
-                        }
+                        deployTasks.call()
                     }
                 }
             }

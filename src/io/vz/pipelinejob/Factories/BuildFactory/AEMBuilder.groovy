@@ -1,66 +1,48 @@
 package io.vz.pipelinejob.Factories.BuildFactory
 
-import groovy.util.logging.Slf4j
+import io.vz.pipelinejob.Model.PipelineParameters
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
-import org.codehaus.groovy.runtime.StringBufferWriter
-import groovy.util.Logging.log
-
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode {
+    def parameters
+    def pipelineHelper
     def steps
-    //def request = libraryResource 'testscript.sh'
-    def AEMBuilder(steps) {
+    AEMBuilder(steps) {
         this.steps = steps
+        //this.parameters=pipelineParameters
+        pipelineHelper=new PipelineHelper(this.steps)
     }
 
-    /*private pipelineParameters _parameters
-    public AEMBuilder(pipelineParameters parameters){
-        _parameters = parameters;
-    }*/
 
-    def execShell()
-    {
-        //def script = './testscript.sh'
-        def std_out = new StringBuilder()
-        def std_err = new StringBuilder()
-        //steps.echo ls
+    //region Methods for build steps --start
 
+    def mavenBuild(boolean SRI, String module){
+        if(SRI == true)
+        {
+            def SRI_CMD=" -DSRIFlag=enabled"
+            steps.echo SRI_CMD
+        }
+        else {
+            def SRI_CMD=" -DSRIFlag=disabled"
+            steps.echo SRI_CMD
+        }
 
-        steps.sh "ls"
-        steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
-        //no longer needed- chmod'd via git index steps.sh "chmod +777 src/io/vz/pipelinejob/Factories/BuildFactory/resources"
-        //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
-        //def std_out = new StringBuffer()
-        //def std_err = new StringBuffer()
-        def proc = 'sh ./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh'.execute()
-        proc.consumeProcessOutput(std_out, std_err)
-        proc.waitForOrKill(1000)
-        println std_out
-
-
-        //
-        //steps.echo std_out
+        if(module == "ONEVZ-SOE-AEM-DIGITAL-NEXT")
+            steps.sh "mvn clean install -X -pl \\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  -DBuildNumber=${BUILD_NUMBER}"
+        else
+            steps.sh "mvn clean install -X -pl \\${CORE_MODULE},\\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  $SRI_CMD -DBuildNumber=${BUILD_NUMBER}"
+        steps.sh 'rsync $WORKSPACE/ui-repo/* ~/.m2/repository/'
     }
 
     //endregion
 
     @Override
-    @Log
-     class runBuild {
-
-        Logger logger = Logger.getLogger("")
-//        steps.log.info 'before log statement'
-        String message = "I am a test info log"
-        log.info "Hello World"()
-//        steps.log.info 'after log statement'
-//        steps.log.info 'Log from class'
-        //log.info 'last log statement in AEMBuilder'
-        //steps.echo ls
-        //steps.sh "ls"
-        //steps.sh "ls src/io/vz/pipelinejob/Factories/BuildFactory/resources"
-        //steps.sh "./src/io/vz/pipelinejob/Factories/BuildFactory/resources/testscript.sh"
-
-//        execShell();
+     public void runBuild(def param) {
+        print("Inside NonProdBuild::runBuild() method.")
+        steps.echo "echo from class"
+        boolean SRI_Flag = param.SRI
+        String module = "ONEVZ-SOE-AEM-DIGITAL-NEXT"
+        mavenBuild(SRI_Flag. module)
     }
 }
