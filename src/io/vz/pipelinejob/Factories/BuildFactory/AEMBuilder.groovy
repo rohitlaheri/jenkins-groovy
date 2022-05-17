@@ -30,7 +30,9 @@ public class AEMBuilder implements BuildCode {
         }
 
         if(module == "ONEVZ-SOE-AEM-DIGITAL-NEXT") {
-            steps.sh "mvn clean install"
+            steps.sh "export MAVEN_HOME=/opt/maven \
+                      export PATH=$PATH:$MAVEN_HOME/bin \
+                      mvn clean install"
         }
             //steps.sh "mvn clean install -X -pl \\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  -DBuildNumber=${BUILD_NUMBER}"
 
