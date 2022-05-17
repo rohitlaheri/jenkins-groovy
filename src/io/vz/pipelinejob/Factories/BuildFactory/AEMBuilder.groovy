@@ -17,7 +17,16 @@ public class AEMBuilder implements BuildCode {
 
 
     //region Methods for build steps --start
+    def initializeEnvSetup(String moduleName){
+        print "initialize environment......"
+        try{
+            pipelineHelper.setAEMModule(parameters.moduleName);
+            //print "aemModule details ${aemModule}";
+        }catch (Exception e) {
+            print "Error occurred :" + e
+        }
 
+    }
     def mavenBuild(boolean SRI, String module){
         if(SRI == true)
         {
@@ -46,8 +55,10 @@ public class AEMBuilder implements BuildCode {
         print("Inside NonProdBuild::runBuild() method.")
         steps.echo "echo from class"
         boolean SRI_Flag = param.SRI
-        String module = "ONEVZ-SOE-AEM-DIGITAL-NEXT"
+        String moduleName = param.module //"ONEVZ-SOE-AEM-DIGITAL-NEXT"
         steps.sh "ls"
+        steps.sh "printenv"
+        //initializeEnvSetup(moduleName)
         //mavenBuild(SRI_Flag, module)
     }
 }

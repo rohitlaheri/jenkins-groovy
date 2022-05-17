@@ -10,15 +10,15 @@ public class CommonHelper{
     }
 
     public def getModuleConfiguartion(){
-        def deserializedJson=jsonParser.parse(new File('/resources/configuration.json'))
+        def deserializedJson=jsonParser.parse(new File('configuration.json'))
         return deserializedJson.module.AEMModule;
     }
     public def getAEMDevServerConfiguration(){
-        def deserializedJson=jsonParser.parse(new File('/resources/configuration.json'))
+        def deserializedJson=jsonParser.parse(new File('configuration.json'))
         return deserializedJson.AEMServer.DevServer;
     }
     public def getAEMQAServerConfiguration(){
-        def deserializedJson=jsonParser.parse(new File('/resources/configuration.json'))
+        def deserializedJson=jsonParser.parse(new File('configuration.json'))
         return deserializedJson.AEMServer.QAServer;
     }
 }

@@ -6,7 +6,8 @@ def call(body) {
     body.delegate = pipelineParams
     body()
     def repoUrl = pipelineParams.repo
-
+    //calling config.json from the resources dir
+    writeFile file:'configuration.json', text:libraryResource("configuration.json")
     pipeline {
         agent any
         tools {
