@@ -1,5 +1,5 @@
-package io.vz.pipelinejob.Helper
-import io.vz.*
+package io.vz.pipelinejob.Helpers
+import io.vz.pipelinejob.Helpers.*
 public class PipelineHelper{
     def steps
     def commonHelper

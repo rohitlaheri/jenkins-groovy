@@ -1,4 +1,4 @@
-package io.vz.pipelinejob.Helper
+package io.vz.pipelinejob.Helpers
 
 import groovy.json.JsonSlurper
 
