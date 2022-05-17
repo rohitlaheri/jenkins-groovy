@@ -47,7 +47,7 @@ public class AEMBuilder implements BuildCode {
         steps.echo "echo from class"
         boolean SRI_Flag = param.SRI
         String module = "ONEVZ-SOE-AEM-DIGITAL-NEXT"
-        def shell = libraryResource 'configuration.json'
+        def shell = libraryResource 'io/vz/config/configuration.json'
         steps.echo "$shell"
         //mavenBuild(SRI_Flag, module)
     }

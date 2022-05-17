@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44083896-6628-49a6-aef2-3c669f9b2f97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/io/vz/config/configuration.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/AEMBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/AEMBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Helpers/CommonHelper.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Helpers/CommonHelper.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars/buildTasks.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/buildTasks.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +25,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/RohitLaheri/Documents/Verizon/unified/jenkins-groovy/resources/io/vz/config"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RohitLaheri\Documents\Verizon\unified\jenkins-groovy\resources\io\vz\config" />
+    </key>
+  </component>
   <component name="RunManager" selected="Groovy.buildTasks">
     <configuration name="artiFactory" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="jenkins-groovy" />
@@ -69,5 +74,16 @@
       <updated>1652755317856</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
