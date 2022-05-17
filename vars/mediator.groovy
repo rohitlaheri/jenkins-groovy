@@ -9,6 +9,9 @@ def call(body) {
 
     pipeline {
         agent any
+        tools {
+            maven 'maven'
+        }
         stages {
             stage('scm checkout'){
                 steps{
