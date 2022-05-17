@@ -12,7 +12,8 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
-                    checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
+                    //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
+                    echo "git checkout print $repoUrl"
                 }
             }
 
@@ -23,13 +24,13 @@ def call(body) {
                     }
                 }
             }
-            stage('scan') {
+            /*stage('scan') {
                 steps {
                     script {
                         scanTasks.call()
                     }
                 }
-            }
+            }*/
             stage('upload to Artifactory') {
                 steps {
                     script {
@@ -37,13 +38,13 @@ def call(body) {
                     }
                 }
             }
-            stage('release') {
+            /*stage('release') {
                 steps {
                     script {
                         deployTasks.call()
                     }
                 }
-            }
+            }*/
         }
     }
 }
