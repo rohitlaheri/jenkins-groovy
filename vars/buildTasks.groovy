@@ -9,7 +9,7 @@ def call(def param)
     //def shell = libraryResource 'configuration.json'
     writeFile file:'configuration.json', text:libraryResource("configuration.json")
     env.TestName="Rohit"
-    echo " test env name \${TestName}"
+    echo " test env name ${TestName}"
     echo appType
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"
