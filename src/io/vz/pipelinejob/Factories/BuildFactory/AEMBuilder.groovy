@@ -57,8 +57,9 @@ public class AEMBuilder implements BuildCode {
         boolean SRI_Flag = param.SRI
         String moduleName = param.module //"ONEVZ-SOE-AEM-DIGITAL-NEXT"
         steps.sh "ls"
+
+        initializeEnvSetup(moduleName)
         steps.sh "printenv"
-        //initializeEnvSetup(moduleName)
         //mavenBuild(SRI_Flag, module)
     }
 }
