@@ -7,7 +7,7 @@ public class CommonHelper{
     CommonHelper(){
         this.jsonParser=new JsonSlurper()
     }
-    public def getAEMModuleConfiguartion(){
+    public def getModuleConfiguartion(){
         def deserializedJson=jsonParser.parse(new File('/resources/configuration.json'))
         return deserializedJson.module.AEMModule;
     }

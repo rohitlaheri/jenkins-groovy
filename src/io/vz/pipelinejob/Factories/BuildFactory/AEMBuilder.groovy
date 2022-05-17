@@ -1,6 +1,7 @@
 package io.vz.pipelinejob.Factories.BuildFactory
 
 import io.vz.pipelinejob.Model.PipelineParameters
+import io.vz.pipelinejob.Helpers.*
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 
 //concrete class implementing interface BuildCode to Build AEM code
@@ -10,8 +11,8 @@ public class AEMBuilder implements BuildCode {
     def steps
     AEMBuilder(steps) {
         this.steps = steps
-        //this.parameters=pipelineParameters
-        pipelineHelper=new PipelineHelper(this.steps)
+        //this.parameters=pipelineParameters PipelineHelper
+        //pipelineHelper= new PipelineHelper(this.steps)
     }
 
 
