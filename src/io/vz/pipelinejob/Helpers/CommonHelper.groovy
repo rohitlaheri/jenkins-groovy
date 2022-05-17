@@ -4,9 +4,11 @@ import groovy.json.JsonSlurper
 
 public class CommonHelper{
     def jsonParser
+
     CommonHelper(){
         this.jsonParser=new JsonSlurper()
     }
+
     public def getModuleConfiguartion(){
         def deserializedJson=jsonParser.parse(new File('/resources/configuration.json'))
         return deserializedJson.module.AEMModule;
