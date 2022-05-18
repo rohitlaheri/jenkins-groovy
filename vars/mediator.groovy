@@ -7,6 +7,7 @@ def call(body) {
     body()
     def repoUrl = pipelineParams.repo
     //calling config.json from the resources dir
+    //logice ti fetch mr branch
 
     pipeline {
         agent any
@@ -31,8 +32,10 @@ def call(body) {
             }
             stage('scan') {
                 steps {
+                    updateGitlabCommitStatus name: 'Scan started', state: 'pending'
                     script {
                         scanTasks.call()
+
                     }
                 }
             }
@@ -40,6 +43,7 @@ def call(body) {
                 steps {
                     script {
                         artiFactory.call(pipelineParams.SRI)
+                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
                     }
                 }
             }
