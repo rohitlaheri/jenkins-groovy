@@ -6,8 +6,8 @@ public class CommonHelper{
     def jsonParser
     def steps
     CommonHelper(steps){
-        def jsonParser=new JsonSlurper()
-        this.jsonParser = jsonParser
+       /* def jsonParser=new JsonSlurper()
+        this.jsonParser = jsonParser*/
         this.steps = steps
         this.steps.echo "test inside helper"
 
