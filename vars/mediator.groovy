@@ -19,10 +19,11 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
-                    //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
-                    checkout([$class: 'GitSCM', branches: [[name: repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
                     echo "git checkout print $repoUrl"
                     echo "git checkout print $repoBranch"
+                    //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
+                    checkout([$class: 'GitSCM', branches: [[name: $repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
+
                 }
             }
 
