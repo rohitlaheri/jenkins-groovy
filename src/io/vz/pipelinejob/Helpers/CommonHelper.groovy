@@ -6,22 +6,22 @@ public class CommonHelper{
     def jsonParser
     def steps
     CommonHelper(steps){
-        this.jsonParser=new JsonSlurper()
+        //this.jsonParser=new JsonSlurper()
         this.steps = steps
         this.steps.echo "test inside helper"
 
     }
 
     public def getModuleConfiguartion(){
-        def deserializedJson= this.jsonParser.parse(new File('configuration.json'))
+        def deserializedJson= jsonParser.parse(new File('configuration.json'))
         return deserializedJson.module.AEMModule;
     }
     public def getAEMDevServerConfiguration(){
-        def deserializedJson=this.jsonParser.parse(new File('configuration.json'))
+        def deserializedJson=jsonParser.parse(new File('configuration.json'))
         return deserializedJson.AEMServer.DevServer;
     }
     public def getAEMQAServerConfiguration(){
-        def deserializedJson=this.jsonParser.parse(new File('configuration.json'))
+        def deserializedJson=jsonParser.parse(new File('configuration.json'))
         return deserializedJson.AEMServer.QAServer;
     }
 }
