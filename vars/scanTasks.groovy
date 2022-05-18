@@ -8,7 +8,7 @@ def call()
 
     ScanCodeAbstractFactory scanFactory = ScanCodeFactoryProducer.getFactory(this)
     echo "Producer called"
-    ScanCode scanCode = scanFactory.getFactory('sonarqube')
+    ScanCode scanCode = scanFactory.getScanner('sonarqube')
     echo "Factory Generated"
     scanCode.runScan()
     echo "Completed"

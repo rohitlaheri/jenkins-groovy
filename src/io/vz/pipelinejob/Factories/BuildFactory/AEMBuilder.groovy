@@ -59,8 +59,8 @@ public class AEMBuilder implements BuildCode {
         String moduleName = param.module //"ONEVZ-SOE-AEM-DIGITAL-NEXT"
         steps.sh "ls"
 
-        initializeEnvSetup(moduleName)
+        //initializeEnvSetup(moduleName)
         steps.sh "printenv"
-        //mavenBuild(SRI_Flag, module)
+        mavenBuild(SRI_Flag, moduleName)
     }
 }
