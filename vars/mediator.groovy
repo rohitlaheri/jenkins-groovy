@@ -17,7 +17,7 @@ def call(body) {
             stage('scm checkout'){
                 steps{
                     //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'https://gitlab.com/test8620/vz-demo/my-aem-project.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/rohitlaheri-master-patch-32334']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'https://gitlab.com/test8620/vz-demo/my-aem-project.git']]])
                     echo "git checkout print $repoUrl"
                 }
             }
