@@ -29,13 +29,13 @@ def call(body) {
                     }
                 }
             }
-            /*stage('scan') {
+            stage('scan') {
                 steps {
                     script {
                         scanTasks.call()
                     }
                 }
-            }*/
+            }
             stage('upload to Artifactory') {
                 steps {
                     script {
