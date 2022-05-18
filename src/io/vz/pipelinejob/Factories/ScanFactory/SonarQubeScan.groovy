@@ -9,14 +9,14 @@ public class SonarQubeScan implements ScanCode {
     def scanSonar(){
         steps.echo "SONAR QUBE SCAN WIP"
         steps.withSonarQubeEnv('onesonarcloud-dev') {
-            
+            sh 'mvn clean package sonar:sonar'
             /*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
                     "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
                     "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
             */
-            steps.withMaven(maven: 'maven') {
+            /*steps.withMaven(maven: 'maven') {
                 steps.sh 'mvn clean package sonar:sonar'
-            }
+            }*/
         }
     }
     
