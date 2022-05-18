@@ -1,14 +1,14 @@
 #!/usr/bin/groovy
 
 def call(body) {
-    echo "$body"
+
     def pipelineParams = [: ]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
     def repoUrl = pipelineParams.repoURL
     def repoBranch = pipelineParams.branch
-    echo "$piplineParams"
+
     //calling config.json from the resources dir
     //logice ti fetch mr branch
 
@@ -20,8 +20,8 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
-                    echo "git checkout print $repoUrl"
-                    echo "git checkout print $repoBranch"
+                    echo "git checkout print ${repoUrl}"
+                    echo "git checkout print ${repoBranch}"
                     //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
                     checkout([$class: 'GitSCM', branches: [[name: $repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
 
