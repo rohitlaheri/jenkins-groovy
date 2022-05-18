@@ -5,7 +5,9 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    def repoUrl = pipelineParams.repo
+    def repoUrl = pipelineParams.repoURL
+    def repoBranch = pipelineParams.branch
+
     //calling config.json from the resources dir
     //logice ti fetch mr branch
 
@@ -18,8 +20,9 @@ def call(body) {
             stage('scm checkout'){
                 steps{
                     //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'https://gitlab.com/test8620/vz-demo/my-aem-project.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
                     echo "git checkout print $repoUrl"
+                    echo "git checkout print $repoBranch"
                 }
             }
 
