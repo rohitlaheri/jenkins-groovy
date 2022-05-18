@@ -1,13 +1,14 @@
 #!/usr/bin/groovy
 
 def call(body) {
+    echo "$body"
     def pipelineParams = [: ]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
     def repoUrl = pipelineParams.repoURL
     def repoBranch = pipelineParams.branch
-
+    echo "$piplineParams"
     //calling config.json from the resources dir
     //logice ti fetch mr branch
 
