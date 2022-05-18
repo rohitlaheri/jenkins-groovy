@@ -2,14 +2,14 @@
 
 import io.vz.pipelinejob.Factories.ScanFactory.Configuration.*
 
-def call(def param)
+def call()
 {
-    def appType = param.appType
+    //def appType = param.appType
 
     ScanCodeAbstractFactory scanFactory = ScanCodeFactoryProducer.getFactory(this)
     echo "Producer called"
-    ScanCode scanCode = scanFactory.getFactory(appType)
+    ScanCode scanCode = scanFactory.getFactory('sonarqube')
     echo "Factory Generated"
-    scanCode.runScan(param)
+    scanCode.runScan()
     echo "Completed"
 }
