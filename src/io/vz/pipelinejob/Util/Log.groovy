@@ -21,20 +21,13 @@ class Log implements Serializable {
         printDetails("WARNING", message)
     }
 
-    def debug(message) {
-        printDetails("DEBUG", message)
-    }
-
     def error(message) {
         printDetails("ERROR", message)
     }
 
     private def printDetails(level, message) {
         def now = new Date()
-        //println(level + ": " + now + ": " + message)
-        def output = "[${level}] [${now}]: " message
-        steps.echo output.toString()
+        steps.echo "[${level}] [${now}]: " message
     }
-
 
 }

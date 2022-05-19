@@ -4,7 +4,7 @@ import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
 
 def call()
 {
-    //Log log = new Log(steps)
+    Log log = new Log(steps)
 
     log.info("Inside build")
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
