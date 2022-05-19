@@ -1,18 +1,18 @@
 #!/usr/bin/groovy
 
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
-
+import io.vz.pipelinejob.Util.Log
 def call()
 {
-    Log log = new Log(steps)
+    //Log log = new Log(steps)
 
-    log.info("Inside build")
+    steps.log.info("Inside build")
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
-    log.info("Producer called")
+    steps.log.info("Producer called")
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
-    log.info("Factory Generated")
+    steps.log.info("Factory Generated")
     buildAem.runBuild()
-    log.info("Completed")
+    steps.log.info("Completed")
 }
 //return this
 
