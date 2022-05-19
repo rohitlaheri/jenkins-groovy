@@ -8,6 +8,7 @@ def call(body) {
     body()
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
+    def repoType = pipelineParams.repoType
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
@@ -23,7 +24,7 @@ def call(body) {
                     script {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
-                        checkOutTasks.call(repoUrl,repoBranch)
+                        checkOutTasks.call(repoUrl,repoBranch,repoType)
                     }
 
                 }
