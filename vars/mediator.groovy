@@ -67,7 +67,7 @@ def call(body) {
                             }
                         }
                         updateGitlabCommitStatus name: 'Quality Gate response', state: 'success'
-                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
+                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'completed'
                     }
 
                 }
