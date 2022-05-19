@@ -10,7 +10,7 @@ public class GitLabCheckOut implements CheckOutCode {
 
     def checkoutGitRepository(repoURL, repoBranch, credentialsId = 'gitlab', poll = true, timeout = 10, depth = 0, reference = ''){
         //def branch_name = reference ? 'FETCH_HEAD' : "*/${branch}"
-            checkout(
+            steps.checkout(
                     changelog:true,
                     poll: poll,
                     scm: [
@@ -23,7 +23,7 @@ public class GitLabCheckOut implements CheckOutCode {
                             submoduleCfg: [],
                             userRemoteConfigs: [[url: repoURL, credentialsId: credentialsId, refspec: reference]]]
             )
-        
+
     }
     @Override
     public void checkOut(String repoURL, String repoBranch) {
