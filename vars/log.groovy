@@ -41,7 +41,8 @@ def debug(msg, dump = null) {
 
 def message(LogLevel level, Object body, Object dump) {
     /*if (BuildData.instance.logLevel.encompasses(level)) {*/
-        def message = "[${level.label}] " << String.valueOf(body)
+        def now = new Date()
+        def message = "[${level.label}] [${now}]" << String.valueOf(body)
         if (dump) {
             message << "\n"
             if (dump instanceof Throwable) {
