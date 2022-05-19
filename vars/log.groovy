@@ -40,7 +40,7 @@ def debug(msg, dump = null) {
 }
 
 def message(LogLevel level, Object body, Object dump) {
-    if (BuildData.instance.logLevel.encompasses(level)) {
+    /*if (BuildData.instance.logLevel.encompasses(level)) {*/
         def message = "[${level.label}] " << String.valueOf(body)
         if (dump) {
             message << "\n"
@@ -53,5 +53,5 @@ def message(LogLevel level, Object body, Object dump) {
             }*/
         }
         echo message.toString()
-    }
+    /*}*/
 }
