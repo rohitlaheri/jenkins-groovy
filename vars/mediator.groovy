@@ -6,8 +6,8 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    def repoUrl = pipelineParams.repoURL
-    def repoBranch = pipelineParams.branch
+    def repoUrl = env.gitlabSourceRepoHttpUrl //pipelineParams.repoURL
+    def repoBranch = env.gitlabSourceBranch //pipelineParams.branch
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
@@ -20,15 +20,15 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
-                    echo "git checkout print ${repoUrl}"
-                    echo "git checkout print ${repoBranch}"
+                    echo "git checkout print $repoUrl"
+                    echo "git checkout print $repoBranch"
                     //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
-                    checkout([$class: 'GitSCM', branches: [[name: $repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
+                    checkout([$class: 'GitSCM', branches: [[name: repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
 
                 }
             }
 
-            stage('build') {
+            /*stage('build') {
                 steps {
                     script {
                         buildTasks.call(pipelineParams)
@@ -37,7 +37,7 @@ def call(body) {
             }
             stage('scan') {
                 steps {
-                    updateGitlabCommitStatus name: 'Scan started', state: 'pending'
+                    //updateGitlabCommitStatus name: 'Scan started', state: 'pending'
                     script {
                         scanTasks.call()
 
@@ -48,10 +48,10 @@ def call(body) {
                 steps {
                     script {
                         artiFactory.call(pipelineParams.SRI)
-                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
+                        //updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
                     }
                 }
-            }
+            }*/
             /*stage('release') {
                 steps {
                     script {

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44083896-6628-49a6-aef2-3c669f9b2f97" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vars/mediator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/mediator.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
