@@ -5,15 +5,15 @@ import io.vz.pipelinejob.Util.Log
 
 def call()
 {
-    //Log log = new Log(steps)
+    Log log = new Log(steps)
 
-    steps.log.info("Inside build")
+    log.info("Inside build")
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
-    steps.log.info("Producer called")
+    log.info("Producer called")
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
-    steps.log.info("Factory Generated")
+    log.info("Factory Generated")
     buildAem.runBuild()
-    steps.log.info("Completed")
+    log.info("Completed")
 }
 //return this
 
