@@ -6,8 +6,8 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    def repoUrl = env.gitlabSourceRepoHttpUrl //pipelineParams.repoURL
-    def repoBranch = env.gitlabSourceBranch //pipelineParams.branch
+    def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl //pipelineParams.repoURL
+    def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch //
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
