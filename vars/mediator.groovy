@@ -8,7 +8,7 @@ def call(body) {
     body()
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
-    def repoType = pipelineParams.repoType
+    def repoType = pipelineParams.scmType
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
