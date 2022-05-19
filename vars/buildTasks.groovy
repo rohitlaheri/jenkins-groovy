@@ -13,7 +13,7 @@ def call()
     BuildCode buildAem = aemBuildFactory.getBuilder('AEM')
     steps.log.info("Factory Generated")
     buildAem.runBuild()
-    steps.log.info("Completed", true)
+    steps.log.info("Completed")
 }
 //return this
 
