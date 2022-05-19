@@ -32,17 +32,29 @@ def call(body) {
 
             stage('build') {
                 steps {
+                    updateGitlabCommitStatus name: 'Build', state: 'pending'
                     script {
-                        buildTasks.call(pipelineParams)
+                        try{
+                            buildTasks.call(pipelineParams)
+                            updateGitlabCommitStatus name: 'Build', state: 'success'
+                        }
+                        catch (e) {
+                            updateGitlabCommitStatus name: 'Build', state: 'failed'
+                        }
                     }
                 }
             }
             stage('scan') {
                 steps {
-                    updateGitlabCommitStatus name: 'Scan started', state: 'pending'
+                    updateGitlabCommitStatus name: 'scan', state: 'pending'
                     script {
-                        scanTasks.call()
-                        updateGitlabCommitStatus name: 'Scan Completed', state: 'success'
+                         try{
+                            scanTasks.call()
+                            updateGitlabCommitStatus name: 'scan', state: 'success'
+                           }
+                        catch (e) {
+                            updateGitlabCommitStatus name: 'scan', state: 'failed'
+                        }
                     }
                 }
             }
@@ -57,17 +69,20 @@ def call(body) {
             
             stage("Quality gate") {
                 steps {
-                    updateGitlabCommitStatus name: 'Quality Gate response', state: 'pending'
+                    updateGitlabCommitStatus name: 'Quality gate', state: 'pending'
                     script {
-                        //waitForQualityGate abortPipeline: true
-                        timeout(time: 1, unit: 'HOURS') {
-                            def qualityGate = waitForQualityGate()
-                            if (qualityGate.status == 'ERROR') {
-                                currentBuild.result = 'UNSTABLE'
+                        try{
+                            //waitForQualityGate abortPipeline: true
+                            timeout(time: 1, unit: 'HOURS') {
+                                def qualityGate = waitForQualityGate()
+                                if (qualityGate.status == 'ERROR') {
+                                    currentBuild.result = 'UNSTABLE'
+                                }
                             }
+                        updateGitlabCommitStatus name: 'Quality gate', state: 'success'
+                        }catch (e) {
+                            updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
                         }
-                        updateGitlabCommitStatus name: 'Quality Gate response', state: 'success'
-                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'completed'
                     }
 
                 }
