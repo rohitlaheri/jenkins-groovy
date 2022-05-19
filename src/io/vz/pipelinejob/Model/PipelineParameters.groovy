@@ -12,13 +12,13 @@ public class pipelineParameters {
     }
 
     final String releaseBranch
-    
+
     final String file_path
     final String branch_name
     final String bgtraffic
     final String module
     final String deploy_env
-    
+
     final String env
     final String image_tag
     boolean skip_scans
@@ -26,14 +26,14 @@ public class pipelineParameters {
 
     public def getArtifactoryUrl()
     {
-         if(imageTag.equalsIgnoreCase('latest'))
-         {
+        if(imageTag.equalsIgnoreCase('latest'))
+        {
 
-             return "create-artifactory-url"
-         }
-         else{
-             return imageTag
-         }
+            return "create-artifactory-url"
+        }
+        else{
+            return imageTag
+        }
 
     }
 }

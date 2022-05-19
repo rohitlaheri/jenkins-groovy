@@ -1,5 +1,5 @@
 package io.vz.pipelinejob.Factories.DeployFactory
-
+// This is factory class to perform Deployment to the environments
 import io.vz.pipelinejob.Model.PipelineParameters
 import io.vz.pipelinejob.Factories.DeployFactory.Configuration.DeployCode
 import jenkins.*
@@ -43,7 +43,7 @@ public class AEMDeployer implements DeployCode {
     def initializeEnvSetup(){
         print "initialize environment......"
         try{
-            if (parameters.Env){
+            if (parameters.dev){
                 aemServer = pipelineHelper.getAEMDevServer(parameters.deployEnv,parameters.bgTraffic);
             }
             if (parameters.qa){

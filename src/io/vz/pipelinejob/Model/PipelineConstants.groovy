@@ -2,7 +2,7 @@ package io.vz.pipelinejob.Model
 
 public final class PipelineConstants {
     //Define all constants for the pipeline
-    
+
     public static final String DIT = 'DIT'
     public static final String SIT1 = 'SIT1'
     public static final String PROD = 'PROD'
@@ -19,7 +19,7 @@ public final class PipelineConstants {
     public static final String QA_NSQ2BG_ENV = "soeaem-nsq2bg-east"
     public static final String QA_NSQ3BG_ENV = "soeaem-nsq3bg-east"
     public static final String QA_NSQ4BG_ENV = "soeaem-nsq4bg-east"
-    
+
     public static final String ACT_LAND_REPO = "onevz-soe-aem-assisted-account-landing"
     public static final String ACT_LAND_CORE_MODULE = "core-account-landing"
     public static final String ACT_LAND_APP_MODULE = "account-landing"

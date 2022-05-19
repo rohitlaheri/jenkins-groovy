@@ -5,7 +5,7 @@ import io.vz.pipelinejob.Factories.ScanFactory.Configuration.ScanCode
 public class SonarQubeScan implements ScanCode {
     def steps
     SonarQubeScan(steps) {this.steps = steps}
-    
+
     def scanSonar(){
         steps.echo "SONAR QUBE SCAN WIP"
         steps.withSonarQubeEnv('onesonarcloud-dev') {
@@ -21,7 +21,7 @@ public class SonarQubeScan implements ScanCode {
             }*/
         }
     }
-    
+
     def publishScanReport(){
         try {
             def formattedDate = date.format("yyyy-MM-dd")
@@ -32,7 +32,7 @@ public class SonarQubeScan implements ScanCode {
             def get = 'cat sonar_res.json | jq -r \'.measures[].history[-1].value\''
             coverage_percentage = sh (script: get , returnStdout:true)
             println coverage_percentage
-        
+
             echo "coverage percentage  : ${coverage_percentage}"
             if (coverage_percentage.trim() > QUALITY_THRESHOLD && coverage_percentage.trim() != "null"){
                 // Need to put the Logic to send the report to SQL DB
@@ -41,15 +41,15 @@ public class SonarQubeScan implements ScanCode {
                 echo "coverage percentage  : ${coverage_percentage}"
                 echo "Quality Gate Failed: Aborting build"
                 // Need to put the Logic to send the report to SQL DB
-            
+
             }
-        
+
         }catch (Throwable e) {
             echo "This is the exception ${e.toString()}"
         }
     }
-   
-    
+
+
     @Override
     public void runScan() {
         print("Inside SonarQubeScan::runScan() method.")
@@ -57,8 +57,7 @@ public class SonarQubeScan implements ScanCode {
         //Map objScan
         scanSonar()
         //publishScanReport()
-        
+
 
     }
 }
-

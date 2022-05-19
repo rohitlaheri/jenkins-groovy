@@ -6,10 +6,8 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl //pipelineParams.repoURL
-    def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch //
-    def triggerSource = pipelineParams.scmTriggerSource
-    def repoType = pipelineParams.scmType
+    def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
+    def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
@@ -22,17 +20,11 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
-                    echo "git checkout print $repoUrl"
-                    echo "git checkout print $repoBranch"
-                    echo "git checkout print $triggerSource"
-                    echo "git checkout print $repoType"
-                   
-                    checkout([$class: 'GitSCM', branches: [[name: repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
-
+                   checkOutTasks.call(pipelineParams)
                 }
             }
 
-            /*stage('build') {
+            stage('build') {
                 steps {
                     script {
                         buildTasks.call(pipelineParams)
@@ -55,7 +47,7 @@ def call(body) {
                         //updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
                     }
                 }
-            }*/
+            }
             /*stage('release') {
                 steps {
                     script {

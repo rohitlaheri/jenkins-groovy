@@ -42,7 +42,7 @@ public class AEMBuilder implements BuildCode {
         if(module == "ONEVZ-SOE-AEM-DIGITAL-NEXT") {
             steps.sh "mvn clean install"
         }
-            //steps.sh "mvn clean install -X -pl \\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  -DBuildNumber=${BUILD_NUMBER}"
+        //steps.sh "mvn clean install -X -pl \\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  -DBuildNumber=${BUILD_NUMBER}"
 
         else
             steps.sh "mvn clean install -X -pl \\${CORE_MODULE},\\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  $SRI_CMD -DBuildNumber=${BUILD_NUMBER}"
@@ -52,7 +52,7 @@ public class AEMBuilder implements BuildCode {
     //endregion
 
     @Override
-     public void runBuild(def param) {
+    public void runBuild(def param) {
         print("Inside NonProdBuild::runBuild() method.")
         steps.echo "echo from class"
         boolean SRI_Flag = param.SRI
