@@ -20,7 +20,10 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
-                   checkOutTasks.call(pipelineParams)
+                    script {
+                        checkOutTasks.call(pipelineParams)
+                    }
+
                 }
             }
 
