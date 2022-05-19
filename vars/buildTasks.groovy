@@ -2,6 +2,7 @@
 
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
 import io.vz.pipelinejob.Util.Log
+
 def call()
 {
     //Log log = new Log(steps)
@@ -25,6 +26,5 @@ public class buildTasks{
         buildAem.runBuild()
     }
 }*/
-
 
 

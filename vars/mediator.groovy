@@ -6,8 +6,8 @@ def call(param) {
 
     pipeline {
         agent any
-         options {
-             timestamps()
+        options {
+            timestamps()
         }
         stages {
             stage('scm checkout'){
