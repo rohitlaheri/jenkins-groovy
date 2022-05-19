@@ -1,10 +1,5 @@
 package io.vz.pipelinejob.Util
 
-import static io.vz.pipelinejob.Util.LogLevel.ERROR
-import static io.vz.pipelinejob.Util.LogLevel.INFO
-import static io.vz.pipelinejob.Util.LogLevel.WARNING
-import static io.vz.pipelinejob.Util.LogLevel.DEBUG
-
 class Log implements Serializable {
 
     def steps
@@ -27,7 +22,6 @@ class Log implements Serializable {
 
     private def printDetails(level, message) {
         def now = new Date()
-        steps.echo "[${level}] [${now}]: " message
+        steps.echo level + ": " + now + ": " + message
     }
-
 }
