@@ -58,15 +58,18 @@ def call(body) {
             stage("Quality gate") {
                 steps {
                     updateGitlabCommitStatus name: 'Quality Gate response', state: 'pending'
-                    //waitForQualityGate abortPipeline: true
-                    timeout(time: 1, unit: 'HOURS') {
-                        def qualityGate = waitForQualityGate()
-                        if (qualityGate.status == 'ERROR') {
-                            currentBuild.result = 'UNSTABLE'
+                    script {
+                        //waitForQualityGate abortPipeline: true
+                        timeout(time: 1, unit: 'HOURS') {
+                            def qualityGate = waitForQualityGate()
+                            if (qualityGate.status == 'ERROR') {
+                                currentBuild.result = 'UNSTABLE'
+                            }
                         }
+                        updateGitlabCommitStatus name: 'Quality Gate response', state: 'success'
+                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
                     }
-                    updateGitlabCommitStatus name: 'Quality Gate response', state: 'success'
-                    updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
+
                 }
             }
             
