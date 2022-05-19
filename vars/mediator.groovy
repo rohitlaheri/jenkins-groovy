@@ -55,11 +55,11 @@ def call(body) {
                 }
             }
             
-            /*stage("Quality gate") {
+            stage("Quality gate") {
                 steps {
                     waitForQualityGate abortPipeline: true
                 }
-            }*/
+            }
             
             /*stage('release') {
                 steps {
