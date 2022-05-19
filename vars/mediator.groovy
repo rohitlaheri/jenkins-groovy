@@ -21,6 +21,8 @@ def call(body) {
             stage('scm checkout'){
                 steps{
                     script {
+                        echo "url $repoUrl"
+                        echo "branch: $repoBranch"
                         checkOutTasks.call(pipelineParams)
                     }
 
