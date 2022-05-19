@@ -39,25 +39,34 @@ def call(body) {
             }
             stage('scan') {
                 steps {
-                    //updateGitlabCommitStatus name: 'Scan started', state: 'pending'
+                    updateGitlabCommitStatus name: 'Scan started', state: 'pending'
                     script {
                         scanTasks.call()
-
+                        updateGitlabCommitStatus name: 'Scan Completed', state: 'success'
                     }
                 }
             }
-            stage('upload to Artifactory') {
+            /*stage('upload to Artifactory') {
                 steps {
                     script {
                         artiFactory.call(pipelineParams.SRI)
                         //updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
                     }
                 }
-            }
+            }*/
             
             stage("Quality gate") {
                 steps {
-                    waitForQualityGate abortPipeline: true
+                    updateGitlabCommitStatus name: 'Quality Gate response', state: 'pending'
+                    //waitForQualityGate abortPipeline: true
+                    timeout(time: 1, unit: 'HOURS') {
+                        def qualityGate = waitForQualityGate()
+                        if (qualityGate.status == 'ERROR') {
+                            currentBuild.result = 'UNSTABLE'
+                        }
+                    }
+                    updateGitlabCommitStatus name: 'Quality Gate response', state: 'success'
+                    updateGitlabCommitStatus name: 'pipeline Succedded', state: 'success'
                 }
             }
             
