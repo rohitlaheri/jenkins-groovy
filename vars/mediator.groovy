@@ -8,6 +8,8 @@ def call(body) {
     body()
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl //pipelineParams.repoURL
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch //
+    def triggerSource = pipelineParams.scmTriggerSource
+    def repoType = pipelineParams.scmType
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
@@ -22,7 +24,9 @@ def call(body) {
                 steps{
                     echo "git checkout print $repoUrl"
                     echo "git checkout print $repoBranch"
-                    //checkout([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
+                    echo "git checkout print $triggerSource"
+                    echo "git checkout print $repoType"
+                   
                     checkout([$class: 'GitSCM', branches: [[name: repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: repoUrl]]])
 
                 }
