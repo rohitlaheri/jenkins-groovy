@@ -32,14 +32,14 @@ def call(body) {
 
             stage('build') {
                 steps {
-                    updateGitlabCommitStatus name: 'Build', state: 'pending'
+                    updateGitlabCommitStatus name: 'build', state: 'pending'
                     script {
                         try{
                             buildTasks.call(pipelineParams)
-                            updateGitlabCommitStatus name: 'Build', state: 'success'
+                            updateGitlabCommitStatus name: 'build', state: 'success'
                         }
                         catch (e) {
-                            updateGitlabCommitStatus name: 'Build', state: 'failed'
+                            updateGitlabCommitStatus name: 'build', state: 'failed'
                         }
                     }
                 }
