@@ -23,7 +23,7 @@ def call(body) {
                     script {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
-                        checkOutTasks.call(pipelineParams)
+                        checkOutTasks.call(repoUrl,repoBranch)
                     }
 
                 }
