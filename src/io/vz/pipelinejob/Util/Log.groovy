@@ -22,6 +22,10 @@ class Log implements Serializable {
 
     private def printDetails(level, message) {
         def now = new Date()
-        steps.echo level + ": " + now + ": " + message
+        //println(level + ": " + now + ": " + message)
+        def output = "[${level.label}] [${now}]: " << String.valueOf(body)
+        steps.echo output.toString()
     }
+
+
 }

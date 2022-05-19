@@ -7,7 +7,6 @@ import static io.vz.pipelinejob.Util.LogLevel.WARNING
 import static io.vz.pipelinejob.Util.LogLevel.INFO
 import static io.vz.pipelinejob.Util.LogLevel.DEBUG
 
-/*
 def info(message) {
     Log log = new Log(steps)
     log.info(message)
@@ -21,8 +20,9 @@ def warning(message) {
 def error(message) {
     Log log = new Log(steps)
     log.error(message)
-}*/
+}
 
+/*
 def error(msg, dump = null) {
     message ERROR, msg, dump
 }
@@ -40,7 +40,9 @@ def debug(msg, dump = null) {
 }
 
 def message(LogLevel level, Object body, Object dump) {
-    /*if (BuildData.instance.logLevel.encompasses(level)) {*/
+    */
+/*if (BuildData.instance.logLevel.encompasses(level)) {*//*
+
         def now = new Date()
         def message = "[${level.label}] [${now}]: " << String.valueOf(body)
         if (dump) {
@@ -49,10 +51,14 @@ def message(LogLevel level, Object body, Object dump) {
                 StringWriter w = new StringWriter()
                 //StringUtils.printStackTrace(dump, new PrintWriter(w))
                 message.append(w.buffer)
-            } /*else {
+            } */
+/*else {
                 message << new PrettyPrinter(dump).incrementIndent().toPrettyPrint()
-            }*/
+            }*//*
+
         }
         echo message.toString()
-    /*}*/
-}
+    */
+/*}*//*
+
+}*/
