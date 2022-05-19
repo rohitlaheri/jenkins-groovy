@@ -2,6 +2,11 @@ import java.util.*;
 import io.vz.pipelinejob.Util.Log
 import io.vz.pipelinejob.Util.LogLevel
 
+import static io.vz.pipelinejob.Util.LogLevel.ERROR
+import static io.vz.pipelinejob.Util.LogLevel.WARNING
+import static io.vz.pipelinejob.Util.LogLevel.INFO
+import static io.vz.pipelinejob.Util.LogLevel.DEBUG
+
 /*
 def info(message) {
     Log log = new Log(steps)
@@ -41,7 +46,7 @@ def message(LogLevel level, Object body, Object dump) {
             message << "\n"
             if (dump instanceof Throwable) {
                 StringWriter w = new StringWriter()
-                StringUtils.printStackTrace(dump, new PrintWriter(w))
+                //StringUtils.printStackTrace(dump, new PrintWriter(w))
                 message.append(w.buffer)
             } /*else {
                 message << new PrettyPrinter(dump).incrementIndent().toPrettyPrint()
