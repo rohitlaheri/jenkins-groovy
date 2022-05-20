@@ -10,6 +10,6 @@ def call(def requestID, def repoBranch)
     echo "Producer called"
     ScanCode scanCode = scanFactory.getScanner('sonarqube')
     echo "Factory Generated"
-    scanCode.runScan()
+    scanCode.runScan(requestID,repoBranch)
     echo "Completed"
 }
