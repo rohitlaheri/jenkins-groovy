@@ -2,7 +2,7 @@
 
 import io.vz.pipelinejob.Factories.ScanFactory.Configuration.*
 
-def call()
+def call(def requestID, def repoBranch)
 {
     //def appType = param.appType
     ScanCodeFactoryProducer scanCodeFactoryProducer =new ScanCodeFactoryProducer ();
