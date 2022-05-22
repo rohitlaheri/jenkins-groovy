@@ -14,7 +14,7 @@ public class CommonHelper{
     }
 
     public def getModuleConfiguartion(){
-        def jsonConfig = jsonParse()
+        def jsonConfig = jsonConfigParse()
         steps.echo "printing jsonConfig"
         steps.echo jsonConfig
         //def deserializedJson= jsonParser.parse(new File('configuration.json'))
@@ -22,12 +22,12 @@ public class CommonHelper{
     }
     public def getAEMDevServerConfiguration(){
         //def deserializedJson=jsonParser.parse(new File('configuration.json'))
-        def jsonConfig = jsonParse()
+        def jsonConfig = jsonConfigParse()
         return deserializedJson.AEMServer.DevServer;
     }
     public def getAEMQAServerConfiguration(){
        // def deserializedJson=jsonParser.parse(new File('configuration.json'))
-        def jsonConfig = jsonParse()
+        def jsonConfig = jsonConfigParse()
         return deserializedJson.AEMServer.QAServer;
     }
     public def jsonConfigParse() {
