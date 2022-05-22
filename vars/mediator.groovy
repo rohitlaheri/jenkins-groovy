@@ -9,7 +9,7 @@ def call(body) {
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
     def repoType = pipelineParams.scmType
-    def requestID=pipelineParams.mergeRequestID
+    //def requestID=pipelineParams.mergeRequestID
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
@@ -49,15 +49,15 @@ def call(body) {
                 steps {
                     updateGitlabCommitStatus name: 'scan', state: 'pending'
                     script {
-                         try{
-                            scanTasks.call(requestID,repoBranch)
+                         //try{
+                            scanTasks.call()
                             updateGitlabCommitStatus name: 'scan', state: 'success'
-                           }
-                        catch (e) {
+                           //}
+                       /* catch (e) {
                             echo $e
                             updateGitlabCommitStatus name: 'scan', state: 'failed'
                             currentBuild.result = 'FAILURE'
-                        }
+                        }*/
                     }
                 }
             }
