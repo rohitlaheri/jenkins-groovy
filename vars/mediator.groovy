@@ -23,6 +23,7 @@ def call(body) {
         stages {
             stage('scm checkout'){
                 steps{
+                    cleanWs()
                     script {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
