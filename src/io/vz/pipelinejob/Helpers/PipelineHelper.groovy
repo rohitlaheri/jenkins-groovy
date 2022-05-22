@@ -8,6 +8,7 @@ public class PipelineHelper{
         this.commonHelper=new CommonHelper(steps)
     }
     def setAEMModule(String moduleName){
+        steps.echo "calling get module"
         def modules=this.commonHelper.getModuleConfiguartion()
         def module = modules.find{name == moduleName}
         // Need to handle null - Default case (Module not found)
