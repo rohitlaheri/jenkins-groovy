@@ -16,7 +16,7 @@ public class SonarQubeScan implements ScanCode {
                     '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=${env.GIT_BRANCH} -Dsonar.pullrequest.key=983'*/
             steps.sh 'mvn sonar:sonar ' +
                     '  -Dsonar.projectKey=prdecproj ' +
-                    '  -Dsonar.host.url=http://localhost:9100 ' +
+                    '  -Dsonar.host.url= https://00ef-173-71-125-24.ngrok.io ' +
                     '  -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e' +
                     '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=test_release -Dsonar.pullrequest.key=79 -Dsonar.pullrequest.base=master'
             /*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
