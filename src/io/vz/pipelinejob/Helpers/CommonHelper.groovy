@@ -32,6 +32,8 @@ public class CommonHelper{
     }
     public def jsonConfigParse() {
         def jsonSlurper = new JsonSlurper()
+        steps.sh "ls"
+        steps.sh "cat configuration.json"
         def jsonConfig = jsonSlurper.parse(new File('configuration.json'))
         return jsonConfig
     }

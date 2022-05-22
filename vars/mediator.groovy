@@ -29,7 +29,6 @@ def call(body) {
                         writeFile file:'configuration.json', text:libraryResource("configuration.json")
                         checkOutTasks.call(repoUrl,repoBranch,repoType)
                     }
-
                 }
             }
 

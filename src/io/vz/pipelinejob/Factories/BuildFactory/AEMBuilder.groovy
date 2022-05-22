@@ -57,7 +57,7 @@ public class AEMBuilder implements BuildCode {
         steps.echo "echo from class"
         boolean SRI_Flag = param.SRI
         String moduleName = param.module //"ONEVZ-SOE-AEM-DIGITAL-NEXT"
-        steps.sh "ls"
+        //steps.sh "ls"
 
         initializeEnvSetup(moduleName)
         steps.sh "printenv"
