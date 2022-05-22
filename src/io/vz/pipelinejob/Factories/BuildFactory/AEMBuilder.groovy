@@ -18,8 +18,9 @@ public class AEMBuilder implements BuildCode {
 
     //region Methods for build steps --start
     def initializeEnvSetup(String moduleName){
+        steps.echo "initialize environment......"
         pipelineHelper= new PipelineHelper(this.steps)
-        print "initialize environment......"
+
         try{
             this.steps.echo moduleName
             pipelineHelper.setAEMModule(moduleName);
