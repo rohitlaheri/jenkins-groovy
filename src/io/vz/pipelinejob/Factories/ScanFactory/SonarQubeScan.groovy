@@ -10,8 +10,15 @@ public class SonarQubeScan implements ScanCode {
         steps.echo "SONAR QUBE SCAN WIP"
         steps.withSonarQubeEnv('onesonarcloud-dev') {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
-            steps.sh 'mvn clean package sonar:sonar -e -X -Dsonar.projectName=myproject -Dsonar.projectKey=myproject -Dsonar.host.url=https://657e-96-75-181-10.ngrok.io -Dsonar.login=0d3e258924487355620e01b99a21f6d14e8d6fe8 -Dsonar.forceAuthentication=true'
-
+            /*steps.sh 'mvn clean package sonar:sonar -e -X -Dsonar.projectName=myproject -Dsonar.projectKey=myproject ' +
+                    '-Dsonar.host.url=https://657e-96-75-181-10.ngrok.io ' +
+                    '-Dsonar.login=0d3e258924487355620e01b99a21f6d14e8d6fe8 ' +
+                    '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=${env.GIT_BRANCH} -Dsonar.pullrequest.key=983'*/
+            steps.sh 'mvn sonar:sonar ' +
+                    '  -Dsonar.projectKey=prdecproj ' +
+                    '  -Dsonar.host.url=http://localhost:9100 ' +
+                    '  -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e' +
+                    '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=test_release -Dsonar.pullrequest.key=79 -Dsonar.pullrequest.base=master'
             /*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
                     "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
                     "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
