@@ -21,7 +21,7 @@ public class AEMBuilder implements BuildCode {
         print "initialize environment......"
         try{
             this.steps.echo moduleName
-            pipelineHelper.setAEMModule(moduleName);
+            this.pipelineHelper.setAEMModule(moduleName);
             //print "aemModule details ${aemModule}";
         }catch (Exception e) {
             steps.echo "Error occurred :" + e
