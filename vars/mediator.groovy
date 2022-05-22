@@ -6,7 +6,7 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-    writeFile file:'configuration.json', text:libraryResource("configuration.json")
+
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
     def repoType = pipelineParams.scmType
@@ -26,6 +26,7 @@ def call(body) {
                     script {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
+                        writeFile file:'configuration.json', text:libraryResource("configuration.json")
                         checkOutTasks.call(repoUrl,repoBranch,repoType)
                     }
 
