@@ -5,11 +5,11 @@ public class PipelineHelper{
     def commonHelper
     PipelineHelper(steps) {
         this.steps = steps
-        this.commonHelper=new CommonHelper(steps)
+        //this.commonHelper=new CommonHelper(steps)
     }
     def setAEMModule(String moduleName){
         steps.echo "calling get module"
-        def modules=this.commonHelper.getModuleConfiguartion()
+        def modules=  (new commonHelper()).getModuleConfiguartion()
         def module = modules.find{name == moduleName}
         // Need to handle null - Default case (Module not found)
         steps.env.REPO = module.repo
@@ -20,12 +20,12 @@ public class PipelineHelper{
         steps.env.ARTI_REPO = module.artiRepo
     }
     def getAEMDevServer(String deployEnv,String bgTraffic) {
-        def servers=this.commonHelper.getAEMDevServerConfiguration()
+        def servers=(new commonHelper()).getAEMDevServerConfiguration()
         def server = modules.find{devEnvironmentName == deployEnv || stagingEnvironmentName == deployEnv}
         return server.serverName
     }
     def getAEMQAServer(String deployEnv,String bgTraffic) {
-        def servers=this.commonHelper.getAEMQAServerConfiguration()
+        def servers=(new commonHelper()).getAEMQAServerConfiguration()
         def server = modules.find{stagingEnvironmentName == deployEnv && traffic == bgTraffic}
         return server.serverName
     }

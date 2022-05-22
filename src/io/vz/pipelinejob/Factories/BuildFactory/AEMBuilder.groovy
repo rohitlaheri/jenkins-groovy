@@ -12,16 +12,17 @@ public class AEMBuilder implements BuildCode {
     AEMBuilder(steps) {
         this.steps = steps
         //this.parameters=pipelineParameters PipelineHelper
-        this.pipelineHelper= new PipelineHelper(this.steps)
+
     }
 
 
     //region Methods for build steps --start
     def initializeEnvSetup(String moduleName){
+        pipelineHelper= new PipelineHelper(this.steps)
         print "initialize environment......"
         try{
             this.steps.echo moduleName
-            this.pipelineHelper.setAEMModule(moduleName);
+            pipelineHelper.setAEMModule(moduleName);
             //print "aemModule details ${aemModule}";
         }catch (Exception e) {
             steps.echo "Error occurred :" + e
