@@ -9,6 +9,7 @@ def call(body) {
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
     def repoType = pipelineParams.scmType
+    def requestID=pipelineParams.mergeRequestID
 
     //calling config.json from the resources dir
     //logice ti fetch mr branch
@@ -32,17 +33,29 @@ def call(body) {
 
             stage('build') {
                 steps {
+                    updateGitlabCommitStatus name: 'build', state: 'pending'
                     script {
-                        buildTasks.call(pipelineParams)
+                        try{
+                            buildTasks.call(pipelineParams)
+                            updateGitlabCommitStatus name: 'build', state: 'success'
+                        }
+                        catch (e) {
+                            updateGitlabCommitStatus name: 'build', state: 'failed'
+                        }
                     }
                 }
             }
             stage('scan') {
                 steps {
-                    updateGitlabCommitStatus name: 'Scan started', state: 'pending'
+                    updateGitlabCommitStatus name: 'scan', state: 'pending'
                     script {
-                        scanTasks.call()
-                        updateGitlabCommitStatus name: 'Scan Completed', state: 'success'
+                         try{
+                            scanTasks.call(requestID,repoBranch)
+                            updateGitlabCommitStatus name: 'scan', state: 'success'
+                           }
+                        catch (e) {
+                            updateGitlabCommitStatus name: 'scan', state: 'failed'
+                        }
                     }
                 }
             }
@@ -57,17 +70,20 @@ def call(body) {
             
             stage("Quality gate") {
                 steps {
-                    updateGitlabCommitStatus name: 'Quality Gate response', state: 'pending'
+                    updateGitlabCommitStatus name: 'Quality gate', state: 'pending'
                     script {
-                        //waitForQualityGate abortPipeline: true
-                        timeout(time: 1, unit: 'HOURS') {
-                            def qualityGate = waitForQualityGate()
-                            if (qualityGate.status == 'ERROR') {
-                                currentBuild.result = 'UNSTABLE'
+                        try{
+                            //waitForQualityGate abortPipeline: true
+                            timeout(time: 1, unit: 'HOURS') {
+                                def qualityGate = waitForQualityGate()
+                                if (qualityGate.status == 'ERROR') {
+                                    currentBuild.result = 'UNSTABLE'
+                                }
                             }
+                        updateGitlabCommitStatus name: 'Quality gate', state: 'success'
+                        }catch (e) {
+                            updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
                         }
-                        updateGitlabCommitStatus name: 'Quality Gate response', state: 'success'
-                        updateGitlabCommitStatus name: 'pipeline Succedded', state: 'completed'
                     }
 
                 }
