@@ -37,7 +37,7 @@ def call(body) {
                     script {
                         try{
                             buildTasks.call(pipelineParams)
-                            updateGitlabCommitStatus name: 'build', state: 'success'
+                            //updateGitlabCommitStatus name: 'build', state: 'success'
                         }
                         catch (e) {
                             updateGitlabCommitStatus name: 'build', state: 'failed'
@@ -51,7 +51,7 @@ def call(body) {
                     script {
                          //try{
                             scanTasks.call()
-                            updateGitlabCommitStatus name: 'scan', state: 'success'
+                            //updateGitlabCommitStatus name: 'scan', state: 'success'
                            //}
                        /* catch (e) {
                             echo $e
@@ -81,6 +81,10 @@ def call(body) {
                                 if (qualityGate.status == 'ERROR') {
                                     currentBuild.result = 'FAILURE'
                                     updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
+                                }
+                                else {
+                                    updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
+                                    updateGitlabCommitStatus name: 'build', state: 'success'
                                 }
                             }
 
