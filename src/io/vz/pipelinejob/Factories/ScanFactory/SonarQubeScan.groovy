@@ -58,7 +58,7 @@ public class SonarQubeScan implements ScanCode {
 
 
     @Override
-    public void runScan(String requestID, String repoBranch) {
+    public void runScan() {
         print("Inside SonarQubeScan::runScan() method.")
         steps.echo "echo from class"
         //Map objScan
