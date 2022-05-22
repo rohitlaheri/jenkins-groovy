@@ -62,7 +62,7 @@ public class SonarQubeScan implements ScanCode {
         print("Inside SonarQubeScan::runScan() method.")
         steps.echo "echo from class"
         //Map objScan
-        scanSonar(requestID,repoBranch)
+        scanSonar()
         //publishScanReport()
 
 
