@@ -14,6 +14,7 @@ public class CommonHelper{
     }
 
     public def getModuleConfiguartion(){
+        steps.echo "inside get module"
         def jsonConfig = jsonConfigParse()
         steps.echo "printing jsonConfig"
         steps.echo jsonConfig
@@ -31,6 +32,7 @@ public class CommonHelper{
         return jsonConfig.AEMServer.QAServer;
     }
     public def jsonConfigParse() {
+        steps.echo "json parse method"
         def jsonSlurper = new JsonSlurper()
         steps.sh "ls"
         steps.sh "cat configuration.json"
