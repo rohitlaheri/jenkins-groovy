@@ -54,7 +54,9 @@ def call(body) {
                             updateGitlabCommitStatus name: 'scan', state: 'success'
                            }
                         catch (e) {
+                            echo $e
                             updateGitlabCommitStatus name: 'scan', state: 'failed'
+                            currentBuild.result = 'FAILURE'
                         }
                     }
                 }
@@ -77,10 +79,11 @@ def call(body) {
                             timeout(time: 1, unit: 'HOURS') {
                                 def qualityGate = waitForQualityGate()
                                 if (qualityGate.status == 'ERROR') {
-                                    currentBuild.result = 'UNSTABLE'
+                                    currentBuild.result = 'FAILURE'
+                                    updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
                                 }
                             }
-                        updateGitlabCommitStatus name: 'Quality gate', state: 'success'
+
                         }catch (e) {
                             updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
                         }
