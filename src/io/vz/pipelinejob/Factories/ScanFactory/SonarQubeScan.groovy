@@ -18,7 +18,7 @@ public class SonarQubeScan implements ScanCode {
                     '  -Dsonar.projectKey=prdecproj ' +
                     '  -Dsonar.host.url= https://00ef-173-71-125-24.ngrok.io ' +
                     '  -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e' +
-                    '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=test_release -Dsonar.pullrequest.key=79 -Dsonar.pullrequest.base=master'
+                    '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=test_release -Dsonar.pullrequest.key=80 -Dsonar.pullrequest.base=master'
             /*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
                     "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
                     "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
