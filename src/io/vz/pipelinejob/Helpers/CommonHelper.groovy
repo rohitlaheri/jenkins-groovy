@@ -22,7 +22,7 @@ public class CommonHelper implements  Serializable{
         
         def jObject =  jsonParse(jsonValue)
         steps.echo "Jobject Value :"+jObject
-        steps.echo "Module Value :"+jObject.module
+        steps.echo "AEM Module Value :"+jObject.module.AEMModule
         // steps.echo "inside get module"
         // steps.echo jObject
         // steps.sh "cat configuration.json"
