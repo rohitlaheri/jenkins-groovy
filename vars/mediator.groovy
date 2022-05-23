@@ -12,9 +12,6 @@ def call(body) {
     //def repoType = pipelineParams.scmType
     //def requestID=pipelineParams.mergeRequestID
 
-    //calling config.json from the resources dir
-    //logice ti fetch mr branch
-
     pipeline {
         agent any
         tools {

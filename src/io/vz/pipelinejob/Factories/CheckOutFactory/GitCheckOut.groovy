@@ -23,7 +23,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
     def checkoutGit(Map args) {
         if (args.containsKey('shallow') && args.shallow) {
             steps.checkout([$class: 'GitSCM',
-                            branches: [[name: args.repoBranch]],
+                            branches: [[name: args.branch]],
                             userRemoteConfigs: [
                                     [credentialsId:args.gitCredentialId ,url: args.repoURL]
                             ],
@@ -31,7 +31,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
                                     [$class: 'CloneOption', depth: 1, noTags: true, honorRefspec: true, shallow: true]
                             ]])
         } else {
-            steps.checkout([$class: 'GitSCM', branches: [[name: args.repoBranch]], userRemoteConfigs: [
+            steps.checkout([$class: 'GitSCM', branches: [[name: args.branch]], userRemoteConfigs: [
                     [credentialsId:args.gitCredentialId ,url: args.repoURL]
             ]])
         }
@@ -48,7 +48,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         //steps.echo "git checkOut print ${param.repoBranch}"
         //checkOutTasks([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
         //steps.checkout([$class: 'GitSCM', branches: [[name: $param.repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: param.repoUrl]]])
-        steps.echo param.repoBranch
+        steps.echo param.branch
         steps.echo param.repoURL
         checkoutGit(param)
     }
