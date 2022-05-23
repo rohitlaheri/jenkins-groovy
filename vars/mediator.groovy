@@ -24,8 +24,6 @@ def call(body) {
                     script {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
-                        writeFile file:'configuration.json', text:libraryResource("configuration.json")
-                        sh "ls"
                         checkOutTasks.call(pipelineParams)
                     }
                 }
