@@ -7,7 +7,7 @@ public class CheckOutFactory extends CheckOutAbstractFactory {
     def pipelineConst
     CheckOutFactory(steps) {
         this.steps = steps
-        this.pipelineConst = new pipelineConstants()
+        this.pipelineConst = new PipelineConstants()
     }
     @Override
     public CheckOutCode getCheckOutFactory(String type) {
