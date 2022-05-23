@@ -19,12 +19,6 @@ public class CommonHelper implements  Serializable{
         this.steps.sh "ls"
         def jsonValue = this.steps.readFile("configuration.json")
         def jObject =  jsonParse(jsonValue)
-        steps.echo "AEM Module Value :"+jObject.module.AEMModule
-        // steps.echo "inside get module"
-        // steps.echo jObject
-        // steps.sh "cat configuration.json"
-
-        //def deserializedJson= this.jsonParser.parse(new File('configuration.json'))
         return jObject.module.AEMModule;
     }
     public def getAEMDevServerConfiguration(){
