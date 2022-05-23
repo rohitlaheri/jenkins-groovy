@@ -34,13 +34,10 @@ def call(body) {
                 steps {
                     updateGitlabCommitStatus name: 'build', state: 'pending'
                     script {
-                        try{
                             buildTasks.call(pipelineParams)
                             //updateGitlabCommitStatus name: 'build', state: 'success'
-                        }
-                        catch (e) {
-                            updateGitlabCommitStatus name: 'build', state: 'failed'
-                        }
+
+
                     }
                 }
             }
