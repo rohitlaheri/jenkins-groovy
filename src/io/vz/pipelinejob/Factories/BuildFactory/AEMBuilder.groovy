@@ -57,7 +57,8 @@ public class AEMBuilder implements BuildCode, Serializable {
         boolean SRI_Flag = param.SRI
         String aemModuleName = param.aemModuleName
         //steps.sh "ls"
-
+        def jObject = readJSON file: 'configuration.json'
+        steps.echo jObject
         initializeEnvSetup(aemModuleName)
         steps.sh "printenv"
         //mavenBuild(SRI_Flag, moduleName)
