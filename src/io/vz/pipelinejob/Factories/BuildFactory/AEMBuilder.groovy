@@ -5,7 +5,7 @@ import io.vz.pipelinejob.Helpers.*
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
 
 //concrete class implementing interface BuildCode to Build AEM code
-public class AEMBuilder implements BuildCode {
+public class AEMBuilder implements BuildCode, Serializable {
     def parameters
     def pipelineHelper
     def steps

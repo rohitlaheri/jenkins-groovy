@@ -1,6 +1,6 @@
 package io.vz.pipelinejob.Helpers
 
-public class PipelineHelper{
+public class PipelineHelper implements  Serializable{
     def steps
     def commonHelper
     PipelineHelper(steps) {

@@ -2,7 +2,7 @@ package io.vz.pipelinejob.Helpers
 
 import groovy.json.JsonSlurper
 
-public class CommonHelper{
+public class CommonHelper implements  Serializable{
     def jsonParser
     def steps
     CommonHelper(steps){

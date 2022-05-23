@@ -1,12 +1,13 @@
 package io.vz.pipelinejob.Model
 
-public final class PipelineConstants {
+public final class PipelineConstants implements Serializable {
     //Define all constants for the pipeline
 
     public static final String DIT = 'DIT'
     public static final String SIT1 = 'SIT1'
     public static final String PROD = 'PROD'
     public static final String SIT2 = 'SIT2'
+    public final String GIT = 'GIT'
     public static final String DEV_NSD1_ENV = "soeaem-nsd1-east"
     public static final String DEV_NSD2_ENV = "soeaem-nsd2-east"
     public static final String DEV_NSD3_ENV = "soeaem-nsd3-east"

@@ -44,10 +44,6 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
      */
     @Override
     public void checkOut(Map param) {
-        //steps.echo "git checkOut print ${param.repoUrl}"
-        //steps.echo "git checkOut print ${param.repoBranch}"
-        //checkOutTasks([$class: 'GitSCM', branches: [[name: '*/dev']], extensions: [], userRemoteConfigs: [[url: repoUrl]]])
-        //steps.checkout([$class: 'GitSCM', branches: [[name: $param.repoBranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: param.repoUrl]]])
         steps.echo param.branch
         steps.echo param.repoURL
         checkoutGit(param)

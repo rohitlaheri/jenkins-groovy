@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 package io.vz.pipelinejob.Model
 
-public class pipelineParameters {
+public class pipelineParameters implements Serializable {
     String imageTag
     String previousTarget
 

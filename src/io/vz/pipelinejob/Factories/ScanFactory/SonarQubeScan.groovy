@@ -2,7 +2,7 @@ package io.vz.pipelinejob.Factories.ScanFactory
 
 import io.vz.pipelinejob.Factories.ScanFactory.Configuration.ScanCode
 
-public class SonarQubeScan implements ScanCode {
+public class SonarQubeScan implements ScanCode, Serializable {
     def steps
     SonarQubeScan(steps) {this.steps = steps}
 
