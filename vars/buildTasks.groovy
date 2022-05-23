@@ -9,9 +9,9 @@ def call(def param)
     //def shell = libraryResource 'configuration.json
     echo appType
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
-    echo "Producer called"
+    echo "Producer called build"
     BuildCode buildAem = aemBuildFactory.getBuilder(appType)
-    echo "Factory Generated"
+    echo "Factory Generated build"
     buildAem.runBuild(param)
     echo "Completed"
 }
