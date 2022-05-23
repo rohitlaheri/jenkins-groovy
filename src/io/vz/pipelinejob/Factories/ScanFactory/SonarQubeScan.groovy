@@ -6,25 +6,24 @@ public class SonarQubeScan implements ScanCode, Serializable {
     def steps
     SonarQubeScan(steps) {this.steps = steps}
 
-    def scanSonar(){
-        steps.echo "SONAR QUBE SCAN WIP"
-        steps.withSonarQubeEnv('onesonarcloud-dev') {
+    def scanSonar(Map param){
+        def sonarQubeEnv = param.sonarQubeEnv
+        def mrKey = steps.sh(returnStdout: true, script: "echo ${env.BRANCH_NAME} | cut -d'-' -f2").trim()
+        steps.withSonarQubeEnv(sonarQubeEnv) {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
-            /*steps.sh 'mvn clean package sonar:sonar -e -X -Dsonar.projectName=myproject -Dsonar.projectKey=myproject ' +
-                    '-Dsonar.host.url=https://657e-96-75-181-10.ngrok.io ' +
-                    '-Dsonar.login=0d3e258924487355620e01b99a21f6d14e8d6fe8 ' +
-                    '-Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=${env.GIT_BRANCH} -Dsonar.pullrequest.key=983'*/
-            steps.sh 'mvn sonar:sonar -Dsonar.projectKey=prdecproj -Dsonar.host.url=https://5317-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=Demo/test_release -Dsonar.pullrequest.key=81 -Dsonar.pullrequest.base=master'
+           steps.sh "mvn sonar:sonar -Dsonar.projectKey=${param.sonarProjectKey} -Dsonar.host.url=${param.sonarServerURL} " +
+                   "-Dsonar.login=${param.sonarAuthKey} -Dsonar.forceAuthentication=true " +
+                   "-Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.pullrequest.key=${mrKey}"
             /*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
                     "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
                     "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
             */
-            /*steps.withMaven(maven: 'maven') {
-                steps.sh 'mvn clean package sonar:sonar'
-            }*/
         }
     }
-
+    /**
+     *  publish scan report -- wip
+     * @return null
+     */
     def publishScanReport(){
         try {
             def formattedDate = date.format("yyyy-MM-dd")
@@ -54,13 +53,10 @@ public class SonarQubeScan implements ScanCode, Serializable {
 
 
     @Override
-    public void runScan() {
-        print("Inside SonarQubeScan::runScan() method.")
-        steps.echo "echo from class"
-        //Map objScan
-        scanSonar()
+    public void runScan(Map param) {
+        //steps.echo "echo from class"
+        scanSonar(param)
         //publishScanReport()
-
 
     }
 }

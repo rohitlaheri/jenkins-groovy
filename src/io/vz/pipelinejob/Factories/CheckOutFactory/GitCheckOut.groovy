@@ -44,8 +44,8 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
      */
     @Override
     public void checkOut(Map param) {
-        steps.echo param.branch
-        steps.echo param.repoURL
+        this.steps.echo param.branch
+        this.steps.echo param.repoURL
         checkoutGit(param)
     }
 }

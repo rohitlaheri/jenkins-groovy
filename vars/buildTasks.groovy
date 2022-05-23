@@ -3,12 +3,10 @@
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
 
 
-def call(def param)
+def call(param)
 {
     def appType = param.appType
-    /*def jObject = readJSON file: 'configuration.json'
-    echo jObject*/
-    //def shell = libraryResource 'configuration.json
+
     echo appType
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called build"

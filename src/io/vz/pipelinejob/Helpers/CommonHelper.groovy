@@ -1,6 +1,6 @@
 package io.vz.pipelinejob.Helpers
 
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 /*import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;*/
@@ -11,16 +11,15 @@ public class CommonHelper implements  Serializable{
 //    def jObject
 
     CommonHelper(steps){
-        this.jsonParser= new JsonSlurper()
+        //this.jsonParser= new JsonSlurper()
         this.steps = steps
-
 
     }
 
     public def getModuleConfig(){
         this.steps.writeFile file:'configuration.json', text:this.steps.libraryResource("configuration.json")
         this.steps.sh "ls"
-        def jObject =  this.jsonParser(this.steps.readFile("configuration.json"))
+        def jObject =  jsonParse(this.steps.readFile("configuration.json"))
         steps.echo "inside get module"
         steps.echo jObject
         steps.sh "cat configuration.json"
@@ -35,9 +34,9 @@ public class CommonHelper implements  Serializable{
         def deserializedJson= this.jsonParser.parse(new File('configuration.json'))
         return deserializedJson.AEMServer.QAServer;
     }
-    /*@NonCPS
+    @NonCPS
     def jsonParse(def json) {
         new groovy.json.JsonSlurperClassic().parseText(json)
-    }*/
+    }
 }
 

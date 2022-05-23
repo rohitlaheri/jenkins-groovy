@@ -7,10 +7,11 @@ def call(body) {
     body.delegate = pipelineParams
     body()
 
+    /**
+     *
+     */
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
-    //def repoType = pipelineParams.scmType
-    //def requestID=pipelineParams.mergeRequestID
 
     pipeline {
         agent any
@@ -22,6 +23,7 @@ def call(body) {
                 steps{
                     cleanWs()
                     script {
+                        // temp logging //
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
                         checkOutTasks.call(pipelineParams)

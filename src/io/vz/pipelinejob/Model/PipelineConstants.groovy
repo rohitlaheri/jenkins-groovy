@@ -8,6 +8,8 @@ public final class PipelineConstants implements Serializable {
     public static final String PROD = 'PROD'
     public static final String SIT2 = 'SIT2'
     public final String GIT = 'GIT'
+    public final String APP_TYPE_AEM = 'AEM'
+    public final String SOE_AEM_DIGITAL_NEXT = 'ONEVZ-SOE-AEM-DIGITAL-NEXT'
     public static final String DEV_NSD1_ENV = "soeaem-nsd1-east"
     public static final String DEV_NSD2_ENV = "soeaem-nsd2-east"
     public static final String DEV_NSD3_ENV = "soeaem-nsd3-east"

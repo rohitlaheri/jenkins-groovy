@@ -12,8 +12,7 @@ public class CheckOutFactory extends CheckOutAbstractFactory {
     @Override
     public CheckOutCode getCheckOutFactory(String type) {
         steps.echo this.pipelineConst.GIT
-        def gitSCM = this.pipelineConst.GIT
-        if (type.equalsIgnoreCase(gitSCM)) {
+        if (type.equalsIgnoreCase(this.pipelineConst.GIT)) {
             return new GitCheckOut(steps)
         }
         return null
