@@ -7,10 +7,8 @@ public class CommonHelper{
     def steps
     CommonHelper(steps){
         this.jsonParser= new JsonSlurper()
-
         this.steps = steps
         this.steps.echo "test inside helper"
-
     }
 
     public def getModuleConfiguartion(){

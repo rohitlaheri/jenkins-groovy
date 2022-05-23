@@ -5,10 +5,7 @@ public class pipelineParameters {
     String imageTag
     String previousTarget
 
-    pipelineParameters(String pReleaseBranch, String previous_Target, String image_tag) {
-        releaseBranch = pReleaseBranch
-        this.imageTag = image_tag
-        this.previousTarget = previous_Target
+    pipelineParameters(steps) {
     }
 
     final String releaseBranch

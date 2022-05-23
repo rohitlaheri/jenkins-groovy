@@ -3,17 +3,14 @@
 import io.vz.pipelinejob.Factories.CheckOutFactory.Configuration.*
 
 
-def call(def repoURL, def repoBranch, def repoType)
+def call(Map param)
 {
-    /*def sourceType = param.scmType
-    echo sourceType*/
-    //def repoURL = param.repoURL
-    //def repoBranch = param.branch
+    def repoType = param.scmType
     CheckOutAbstractFactory checkOutAbstractFactory = CheckOutFactoryProducer.getFactory(this)
     echo "Producer called"
     CheckOutCode checkOutCode = checkOutAbstractFactory.getCheckOutFactory(repoType)
     echo "Factory Generated"
-    checkOutCode.checkOut(repoURL,repoBranch)
+    checkOutCode.checkOut(param)
     echo "Completed"
 }
 

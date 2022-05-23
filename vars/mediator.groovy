@@ -9,7 +9,7 @@ def call(body) {
 
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
-    def repoType = pipelineParams.scmType
+    //def repoType = pipelineParams.scmType
     //def requestID=pipelineParams.mergeRequestID
 
     //calling config.json from the resources dir
@@ -28,12 +28,12 @@ def call(body) {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
                         writeFile file:'configuration.json', text:libraryResource("configuration.json")
-                        checkOutTasks.call(repoUrl,repoBranch,repoType)
+                        checkOutTasks.call(pipelineParams)
                     }
                 }
             }
 
-            stage('build') {
+           /* stage('build') {
                 steps {
                     updateGitlabCommitStatus name: 'build', state: 'pending'
                     script {
@@ -46,7 +46,7 @@ def call(body) {
                         }
                     }
                 }
-            }
+            }*/
             /*stage('scan') {
                 steps {
                     updateGitlabCommitStatus name: 'scan', state: 'pending'
