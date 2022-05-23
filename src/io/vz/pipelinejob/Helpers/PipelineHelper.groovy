@@ -9,17 +9,15 @@ public class PipelineHelper implements  Serializable{
     }
     def setAEMModule(String moduleName){
         steps.echo "calling get module"
-        steps.echo "Given Module "+moduleName
         def modules=this.commonHelper.getModuleConfig()
-        steps.echo "Returned Module "+modules
-        def module = modules.find{name == moduleName}
+        def matchedModule = modules.find{module.name == moduleName}
         // Need to handle null - Default case (Module not found)
-        steps.env.REPO = module.repo
-        steps.env.CORE_MODULE = module.coreModule
-        steps.env.APPLICATION_MODULE = module.applicationModule
-        steps.env.UI_MODULE = module.uiModule
-        steps.env.MVN_TARGET_PATH = module.mvnTargetPath
-        steps.env.ARTI_REPO = module.artiRepo
+        steps.env.REPO = matchedModule.repo
+        steps.env.CORE_MODULE = matchedModule.coreModule
+        steps.env.APPLICATION_MODULE = matchedModule.applicationModule
+        steps.env.UI_MODULE = matchedModule.uiModule
+        steps.env.MVN_TARGET_PATH = matchedModule.mvnTargetPath
+        steps.env.ARTI_REPO = matchedModule.artiRepo
     }
     def getAEMDevServer(String deployEnv,String bgTraffic) {
         def servers=this.commonHelper.getAEMDevServerConfiguration()
