@@ -56,7 +56,7 @@ public class AEMBuilder implements BuildCode, Serializable {
         steps.echo "echo from class"
         boolean SRI_Flag = param.SRI
         String aemModuleName = param.aemModuleName
-        //steps.sh "ls"
+        steps.sh "ls"
         //def jObject = readJSON file: 'configuration.json'
         //steps.echo jObject
         initializeEnvSetup(aemModuleName)
