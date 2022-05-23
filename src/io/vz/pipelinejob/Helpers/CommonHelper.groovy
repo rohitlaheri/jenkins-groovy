@@ -1,9 +1,9 @@
 package io.vz.pipelinejob.Helpers
 
 import groovy.json.JsonSlurper
-import org.json.simple.JSONArray;
+/*import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
+import org.json.simple.parser.*;*/
 
 public class CommonHelper implements  Serializable{
     def jsonParser
@@ -13,7 +13,8 @@ public class CommonHelper implements  Serializable{
     CommonHelper(steps){
         this.jsonParser= new JsonSlurper()
         this.steps = steps
-
+        def jObject = readJSON file: 'configuration.json'
+        steps.echo jObject
     }
 
     public def getModuleConfig(){
