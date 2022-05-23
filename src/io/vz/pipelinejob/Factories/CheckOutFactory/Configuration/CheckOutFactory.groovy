@@ -11,7 +11,7 @@ public class CheckOutFactory extends CheckOutAbstractFactory {
     @Override
     public CheckOutCode getCheckOutFactory(String type) {
         if (type.equalsIgnoreCase("GitLab")) {
-            return new GitLabCheckOut(steps)
+            return new GitCheckOut(steps)
         }
         return null
     }
