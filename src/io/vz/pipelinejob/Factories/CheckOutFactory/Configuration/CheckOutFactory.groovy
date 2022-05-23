@@ -1,7 +1,6 @@
 package io.vz.pipelinejob.Factories.CheckOutFactory.Configuration
 
-import io.vz.pipelinejob.Factories.CheckOutFactory.GitLabCheckOut
-
+import io.vz.pipelinejob.Factories.CheckOutFactory.*
 public class CheckOutFactory extends CheckOutAbstractFactory {
     private def steps
 
