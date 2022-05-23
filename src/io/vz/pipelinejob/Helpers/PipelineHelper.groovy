@@ -10,6 +10,7 @@ public class PipelineHelper implements  Serializable{
     def setAEMModule(String moduleName){
         steps.echo "calling get module"
         def modules=this.commonHelper.getModuleConfig()
+        steps.echo "Returned Module "+modules
         def module = modules.find{name == moduleName}
         // Need to handle null - Default case (Module not found)
         steps.env.REPO = module.repo
