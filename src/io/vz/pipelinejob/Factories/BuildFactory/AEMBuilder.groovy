@@ -2,6 +2,7 @@ package io.vz.pipelinejob.Factories.BuildFactory
 
 import io.vz.pipelinejob.Helpers.*
 import io.vz.pipelinejob.Factories.BuildFactory.Configuration.BuildCode
+import io.vz.pipelinejob.Model.*
 
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode, Serializable {
