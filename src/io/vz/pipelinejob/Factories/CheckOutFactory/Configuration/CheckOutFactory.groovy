@@ -7,13 +7,13 @@ public class CheckOutFactory extends CheckOutAbstractFactory {
     def pipelineConst
     CheckOutFactory(steps) {
         this.steps = steps
-        this.pipelineConst = new PipelineConstants()
+        this.pipelineConst = new pipelineConstants()
     }
     @Override
     public CheckOutCode getCheckOutFactory(String type) {
-        steps.echo this.pipelineConst.GIT
-        def repoType = this.pipelineConst.GIT
-        if (type.equalsIgnoreCase(repoType)) {
+        //steps.echo this.pipelineConst.GIT
+        //def repoType = this.pipelineConst.GIT
+        if (type.equalsIgnoreCase("GIT")) {
             return new GitCheckOut(steps)
         }
         return null

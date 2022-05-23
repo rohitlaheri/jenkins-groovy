@@ -8,10 +8,10 @@ public class CommonHelper implements  Serializable{
     CommonHelper(steps){
         this.jsonParser= new JsonSlurper()
         this.steps = steps
-        this.steps.echo "test inside helper"
     }
 
-    public def getModuleConfiguartion(){
+    public def getModuleConfig(){
+        steps.echo "inside get module"
         def deserializedJson= this.jsonParser.parse(new File('configuration.json'))
         return deserializedJson.module.AEMModule;
     }

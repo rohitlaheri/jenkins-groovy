@@ -6,10 +6,7 @@ import io.vz.pipelinejob.Factories.BuildFactory.Configuration.*
 def call(def param)
 {
     def appType = param.appType
-    //def shell = libraryResource 'configuration.json'
-
-    env.TestName="Rohit"
-    echo " test env name ${TestName}"
+    //def shell = libraryResource 'configuration.json
     echo appType
     BuildAbstractFactory aemBuildFactory = BuildFactoryProducer.getFactory(this)
     echo "Producer called"

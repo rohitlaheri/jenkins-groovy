@@ -12,9 +12,7 @@ public class AEMBuilder implements BuildCode, Serializable {
     AEMBuilder(steps) {
         this.steps = steps
         //this.parameters=pipelineParameters PipelineHelper
-
     }
-
 
     //region Methods for build steps --start
     def initializeEnvSetup(String moduleName){
@@ -55,14 +53,13 @@ public class AEMBuilder implements BuildCode, Serializable {
 
     @Override
     public void runBuild(def param) {
-        print("Inside NonProdBuild::runBuild() method.")
         steps.echo "echo from class"
         boolean SRI_Flag = param.SRI
-        String moduleName = param.module //"ONEVZ-SOE-AEM-DIGITAL-NEXT"
+        String aemModuleName = param.aemModuleName
         //steps.sh "ls"
 
-        initializeEnvSetup(moduleName)
+        initializeEnvSetup(aemModuleName)
         steps.sh "printenv"
-        mavenBuild(SRI_Flag, moduleName)
+        //mavenBuild(SRI_Flag, moduleName)
     }
 }

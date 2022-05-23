@@ -30,7 +30,7 @@ def call(body) {
                 }
             }
 
-           /* stage('build') {
+            stage('build') {
                 steps {
                     updateGitlabCommitStatus name: 'build', state: 'pending'
                     script {
@@ -43,7 +43,7 @@ def call(body) {
                         }
                     }
                 }
-            }*/
+            }
             /*stage('scan') {
                 steps {
                     updateGitlabCommitStatus name: 'scan', state: 'pending'

@@ -5,11 +5,11 @@ public class PipelineHelper implements  Serializable{
     def commonHelper
     PipelineHelper(steps) {
         this.steps = steps
-        this.commonHelper=new CommonHelper(steps)
+        this.commonHelper=new CommonHelper(this.steps)
     }
     def setAEMModule(String moduleName){
         steps.echo "calling get module"
-        def modules=this.commonHelper.getModuleConfiguartion()
+        def modules=this.commonHelper.getModuleConfig()
         def module = modules.find{name == moduleName}
         // Need to handle null - Default case (Module not found)
         steps.env.REPO = module.repo
