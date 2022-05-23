@@ -7,6 +7,7 @@ import io.vz.pipelinejob.Model.*
 //concrete class implementing interface BuildCode to Build AEM code
 public class AEMBuilder implements BuildCode, Serializable {
     def pipelineHelper
+    def pipelineConst
     def steps
     AEMBuilder(steps) {
         this.steps = steps
