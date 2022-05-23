@@ -11,7 +11,7 @@ public class CommonHelper implements  Serializable{
 //    def jObject
 
     CommonHelper(steps){
-        this.jsonParser= new JsonSlurper()
+       // this.jsonParser= new JsonSlurperClassic()
         this.steps = steps
 
 
