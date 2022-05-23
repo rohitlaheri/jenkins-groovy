@@ -14,13 +14,6 @@ public class PipelineHelper implements  Serializable{
         steps.echo "matched Module " +matchedModule
         // Need to handle null - Default case (Module not found)
 
-        steps.echo "Repo" +  steps.env.REPO
-        steps.echo "coreModule" +  steps.env.CORE_MODULE
-        steps.echo "applicationModule" +  steps.env.APPLICATION_MODULE
-        steps.echo "uiModule" +  steps.env.UI_MODULE
-        steps.echo "MVN_TARGET_PATH" +  steps.env.MVN_TARGET_PATH
-        steps.echo "ARTI_REPO" +  steps.env.ARTI_REPO
-
         steps.env.REPO = matchedModule.repo
         steps.env.CORE_MODULE = matchedModule.coreModule
         steps.env.APPLICATION_MODULE = matchedModule.applicationModule
@@ -28,12 +21,6 @@ public class PipelineHelper implements  Serializable{
         steps.env.MVN_TARGET_PATH = matchedModule.mvnTargetPath
         steps.env.ARTI_REPO = matchedModule.artiRepo
 
-        steps.echo "Post Repo" +  steps.env.REPO
-        steps.echo "Post coreModule" +  steps.env.CORE_MODULE
-        steps.echo "Post applicationModule" +  steps.env.APPLICATION_MODULE
-        steps.echo "Post uiModule" +  steps.env.UI_MODULE
-        steps.echo "Post MVN_TARGET_PATH" +  steps.env.MVN_TARGET_PATH
-        steps.echo "Post ARTI_REPO" +  steps.env.ARTI_REPO
     }
     def getAEMDevServer(String deployEnv,String bgTraffic) {
         def servers=this.commonHelper.getAEMDevServerConfiguration()
