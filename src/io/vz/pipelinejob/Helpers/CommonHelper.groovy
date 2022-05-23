@@ -18,7 +18,7 @@ public class CommonHelper implements  Serializable{
         this.steps.writeFile file:'configuration.json', text:this.steps.libraryResource("configuration.json")
         this.steps.sh "ls"
         def jsonValue = this.steps.readFile("configuration.json")
-        steps.echo "Json Value :"+json
+        steps.echo "Json Value :"+jsonValue
         
         def jObject =  jsonParse(jsonValue)
         steps.echo "Jobject Value :"+jObject
