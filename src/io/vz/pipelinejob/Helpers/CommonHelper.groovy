@@ -18,7 +18,7 @@ public class CommonHelper implements  Serializable{
     }
 
     public def getModuleConfig(){
-        def jObject =  jsonParse(this.steps.readFile("config.json"))
+        def jObject =  jsonParse(this.steps.readFile("configuration.json"))
         steps.echo "inside get module"
         steps.echo jObject
         steps.sh "cat configuration.json"
