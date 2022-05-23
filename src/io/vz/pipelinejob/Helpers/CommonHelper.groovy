@@ -13,7 +13,7 @@ public class CommonHelper implements  Serializable{
     CommonHelper(steps){
         this.jsonParser= new JsonSlurper()
         this.steps = steps
-        jObject = this.steps.readJSON file: 'dir/input.json'
+        jObject = this.steps.readJSON file: 'configuration.json'
         steps.echo jObject
     }
 
