@@ -20,7 +20,7 @@ public class CommonHelper implements  Serializable{
         def jsonValue = this.steps.readFile("configuration.json")
         def jObject =  jsonParse(jsonValue)
         def matchedModule = jObject.module.AEMModule.find{a -> a.name == "onevz-soe-aem-digital-next"}
-        echo "matched Module " +matchedModule
+        steps.echo "matched Module " +matchedModule
         return jObject.module.AEMModule;
     }
     public def getAEMDevServerConfiguration(){
