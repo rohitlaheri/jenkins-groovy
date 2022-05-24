@@ -13,7 +13,7 @@ public class SonarQubeScan implements ScanCode, Serializable {
         def prBranchName = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabBranch}")
         steps.echo "mrKey: ${mrKey}"
         steps.echo "mrKey: ${prKey}"
-        teps.echo "mrKey: ${prBranchName}"
+        steps.echo "mrKey: ${prBranchName}"
         /*steps.withSonarQubeEnv(sonarQubeEnv) {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
            steps.sh "mvn sonar:sonar -Dsonar.projectKey=${param.sonarProjectKey} -Dsonar.host.url=${param.sonarServerURL} " +
