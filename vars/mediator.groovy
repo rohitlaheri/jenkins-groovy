@@ -47,7 +47,7 @@ def call(body) {
                     updateGitlabCommitStatus name: 'scan', state: 'pending'
                     script {
                          //try{
-                            scanTasks.call()
+                            scanTasks.call(pipelineParams)
                             //updateGitlabCommitStatus name: 'scan', state: 'success'
                            //}
                         /*catch (e) {*/

@@ -10,6 +10,6 @@ def call(param)
     echo "Producer called"
     ScanCode scanCode = scanFactory.getScanner(scanType)
     echo "Factory Generated"
-    scanCode.runScan()
+    scanCode.runScan(param)
     echo "Completed"
 }
