@@ -21,9 +21,16 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
      * @return null
      */
     def checkoutGit(Map args) {
+        def credentialsId = this.steps.scm.userRemoteConfigs[0].credentialsId
+        this.steps.echo credentialsId
         if (args.containsKey('shallow') && args.shallow) {
-            steps.checkout([$class: 'GitSCM',
+            this.steps.checkout([$class: 'GitSCM',
                             branches: [[name: args.branch]],
+                            extensions: [
+                                    [$class: 'PruneStaleBranch'],
+                                    [$class: 'CleanCheckout'],
+                                    [$class: 'PreBuildMerge', options:[fastForwardMode:'NO_FF', mergeRemote: env.gitlabTargetNamespace, mergeTarget: env.gitlabTargetBranch]]
+                            ],
                             userRemoteConfigs: [
                                     [credentialsId:args.gitCredentialId ,url: args.repoURL]
                             ],
@@ -31,7 +38,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
                                     [$class: 'CloneOption', depth: 1, noTags: true, honorRefspec: true, shallow: true]
                             ]])
         } else {
-            steps.checkout([$class: 'GitSCM', branches: [[name: args.branch]], userRemoteConfigs: [
+            this.steps.checkout([$class: 'GitSCM', branches: [[name: args.branch]], userRemoteConfigs: [
                     [credentialsId:args.gitCredentialId ,url: args.repoURL]
             ]])
         }
