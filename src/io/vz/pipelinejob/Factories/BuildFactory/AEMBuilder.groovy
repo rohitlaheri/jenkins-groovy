@@ -46,6 +46,6 @@ public class AEMBuilder implements BuildCode, Serializable {
         String aemModuleName = param.aemModuleName
         initializeEnvSetup(aemModuleName)
         steps.sh "printenv"
-        mavenBuild(SRI_Flag, aemModuleName)
+        //mavenBuild(SRI_Flag, aemModuleName)
     }
 }
