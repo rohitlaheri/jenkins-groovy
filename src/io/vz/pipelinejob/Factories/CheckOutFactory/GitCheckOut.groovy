@@ -21,7 +21,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
      * @return null
      */
     def checkoutGit(Map args) {
-        def credentialsId = this.steps.scm.userRemoteConfigs[0].credentialsId
+        //def credentialsId = this.steps.scm.userRemoteConfigs[0].credentialsId
         this.steps.echo credentialsId
         if (args.containsKey('shallow') && args.shallow) {
             this.steps.checkout([$class: 'GitSCM',
