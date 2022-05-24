@@ -22,7 +22,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
      */
     def checkoutGit(Map args) {
         //def credentialsId = this.steps.scm.userRemoteConfigs[0].credentialsId
-        this.steps.echo credentialsId
+        //this.steps.echo credentialsId
         if (args.containsKey('shallow') && args.shallow) {
             this.steps.checkout([$class: 'GitSCM',
                             branches: [[name: args.branch]],
