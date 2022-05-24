@@ -7,18 +7,23 @@ public class SonarQubeScan implements ScanCode, Serializable {
     SonarQubeScan(steps) {this.steps = steps}
 
     def scanSonar(Map param){
-        def sonarQubeEnv = param.sonarQubeEnv
+        //def sonarQubeEnv = param.sonarQubeEnv
         def mrKey = steps.sh(returnStdout: true, script: "echo ${env.BRANCH_NAME} | cut -d'-' -f2").trim()
-        steps.withSonarQubeEnv(sonarQubeEnv) {
+        def prKey = steps.sh(returnStdout: true, script: "echo ${env.gitlabMergeRequestIid}")
+        def prBranchName = steps.sh(returnStdout: true, script: "echo ${env.gitlabBranch}")
+        steps.echo "mrKey: ${mrKey}"
+        steps.echo "mrKey: ${prKey}"
+        teps.echo "mrKey: ${prBranchName}"
+        /*steps.withSonarQubeEnv(sonarQubeEnv) {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
            steps.sh "mvn sonar:sonar -Dsonar.projectKey=${param.sonarProjectKey} -Dsonar.host.url=${param.sonarServerURL} " +
                    "-Dsonar.login=${param.sonarAuthKey} -Dsonar.forceAuthentication=true " +
                    "-Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.pullrequest.key=${mrKey}"
-            /*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
+            *//*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
                     "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
                     "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
-            */
-        }
+            *//*
+        }*/
     }
     /**
      *  publish scan report -- wip

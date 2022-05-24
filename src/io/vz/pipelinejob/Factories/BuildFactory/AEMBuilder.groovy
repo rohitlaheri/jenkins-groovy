@@ -42,10 +42,10 @@ public class AEMBuilder implements BuildCode, Serializable {
 
     @Override
     public void runBuild(def param) {
-        //boolean SRI_Flag = param.SRI
+        boolean SRI_Flag = param.SRI
         String aemModuleName = param.aemModuleName
         initializeEnvSetup(aemModuleName)
         steps.sh "printenv"
-        mavenBuild(SRI_Flag, moduleName)
+        mavenBuild(SRI_Flag, aemModuleName)
     }
 }

@@ -42,7 +42,7 @@ def call(body) {
                     }
                 }
             }
-            /*stage('scan') {
+            stage('scan') {
                 steps {
                     updateGitlabCommitStatus name: 'scan', state: 'pending'
                     script {
@@ -50,14 +50,14 @@ def call(body) {
                             scanTasks.call()
                             //updateGitlabCommitStatus name: 'scan', state: 'success'
                            //}
-                       *//* catch (e) {
+                        /*catch (e) {*/
                             echo $e
                             updateGitlabCommitStatus name: 'scan', state: 'failed'
                             currentBuild.result = 'FAILURE'
-                        }*//*
+                        //}
                     }
                 }
-            }*/
+            }
             /*stage('upload to Artifactory') {
                 steps {
                     script {
@@ -67,7 +67,7 @@ def call(body) {
                 }
             }*/
             
-            /*stage("Quality gate") {
+            stage("Quality gate") {
                 steps {
                     updateGitlabCommitStatus name: 'Quality gate', state: 'pending'
                     script {
@@ -82,16 +82,18 @@ def call(body) {
                                 else {
                                     updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
                                     updateGitlabCommitStatus name: 'build', state: 'success'
+                                    currentBuild.result = 'SUCCESS'
                                 }
                             }
 
-                        }catch (e) {
+                        }catch (Exception e) {
                             updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
+                            updateGitlabCommitStatus name: 'build', state: 'success'
                         }
                     }
 
                 }
-            }*/
+            }
             
             /*stage('release') {
                 steps {

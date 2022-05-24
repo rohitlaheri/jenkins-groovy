@@ -4,20 +4,9 @@
     <list default="true" id="44083896-6628-49a6-aef2-3c669f9b2f97" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/AEMBuilder.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/AEMBuilder.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/Configuration/BuildFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/Configuration/BuildFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/Configuration/BuildFactoryProducer.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/BuildFactory/Configuration/BuildFactoryProducer.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/CheckOutFactory/Configuration/CheckOutFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/CheckOutFactory/Configuration/CheckOutFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/CheckOutFactory/GitCheckOut.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/CheckOutFactory/GitCheckOut.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/BlackDuckScan.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/BlackDuckScan.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/Configuration/ScanCodeFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/Configuration/ScanCodeFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/Configuration/ScanCodeFactoryProducer.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/Configuration/ScanCodeFactoryProducer.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/SonarQubeScan.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/SonarQubeScan.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Helpers/CommonHelper.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Helpers/CommonHelper.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Model/PipelineConstants.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Model/PipelineConstants.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars/artiFactory.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/artiFactory.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars/buildTasks.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/buildTasks.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vars/mediator.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/mediator.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vars/scanTasks.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/vars/scanTasks.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,9 +1,5 @@
 package io.vz.pipelinejob.Helpers
 
-import groovy.json.JsonSlurperClassic
-/*import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;*/
 
 public class CommonHelper implements  Serializable{
     def jsonParser
