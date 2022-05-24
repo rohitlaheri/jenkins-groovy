@@ -8,7 +8,7 @@ public class BlackDuckScan implements ScanCode, Serializable {
 
 
     @Override
-    public void runScan() {
+    public void runScan(Map param) {
         print("Inside BlackDuckScan::runScan() method.")
         steps.echo "echo from class"
 
