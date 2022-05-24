@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44083896-6628-49a6-aef2-3c669f9b2f97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/BlackDuckScan.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/BlackDuckScan.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/SonarQubeScan.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/vz/pipelinejob/Factories/ScanFactory/SonarQubeScan.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

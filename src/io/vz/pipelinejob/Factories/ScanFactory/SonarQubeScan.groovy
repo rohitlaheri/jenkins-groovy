@@ -8,9 +8,9 @@ public class SonarQubeScan implements ScanCode, Serializable {
 
     def scanSonar(Map param){
         //def sonarQubeEnv = param.sonarQubeEnv
-        def mrKey = steps.sh(returnStdout: true, script: "echo ${env.BRANCH_NAME} | cut -d'-' -f2").trim()
-        def prKey = steps.sh(returnStdout: true, script: "echo ${env.gitlabMergeRequestIid}")
-        def prBranchName = steps.sh(returnStdout: true, script: "echo ${env.gitlabBranch}")
+        def mrKey = steps.sh(returnStdout: true, script: "echo ${steps.env.BRANCH_NAME} | cut -d'-' -f2").trim()
+        def prKey = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabMergeRequestIid}")
+        def prBranchName = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabBranch}")
         steps.echo "mrKey: ${mrKey}"
         steps.echo "mrKey: ${prKey}"
         teps.echo "mrKey: ${prBranchName}"
