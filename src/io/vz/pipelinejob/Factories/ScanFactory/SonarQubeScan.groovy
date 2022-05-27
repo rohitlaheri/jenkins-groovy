@@ -8,22 +8,20 @@ public class SonarQubeScan implements ScanCode, Serializable {
 
     def scanSonar(Map param){
         //def sonarQubeEnv = param.sonarQubeEnv
-        def mrKey = steps.sh(returnStdout: true, script: "echo ${steps.env.BRANCH_NAME} | cut -d'-' -f2").trim()
+        //def mrKey = steps.sh(returnStdout: true, script: "echo ${steps.env.BRANCH_NAME} | cut -d'-' -f2").trim()
         def prKey = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabMergeRequestIid}")
         def prBranchName = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabBranch}")
-        steps.echo "mrKey: ${mrKey}"
+        //steps.echo "mrKey: ${mrKey}"
         steps.echo "mrKey: ${prKey}"
         steps.echo "mrKey: ${prBranchName}"
-        /*steps.withSonarQubeEnv(sonarQubeEnv) {
+        steps.withSonarQubeEnv(sonarQubeEnv) {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
-           steps.sh "mvn sonar:sonar -Dsonar.projectKey=${param.sonarProjectKey} -Dsonar.host.url=${param.sonarServerURL} " +
-                   "-Dsonar.login=${param.sonarAuthKey} -Dsonar.forceAuthentication=true " +
-                   "-Dsonar.pullrequest.branch=${env.BRANCH_NAME} -Dsonar.pullrequest.key=${mrKey}"
+         steps.sh 'mvn sonar:sonar -Dsonar.projectKey=prdecproj -Dsonar.host.url=https://3665-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch={prBranchName} -Dsonar.pullrequest.key=${prKey} -Dsonar.pullrequest.base=master Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true'
             *//*steps.sh "sonar:sonar -Dsonar.host.url=${SONAR_HOST_URL} "+
-                    "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
-                    "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
+                   // "-Dsonar.login=${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true "+
+                   // "-Dsonar.projectKey=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.branch.name=${Branch_Name} -Dsonar.projectName=VZW_HIVV_${SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
             *//*
-        }*/
+        }
     }
     /**
      *  publish scan report -- wip
