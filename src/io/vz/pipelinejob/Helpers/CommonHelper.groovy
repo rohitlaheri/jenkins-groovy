@@ -11,10 +11,13 @@ public class CommonHelper implements  Serializable{
     }
 
     public def getModuleConfig(){
-        this.steps.writeFile file:'configuration.json', text:this.steps.libraryResource("configuration.json")
-        this.steps.sh "ls"
-        def jsonValue = this.steps.readFile("configuration.json")
-        def jObject =  jsonParse(jsonValue)
+        //this.steps.writeFile file:'configuration.json', text:this.steps.libraryResource("configuration.json")
+        //this.steps.sh "ls"
+       // def jsonValue = this.steps.readFile("configuration.json")
+        def get = 'cat configuration.json | jq -r \'.module.AEMModule\''
+        def JObject = steps.sh (script: get , returnStdout:true)           
+       // def jObject =  jsonParse(jsonValue)
+       steps.echo "JObject:" +JObject
         return jObject.module.AEMModule;
     }
     public def getAEMDevServerConfiguration(){
