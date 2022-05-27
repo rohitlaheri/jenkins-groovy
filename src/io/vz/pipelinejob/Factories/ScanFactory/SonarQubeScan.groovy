@@ -16,7 +16,7 @@ public class SonarQubeScan implements ScanCode, Serializable {
         steps.echo "mrKey: ${prBranchName}"
         steps.withSonarQubeEnv(sonarQubeEnv) {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
-         steps.sh "mvn sonar:sonar -X -Dsonar.projectKey=prdecproj -Dsonar.host.url=https://3665-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=${steps.env.gitlabBranch} -Dsonar.pullrequest.key=${steps.env.gitlabMergeRequestIid} -Dsonar.pullrequest.base=master Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true -Dsonar.coverage.exclusions=**/*.java -Dsonar.exclusions= **/*.java"
+         steps.sh "mvn sonar:sonar -X -Dsonar.projectKey=prdecproj -Dsonar.host.url=https://3665-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.forceAuthentication=true -Dsonar.pullrequest.branch=${steps.env.gitlabBranch} -Dsonar.pullrequest.key=${steps.env.gitlabMergeRequestIid} -Dsonar.pullrequest.base=master -Dsonar.analysis.mode=publish -Dsonar.issuesReport.xml.enable=true -Dsonar.coverage.exclusions=**/*.java -Dsonar.exclusions= **/*.java"
            
         }
     }
