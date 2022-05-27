@@ -34,6 +34,7 @@ public class SonarQubeScan implements ScanCode, Serializable {
             def get = 'cat sonar_res.json | jq -r \'.measures[].history[-1].value\''
             coverage_percentage = sh (script: get , returnStdout:true)
             println coverage_percentage
+            
 
             echo "coverage percentage  : ${coverage_percentage}"
             if (coverage_percentage.trim() > QUALITY_THRESHOLD && coverage_percentage.trim() != "null"){
