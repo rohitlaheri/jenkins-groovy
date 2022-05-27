@@ -17,7 +17,8 @@ public class CommonHelper implements  Serializable{
         def get = 'cat configuration.json | jq -r \'.module.AEMModule\''
         def JObject = steps.sh (script: get , returnStdout:true) 
         steps.echo "Module "+   JObject       
-        def selected= jq '.[] | select(.name=="onevz-soe-aem-assisted-account-landing")' fruits.json
+        def selectedQuery= 'jq '.[] | select(.name==\'onevz-soe-aem-assisted-account-landing\') fruits.json'
+        def selected = steps.sh (script: selectedQuery , returnStdout:true) 
         steps.echo "Selection " + selected
         return jObject.module.AEMModule;
     }
