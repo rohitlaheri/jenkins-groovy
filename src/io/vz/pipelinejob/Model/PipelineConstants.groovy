@@ -102,4 +102,8 @@ public final class PipelineConstants implements Serializable {
     public static final String SOE_LEAD_MGMT_APP_MODULE = "soe-lead-management"
     public static final String SOE_LEAD_MGMT_MVN_TARGET_PATH = "com.verizon.vcg.soe.leadmanagement.aem-ui.apps"
     public static final String SOE_LEAD_MGMT_ARTI_REPO = "onevz-soe-aem-lead-management"
+    public static final String  DOCKER_HOST = "hivv-docker-np.oneartifactoryprod.verizon.com"
+    public static final String DOCKER_BUILD_IMAGE= "build-env/jdk-maven:test1"
+    public static final String DOCKER_CREDENTIAL_ID = "SVC-HIVV-SOEDEVOPS"
+    public static final String DOCKER_CREDENTIALS_KEY = "docker_credentials_id"
 }

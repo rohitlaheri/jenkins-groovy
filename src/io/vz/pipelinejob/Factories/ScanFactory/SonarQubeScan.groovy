@@ -8,10 +8,9 @@ public class SonarQubeScan implements ScanCode, Serializable {
 
     def scanSonar(Map param){
         //def sonarQubeEnv = param.sonarQubeEnv
-        def mrKey = steps.sh(returnStdout: true, script: "echo ${steps.env.BRANCH_NAME} | cut -d'-' -f2").trim()
         def prKey = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabMergeRequestIid}")
         def prBranchName = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabBranch}")
-        steps.echo "mrKey: ${mrKey}"
+        //steps.echo "mrKey: ${mrKey}"
         steps.echo "mrKey: ${prKey}"
         steps.echo "mrKey: ${prBranchName}"
         /*steps.withSonarQubeEnv(sonarQubeEnv) {
@@ -25,6 +24,24 @@ public class SonarQubeScan implements ScanCode, Serializable {
             *//*
         }*/
     }
+
+    def ScanSonarWithRunner(Map args) {
+        steps.withSonarQubeEnv('onesonarcloud-prod') {
+            steps.sh "${args.RUNNER} sh -c \"export SONAR_USER_HOME='/repository';mvn clean -B verify -Donevz.build.skipTests=false -Dmaven.test.skip=false -Dmaven.compiler.source=11 -Dmaven.compiler.target=11 org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.1.1688:sonar -Dsonar.host.url=\${SONAR_HOST_URL} "+
+                    "-Dsonar.login=\${SONAR_AUTH_TOKEN} -Dsonar.sources=src/main/java/ -Dsonar.test.exclusions=src/test/java -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml -Dsonar.analysis.mode=publish -Dsonar.buildbreaker.skip=true -Dsonar.issuesReport.xml.enable=true "+
+                    "-Dsonar.projectKey=VZW_HIVV_${args.SONAR_PROJECT_KEY} -Dsonar.projectName=VZW_HIVV_${args.SONAR_PROJECT_KEY} -Dsonar.projectVersion=1.0 -Dsonar.forceAuthentication=true\""
+
+
+        }
+    }
+
+
+
+
+
+
+
+
     /**
      *  publish scan report -- wip
      * @return null

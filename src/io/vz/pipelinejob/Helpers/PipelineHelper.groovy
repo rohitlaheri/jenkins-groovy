@@ -3,9 +3,12 @@ package io.vz.pipelinejob.Helpers
 public class PipelineHelper implements  Serializable{
     def steps
     def commonHelper
+    def pipelineConst
+
     PipelineHelper(steps) {
         this.steps = steps
         this.commonHelper=new CommonHelper(this.steps)
+        this.pipelineConst = new PipelineConstants()
     }
     def setAEMModule(String moduleName){
         steps.echo "calling get module"
@@ -50,4 +53,29 @@ public class PipelineHelper implements  Serializable{
         }
         return releaseVersion
     }
+
+    def setRunnerEnv(def param) {
+        String docker_host = param.dockerHost ?: this.pipelineConst.DOCKER_HOST
+        String vsad = param.VSAD
+        String lob = param.LOB
+        //String build_image = "build-env/jdk11-maven:v6_neweks1"
+        String build_image = this.pipelineConst.DOCKER_BUILD_IMAGE
+        String credentialsId = this.pipelineConst.DOCKER_CREDENTIAL_ID
+        String docker_credentials_id = param.containsKey(this.pipelineConst.DOCKER_CREDENTIA_KEY) ? param.dockerCredentialsId : credentialsId
+        this.steps.env.RUNNER =  this.commonHelper.setUpRunnerWithLogin(
+                DOCKER_HOST: docker_host,
+                DOCKER_ACCOUNT: lob + "/" + vsad,
+                VSAD: vsad,
+                BUILD_IMAGE: build_image,
+                DOCKER_CREDS_ID: docker_credentials_id
+        )
+    }
+
+
+
+
+
+
+
+
 }
