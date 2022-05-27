@@ -51,9 +51,9 @@ def call(body) {
                             //updateGitlabCommitStatus name: 'scan', state: 'success'
                            //}
                         /*catch (e) {*/
-                            echo $e
-                            updateGitlabCommitStatus name: 'scan', state: 'failed'
-                            currentBuild.result = 'FAILURE'
+                            // echo $e
+                            // updateGitlabCommitStatus name: 'scan', state: 'failed'
+                            // currentBuild.result = 'FAILURE'
                         //}
                     }
                 }
