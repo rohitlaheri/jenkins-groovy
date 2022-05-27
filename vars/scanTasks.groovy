@@ -8,6 +8,7 @@ def call(param)
     ScanCodeFactoryProducer scanCodeFactoryProducer =new ScanCodeFactoryProducer ();
     ScanCodeAbstractFactory scanFactory = scanCodeFactoryProducer.getFactory(this)
     echo "Producer called"
+    ls
     ScanCode scanCode = scanFactory.getScanner(scanType)
     echo "Factory Generated"
     scanCode.runScan(param)
