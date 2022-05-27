@@ -1,4 +1,5 @@
 package io.vz.pipelinejob.Helpers
+import io.vz.pipelinejob.Helpers.*
 
 public class PipelineHelper implements  Serializable{
     def steps
