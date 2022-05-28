@@ -80,7 +80,7 @@ def call(body) {
                                     updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
                                 }
                                 else {
-                                    updateGitlabCommitStatus name: 'Quality gate', state: 'failed'
+                                    updateGitlabCommitStatus name: 'Quality gate', state: 'success'
                                     updateGitlabCommitStatus name: 'build', state: 'success'
                                     currentBuild.result = 'SUCCESS'
                                 }
