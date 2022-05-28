@@ -73,7 +73,7 @@ def call(body) {
                     script {
                         try{
                             //waitForQualityGate abortPipeline: true
-                            timeout(time: 1, unit: 'HOURS') {
+                            timeout(time: 2, unit: 'MINUTES') {
                                 def qualityGate = waitForQualityGate()
                                 if (qualityGate.status == 'ERROR') {
                                     currentBuild.result = 'FAILURE'
