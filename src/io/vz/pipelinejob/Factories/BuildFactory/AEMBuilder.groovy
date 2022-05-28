@@ -30,6 +30,7 @@ public class AEMBuilder implements BuildCode, Serializable {
     def mavenBuild(boolean SRI, String module){
        if(module.equalsIgnoreCase(this.pipelineConst.SOE_AEM_DIGITAL_NEXT)) {
             steps.sh "mvn clean install"
+           steps.sh "npm install"
         }
         //steps.sh "mvn clean install -X -pl \\${APPLICATION_MODULE},\\${UI_MODULE} -Dbaseline.skip=true -Dvault.useProxy=false  -Dsettings.security=settings-security.xml  -Dmaven.repo.local=$WORKSPACE/ui-repo -Drevision=22.04.100.${BUILD_NUMBER}  -DBuildNumber=${BUILD_NUMBER}"
 
