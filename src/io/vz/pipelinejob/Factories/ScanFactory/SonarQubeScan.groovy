@@ -16,7 +16,22 @@ public class SonarQubeScan implements ScanCode, Serializable {
         steps.echo "mrKey: ${prBranchName}"
         steps.withSonarQubeEnv(sonarQubeEnv) {
             //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
-         steps.sh "mvn clean package sonar:sonar -X -Dsonar.host.url=https://a84b-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.projectKey=prdecproj  -Dsonar.pullrequest.branch=${steps.env.gitlabBranch} -Dsonar.pullrequest.key=${steps.env.gitlabMergeRequestIid} -Dsonar.pullrequest.base=master -Dsonar.forceAuthentication=true -Dsonar.verbose=true -Dsonar.coverage.jacoco.xmlReportPaths=bundles/core/target/site/jacoco/jacoco.xml -Dsonar.issuesReport.xml.enable=true -Dsonar.analysis.mode=publish"
+         steps.sh "mvn clean package sonar:sonar -X -Dsonar.host.url=https://a84b-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.projectKey=prdecproj  -Dsonar.pullrequest.branch=${steps.env.gitlabBranch} -Dsonar.pullrequest.key=${steps.env.gitlabMergeRequestIid} -Dsonar.pullrequest.base=master -Dsonar.exclusions=core -Dsonar.forceAuthentication=true -Dsonar.verbose=true -Dsonar.coverage.jacoco.xmlReportPaths=bundles/core/target/site/jacoco/jacoco.xml -Dsonar.issuesReport.xml.enable=true -Dsonar.analysis.mode=publish"
+           
+        }
+    }
+    
+    def scanSonarJava(Map param){
+        def sonarQubeEnv = param.sonarQubeEnv
+        //def mrKey = steps.sh(returnStdout: true, script: "echo ${steps.env.BRANCH_NAME} | cut -d'-' -f2").trim()
+        def prKey = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabMergeRequestIid}")
+        def prBranchName = steps.sh(returnStdout: true, script: "echo ${steps.env.gitlabBranch}")
+        //steps.echo "mrKey: ${mrKey}"
+        steps.echo "mrKey: ${prKey}"
+        steps.echo "mrKey: ${prBranchName}"
+        steps.withSonarQubeEnv(sonarQubeEnv) {
+            //steps.sh 'mvn clean package sonar:sonar -Dsonar.projectKey=my-aem-project -Dsonar.projectName=my-aem-project -Dsonar.issuesReport.xml.enable=true'
+         steps.sh "mvn clean package sonar:sonar -X -Dsonar.host.url=https://a84b-173-71-125-24.ngrok.io -Dsonar.login=976b6274cf5f2bf30f80ca62064f1c0520032f6e -Dsonar.projectKey=prdecproj  -Dsonar.pullrequest.branch=${steps.env.gitlabBranch} -Dsonar.pullrequest.key=${steps.env.gitlabMergeRequestIid} -Dsonar.pullrequest.base=master -Dsonar.forceAuthentication=true -Dsonar.verbose=true -Dsonar.jacoco.reportPath=target/jacoco.exec -Dsonar.coverage.jacoco.xmlReportPaths=target -Dsonar.java.binaries=target -Dsonar.sources=src -Dsonar.language=java -Dsonar.issuesReport.xml.enable=true -Dsonar.analysis.mode=publish"
            
         }
     }
@@ -56,7 +71,16 @@ public class SonarQubeScan implements ScanCode, Serializable {
     @Override
     public void runScan(Map param) {
         //steps.echo "echo from class"
-        scanSonar(param)
+        if(param.java == true)
+        {
+            steps.echo "java true"
+            scanSonarJava(param)
+        }
+        else {
+            scanSonar(param)
+        }
+        
+        
         //publishScanReport()
 
     }
