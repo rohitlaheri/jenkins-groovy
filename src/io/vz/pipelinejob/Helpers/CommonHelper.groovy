@@ -13,7 +13,7 @@ public class CommonHelper implements  Serializable{
     public def getModuleConfig(module){
         this.steps.writeFile file:'configuration.json', text:this.steps.libraryResource("configuration.json")
         def getname = 'cat configuration.json | jq  \'.module.AEMModule | .[] | select(.name == ${module}) | .name\''
-        echo "script :" + $getname
+        steps.echo "script :" + $getname
         def JObjectname = steps.sh(script: getname , returnStdout:true)
         
         //this.steps.sh "ls"
