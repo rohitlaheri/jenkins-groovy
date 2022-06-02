@@ -9,7 +9,7 @@ public class PipelineHelper implements  Serializable{
     }
     def setAEMModule(String moduleName){
         steps.echo "calling get module"
-        def modules=this.commonHelper.getModuleConfig()
+        def modules=this.commonHelper.getModuleConfig(moduleName)
         def matchedModule = modules.find{module -> module.name == moduleName}
         steps.echo "matched Module " +matchedModule
         // Need to handle null - Default case (Module not found)
