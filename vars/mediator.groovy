@@ -26,11 +26,13 @@ def call(body) {
                         // temp logging //
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
-                        checkOutTasks.call(pipelineParams)
+                        def response = checkOutTasks.call(pipelineParams)
+                        echo "response checkout tasks: " + response
+                        
                     }
                 }
             }
-
+            /*
             stage('build') {
                 steps {
                     updateGitlabCommitStatus name: 'build', state: 'pending'
@@ -66,7 +68,7 @@ def call(body) {
                     }
                 }
             }*/
-            
+            /*
             stage("Quality gate") {
                 steps {
                     updateGitlabCommitStatus name: 'Quality gate', state: 'pending'
@@ -94,7 +96,7 @@ def call(body) {
 
                 }
             }
-            
+            */
             /*stage('release') {
                 steps {
                     script {
