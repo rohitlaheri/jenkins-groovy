@@ -59,7 +59,7 @@ def call(body) {
                         //}
                     }
                 }
-            }
+            //}
             /*stage('upload to Artifactory') {
                 steps {
                     script {
