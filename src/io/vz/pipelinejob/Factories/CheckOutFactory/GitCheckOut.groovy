@@ -54,7 +54,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         this.steps.echo param.branch
         this.steps.echo param.repoURL
         checkoutGit(param)
-        def rep = this.steps.changeset pattern: "**/pom.xml"
-        this.steps.echo rep
+        def changeLogSets = currentBuild.changeSets
+        this.steps.echo changeLogSets
     }
 }
