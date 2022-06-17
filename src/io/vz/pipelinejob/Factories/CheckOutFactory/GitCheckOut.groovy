@@ -87,7 +87,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
                         }
                         } */
                 
-                def local_branch = steps.sh (
+              /*  def local_branch = steps.sh (
                 script: "git rev-parse --abbrev-ref HEAD",
                 label: "Getting current branch name",
                 returnStdout: true
@@ -108,8 +108,12 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
                 script: "git diff --name-only origin/${base_branch}..${local_branch}",
                 returnStdout: true
             ).trim()
-            steps.echo "git_diff" git_diff
+            steps.echo "git_diff" git_diff */
         
+        def changedFiles = steps.pullRequest.files.collect {
+            it.getFilename()
+        }
+        steps.echo "git_diff" changedFiles
         
         
         
