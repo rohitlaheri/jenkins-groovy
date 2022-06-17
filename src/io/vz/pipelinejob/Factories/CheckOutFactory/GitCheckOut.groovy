@@ -45,9 +45,8 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
     }
     def changeFile()
     {
-        String getChangedFilesList() {
 
-            changedFiles = []
+            def changedFiles = []
             for (changeLogSet in currentBuild.changeSets) { 
                 for (entry in changeLogSet.getItems()) { // for each commit in the detected changes
                     for (file in entry.getAffectedFiles()) {
@@ -58,7 +57,6 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
 
             return changedFiles
 
-}   
     }
     /**
      * Implementing checkout interface
