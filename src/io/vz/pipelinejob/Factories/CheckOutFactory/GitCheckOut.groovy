@@ -45,15 +45,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
     }
     def changeFile()
     {
-
-            def changedFiles = []
-            for (changeLogSet in currentBuild.changeSets) { 
-                for (entry in changeLogSet.getItems()) { // for each commit in the detected changes
-                    for (file in entry.getAffectedFiles()) {
-                        changedFiles.add(file.getPath()) // add changed file to list
-                    }
-                }
-            }
+        def pomChanged = this.steps.changeset pattern: "**/pom.xml"
 
             return changedFiles
 
@@ -69,6 +61,6 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         this.steps.echo param.repoURL
         checkoutGit(param)
         def repsonse = changeFile()
-        this.steps.echo "response" + response
+        this.steps.echo "pomChanged" + response
     }
 }
