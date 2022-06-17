@@ -1,9 +1,5 @@
 #!/usr/bin/groovy
-@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.5.2' )
-import static groovyx.net.http.ContentType.JSON
-import groovyx.net.http.RESTClient
-import groovy.util.slurpersupport.GPathResult
-import static groovyx.net.http.ContentType.URLENC
+
 
 def call(body) {
 
@@ -12,13 +8,7 @@ def call(body) {
     body.delegate = pipelineParams
     body()
 
-    def basecamp = new RESTClient( "https://api.publicapis.org/entries".toString() )
-
-    def response = basecamp.get(
-                       path: "projects.json",
-                       headers: ["User-Agent": "My basecamp application (myemail@domain.com)"]
-                    )
-    echo response.data.toString(2)
+   
     /**
      *
      */
