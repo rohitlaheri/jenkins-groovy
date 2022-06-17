@@ -103,18 +103,12 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
             steps.echo "Base branch is ${base_branch}"
 
             //steps.sh script: "git fetch origin --no-tags ${base_branch}", label: "Getting base branch"
-
+*/
             def git_diff = steps.sh (
-                script: "git diff --name-only origin/${base_branch}..${local_branch}",
+                script: "git --no-pager diff origin/$CHANGE_TARGET --name-only",
                 returnStdout: true
-            ).trim()
-            steps.echo "git_diff" git_diff */
-        
-        def changedFiles = steps.pullRequest.files.collect {
-            it.getFilename()
-        }
-        steps.echo "git_diff" changedFiles
-        
+            )
+            steps.echo "git_diff" git_diff 
         
         
     }
