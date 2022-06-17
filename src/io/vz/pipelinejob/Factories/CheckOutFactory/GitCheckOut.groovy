@@ -54,40 +54,40 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         this.steps.echo param.branch
         this.steps.echo param.repoURL
         checkoutGit(param)
-       /* def changeLogSets = steps.currentBuild.changeSets
-for (int i = 0; i < changeLogSets.size(); i++) {
-    def entries = changeLogSets[i].items
-    for (int j = 0; j < entries.length; j++) {
-        def entry = entries[j]
-        steps.echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
-        def files = new ArrayList(entry.affectedFiles)
-        for (int k = 0; k < files.size(); k++) {
-            def file = files[k]
-            def filePath = file.path
-            steps.echo "changes:   ${file.path}"
-            if(filePath.contains("pom.xml"))
-            {
-             steps.echo "pomchanged: true"   
-            }
-            else
-                steps.echo "pomchnaged: false" */
-         /*  def lastSuccessfulHash = null
-          def lastSuccessfulBuild = currentBuild.rawBuild.getPreviousSuccessfulBuild()
-          if ( lastSuccessfulBuild ) {
-            def scmAction = build?.actions.find { action -> action instanceof jenkins.scm.api.SCMRevisionAction }
-            lastSuccessfulHash = scmAction?.revision?.hash
-            def currentCommit = commitHashForBuild( currentBuild.rawBuild )
-              if (lastSuccessfulHash) {
-                commits = sh(
-                  script: "git rev-list $currentCommit \"^$lastSuccessfulHash\"",
-                  returnStdout: true
-                ).split('\n')
-                steps.echo "Commits are: $commits" 
-        
-             }
-            } */
+            /* def changeLogSets = steps.currentBuild.changeSets
+            for (int i = 0; i < changeLogSets.size(); i++) {
+                def entries = changeLogSets[i].items
+                for (int j = 0; j < entries.length; j++) {
+                    def entry = entries[j]
+                    steps.echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
+                    def files = new ArrayList(entry.affectedFiles)
+                    for (int k = 0; k < files.size(); k++) {
+                        def file = files[k]
+                        def filePath = file.path
+                        steps.echo "changes:   ${file.path}"
+                        if(filePath.contains("pom.xml"))
+                        {
+                        steps.echo "pomchanged: true"   
+                        }
+                        else
+                            steps.echo "pomchnaged: false" */
+                    /*  def lastSuccessfulHash = null
+                    def lastSuccessfulBuild = currentBuild.rawBuild.getPreviousSuccessfulBuild()
+                    if ( lastSuccessfulBuild ) {
+                        def scmAction = build?.actions.find { action -> action instanceof jenkins.scm.api.SCMRevisionAction }
+                        lastSuccessfulHash = scmAction?.revision?.hash
+                        def currentCommit = commitHashForBuild( currentBuild.rawBuild )
+                        if (lastSuccessfulHash) {
+                            commits = sh(
+                            script: "git rev-list $currentCommit \"^$lastSuccessfulHash\"",
+                            returnStdout: true
+                            ).split('\n')
+                            steps.echo "Commits are: $commits" 
+                    
+                        }
+                        } */
                 
-                     def local_branch = steps.sh (
+                def local_branch = steps.sh (
                 script: "git rev-parse --abbrev-ref HEAD",
                 label: "Getting current branch name",
                 returnStdout: true
@@ -112,9 +112,7 @@ for (int i = 0; i < changeLogSets.size(); i++) {
         
         
         
-        }
+        
     }
 }
        
-    }
-}
