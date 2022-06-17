@@ -57,7 +57,11 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         def changeLogSets = this.steps.currentBuild.changeSets
         for(int i = 0; i < changeLogSets.size(); i++)
         {
-           this.steps.echo "chnages: " + changeLogSets[i].items   
+            def entries = changeLogSets[i].items
+            for (int j = 0; j < entries.length; j++) {
+                this.steps.echo "chnages: " + entries[j].affectedFiles
+            }
+           
         }
        
     }
