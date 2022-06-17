@@ -102,7 +102,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
             // Use whatever works for you.
             steps.echo "Base branch is ${base_branch}"
 
-            steps.sh script: "git fetch origin --no-tags ${base_branch}", label: "Getting base branch"
+            //steps.sh script: "git fetch origin --no-tags ${base_branch}", label: "Getting base branch"
 
             def git_diff = steps.sh (
                 script: "git diff --name-only origin/${base_branch}..${local_branch}",
