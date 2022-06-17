@@ -63,7 +63,14 @@ for (int i = 0; i < changeLogSets.size(); i++) {
         def files = new ArrayList(entry.affectedFiles)
         for (int k = 0; k < files.size(); k++) {
             def file = files[k]
+            def filePath = ${file.path}
             steps.echo "changes:   ${file.path}"
+            if(filePath.contains("pom.xml"))
+            {
+             steps.echo "pomchanged: true"   
+            }
+            else
+                steps.echo "pomchnaged: false"
         }
     }
 }
