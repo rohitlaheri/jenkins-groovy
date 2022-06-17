@@ -55,6 +55,10 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         this.steps.echo param.repoURL
         checkoutGit(param)
         def changeLogSets = this.steps.currentBuild.changeSets
-        this.steps.echo changeLogSets.toString()
+        for(int i = 0; i < changeLogSets.size(); i++)
+        {
+           this.steps.echo "chnages: " + changeLogSets[i].items   
+        }
+       
     }
 }
