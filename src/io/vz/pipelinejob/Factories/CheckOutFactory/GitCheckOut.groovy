@@ -43,13 +43,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
             ]])
         }
     }
-    def changeFile()
-    {
-        def pomChanged = this.steps.changeset pattern: "**/pom.xml"
-
-            return changedFiles
-
-    }
+    
     /**
      * Implementing checkout interface
      * @param param
@@ -60,7 +54,7 @@ public class GitCheckOut implements CheckOutCode, Serializable  {
         this.steps.echo param.branch
         this.steps.echo param.repoURL
         checkoutGit(param)
-        def repsonse = changeFile()
+        def repsonse = this.steps.changeset pattern: "**/pom.xml"
         this.steps.echo "pomChanged" + response
     }
 }
