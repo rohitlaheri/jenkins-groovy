@@ -42,7 +42,7 @@ def call(body) {
                             sleep(20 * Math.random())
                         }
                     }
-                    stage(echo b) {
+                    stage('echo b') {
                         steps {
                             echo "parallel name rohit"   
                         }
