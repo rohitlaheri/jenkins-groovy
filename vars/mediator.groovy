@@ -11,6 +11,7 @@ def call(body) {
     def stage2="parallel-2"
     def parent="parent"
     def parallelStages = [:]
+    def scanToRun = []
     def map = [
         "stage1","stage2","stage3"]
     /**
@@ -41,11 +42,17 @@ def call(body) {
             stage(parent) {
                 steps {
                     script {
-                        map.each { entry ->
-                            parallelStages[entry] = {
-                                stage(entry) {
+                        map.each {entry ->
+                            if (entry == 'stage1' || entry == 'stage2') {
+                                scanToRun.add(entry)   
+                            }
+                        }
+                         
+                        scanToRun.each { scan ->
+                            parallelStages[scan] = {
+                                stage(scan) {
                                     
-                                        echo "stage name " + entry
+                                        echo "stage name " + scan
                                         sleep(10 * Math.random())
                                     }
                             }
