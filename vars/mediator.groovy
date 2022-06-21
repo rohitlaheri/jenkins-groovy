@@ -55,8 +55,9 @@ def call(body) {
                             }
                             
                         }
+                         parallel parallelStages
                     }
-                    parallel parallelStages
+                   
                 }
                 /*parallel {
                     stage(stage1) {
