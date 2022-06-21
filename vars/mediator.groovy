@@ -10,7 +10,8 @@ def call(body) {
     def stage1="parallel-1"
     def stage2="parallel-2"
     def parent="parent"
-   
+    def map = [
+        "stage1","stage2","stage3"]
     /**
      *
      */
@@ -37,7 +38,25 @@ def call(body) {
                 }
             }
             stage(parent) {
-                parallel {
+                steps {
+                    script {
+                        map.each { entry ->
+                            parallelStages[entry] = {
+                                node{
+                                    stage(entry) {
+                                         when {
+                                            expression {entry == 'stage1' || entry == 'stage3'}
+                                        }
+                                        echo "stage name " + p
+                                        sleep(10 * Math.random())
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                /*parallel {
                     stage(stage1) {
                         when {
                             expression {stage1 == "parallel-2"}
@@ -54,8 +73,8 @@ def call(body) {
                         steps {
                             echo "parallel name rohit"   
                         }
-                    }
-                }
+                    } 
+                } */
             }
             // stage('build') {
             //     steps {
