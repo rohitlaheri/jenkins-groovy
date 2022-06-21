@@ -7,7 +7,9 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = pipelineParams
     body()
-
+    def stage1="parallel-1"
+    def stage2="parallel-2"
+    def parent="parent"
    
     /**
      *
@@ -34,15 +36,15 @@ def call(body) {
                     }
                 }
             }
-            stage('para') {
+            stage(parent) {
                 parallel {
-                    stage('echo a') {
+                    stage(stage1) {
                         steps {
                             echo "rohit laheri"
                             sleep(20 * Math.random())
                         }
                     }
-                    stage('echo b') {
+                    stage(stage2) {
                         steps {
                             echo "parallel name rohit"   
                         }
