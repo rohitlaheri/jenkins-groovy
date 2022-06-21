@@ -10,6 +10,7 @@ def call(body) {
     def stage1="parallel-1"
     def stage2="parallel-2"
     def parent="parent"
+    def parallelStages = [:]
     def map = [
         "stage1","stage2","stage3"]
     /**
@@ -55,6 +56,7 @@ def call(body) {
                             
                         }
                     }
+                    parallel parallelStages
                 }
                 /*parallel {
                     stage(stage1) {
