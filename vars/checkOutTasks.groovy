@@ -3,7 +3,7 @@
 import io.vz.pipelinejob.Factories.CheckOutFactory.Configuration.*
 
 
-def call(Map param)
+def call(Map param, String parent)
 {
     def repoType = param.scmType
     CheckOutAbstractFactory checkOutAbstractFactory = CheckOutFactoryProducer.getFactory(this)
@@ -12,6 +12,7 @@ def call(Map param)
     echo "Factory Generated"
     checkOutCode.checkOut(param)
     echo "Completed"
+    echo "parent variable contains: " + parent
     def ret = "return from checkoutTasks"
     return ret
 }
