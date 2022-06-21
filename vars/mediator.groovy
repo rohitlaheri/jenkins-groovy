@@ -43,13 +43,11 @@ def call(body) {
                     script {
                         map.each { entry ->
                             parallelStages[entry] = {
-                                node{
-                                    stage(entry) {
+                                stage(entry) {
                                     
-                                        echo "stage name " + p
+                                        echo "stage name " + entry
                                         sleep(10 * Math.random())
                                     }
-                                }
                             }
                             
                         }
