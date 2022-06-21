@@ -39,12 +39,18 @@ def call(body) {
             stage(parent) {
                 parallel {
                     stage(stage1) {
+                        when {
+                            expression {stage1 == "parallel-2"}
+                        }
                         steps {
                             echo "rohit laheri"
                             sleep(20 * Math.random())
                         }
                     }
                     stage(stage2) {
+                        when {
+                            expression {stage1 == "parallel-1"}
+                        }
                         steps {
                             echo "parallel name rohit"   
                         }
