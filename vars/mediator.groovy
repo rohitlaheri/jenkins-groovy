@@ -33,7 +33,7 @@ def call(body) {
                         // temp logging //
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
-                        def responseFromTasks = checkOutTasks.call(pipelineParams)
+                        def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
                         echo "response checkout tasks: " + responseFromTasks
                         
                     }
