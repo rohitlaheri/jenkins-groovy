@@ -45,9 +45,7 @@ def call(body) {
                             parallelStages[entry] = {
                                 node{
                                     stage(entry) {
-                                         when {
-                                            expression {entry == 'stage1' || entry == 'stage3'}
-                                        }
+                                    
                                         echo "stage name " + p
                                         sleep(10 * Math.random())
                                     }
