@@ -34,7 +34,21 @@ def call(body) {
                     }
                 }
             }
-            
+            stage('para') {
+                parallel {
+                    stage('echo a') {
+                        steps {
+                            echo "rohit laheri"
+                            sleep(20 * Math.random())
+                        }
+                    }
+                    stage(echo b) {
+                        steps {
+                            echo "parallel name rohit"   
+                        }
+                    }
+                }
+            }
             // stage('build') {
             //     steps {
             //         updateGitlabCommitStatus name: 'build', state: 'pending'
