@@ -63,7 +63,7 @@ def call(body) {
                             stage(stg) {
                                 steps {
                                     script {
-                                        stg + ".call()"
+                                        echo stg
                                     }
                                 }
                             }

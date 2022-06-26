@@ -13,6 +13,7 @@ def call(Map param, String parent)
     checkOutCode.checkOut(param)
     stages = ["displaytaske1","displaytaske2"]
     env.STAGES = stages
+    echo "STAGES = " + env.STAGES
     echo "Completed"
     echo "parent variable contains: " + parent
     def ret = "return from checkoutTasks"
