@@ -1,4 +1,4 @@
 def call()
 {
-    echo "dispaly task 1"
+    echo "task 1"
 }

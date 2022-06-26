@@ -64,8 +64,8 @@ def call(body) {
                         dynamicStages.each { stg -> 
                             stage(stg) {
                                 script {
-                                    displaytaske1.call()
-                                    "${stg}.call()"
+                                    stg.call()
+                                    
                                 }
                             }
                         }
