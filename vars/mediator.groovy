@@ -65,7 +65,7 @@ def call(body) {
                             stage(stg) {
                                 script {
                                     
-                                    (echo "${stg}").call()
+                                    echo "${stg}.call"
                                     
                                 }
                             }
