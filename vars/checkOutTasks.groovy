@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 import io.vz.pipelinejob.Factories.CheckOutFactory.Configuration.*
-
+def stages = []
 
 def call(Map param, String parent)
 {
@@ -11,6 +11,8 @@ def call(Map param, String parent)
     CheckOutCode checkOutCode = checkOutAbstractFactory.getCheckOutFactory(repoType)
     echo "Factory Generated"
     checkOutCode.checkOut(param)
+    stages = ["displaytaske1","displaytaske2"]
+    env.STAGES = stages
     echo "Completed"
     echo "parent variable contains: " + parent
     def ret = "return from checkoutTasks"

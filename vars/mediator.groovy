@@ -39,26 +39,35 @@ def call(body) {
                     }
                 }
             }
-            stage(parent) {
+            stage(dsiplay) {
                 steps {
                     script {
-                        map.each {entry ->
-                            if (entry == 'stage1' || entry == 'stage2') {
-                                scanToRun.add(entry)   
-                            }
-                        }
+                        // map.each {entry ->
+                        //     if (entry == 'stage1' || entry == 'stage2') {
+                        //         scanToRun.add(entry)   
+                        //     }
+                        // }
                          
-                        scanToRun.each { scan ->
-                            parallelStages[scan] = {
-                                stage(scan) {
+                        // scanToRun.each { scan ->
+                        //     parallelStages[scan] = {
+                        //         stage(scan) {
                                     
-                                        echo "stage name " + scan
-                                        sleep(10 * Math.random())
-                                    }
-                            }
+                        //                 echo "stage name " + scan
+                        //                 sleep(10 * Math.random())
+                        //             }
+                        //     }
                             
+                        // }
+                        //  parallel parallelStages
+                        env.STAGES.each { stg -> 
+                            stage(stg) {
+                                steps {
+                                    script {
+                                        stg + ".call()"
+                                    }
+                                }
+                            }
                         }
-                         parallel parallelStages
                     }
                    
                 }
