@@ -16,8 +16,8 @@ def call(Map param, String parent)
     echo "STAGES = " + env.STAGES
     echo "Completed"
     echo "parent variable contains: " + parent
-    def ret = "return from checkoutTasks"
-    return ret
+    //def ret = stages
+    return stages
 }
 
 

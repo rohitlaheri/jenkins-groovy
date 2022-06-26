@@ -19,6 +19,7 @@ def call(body) {
      */
     def repoUrl = pipelineParams.repoURL ?: env.gitlabSourceRepoHttpUrl
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
+    def dynamicStages = []
 
     pipeline {
         agent any
@@ -34,8 +35,9 @@ def call(body) {
                         echo "url $repoUrl"
                         echo "branch: $repoBranch"
                         def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                        echo "response checkout tasks: " + responseFromTasks
-                        
+                        //echo "response checkout tasks: " + responseFromTasks
+                        dynamicStages = responseFromTasks
+                        echo "dynamicStages = " + dynamicStages
                     }
                 }
             }
@@ -59,7 +61,7 @@ def call(body) {
                             
                         // }
                         //  parallel parallelStages
-                        env.STAGES.each { stg -> 
+                        dynamicStages.each { stg -> 
                             stage(stg) {
                                 steps {
                                     script {
