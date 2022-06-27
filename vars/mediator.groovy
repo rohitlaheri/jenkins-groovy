@@ -126,7 +126,7 @@ def call(body) {
 
 def generatePipeline() {
         return {
-            def call(body) {
+            "def call(body) {
                 pipeline {
                     agent any
                     tools {
@@ -156,6 +156,6 @@ def generatePipeline() {
                         } 
                     }
                 }
-            }   
+            }"   
         }
     }
