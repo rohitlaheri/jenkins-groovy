@@ -23,11 +23,6 @@ def call(Map param, String parent)
 
 def generatePipeline(string) {
     return {
-        when {
-            allOf {
-                expression {stg.contains('displaytaske1')}
-            }
-        }
         steps {
             script {
                 displaytaske1.call()                                  
