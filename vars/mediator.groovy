@@ -26,41 +26,7 @@ def call(body) {
     file.write dynamicStage
     pipeline.call()
 
-    def generatePipeline() {
-        return {
-            def call(body) {
-                pipeline {
-                    agent any
-                    tools {
-                        maven 'maven'
-                    }
-                    stages {
-                        stage('scm checkout') {
-                            steps{
-                                cleanWs()
-                                script {
-                                    // temp logging //
-                                    echo "url $repoUrl"
-                                    echo "branch: $repoBranch"
-                                    def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                                    //echo "response checkout tasks: " + responseFromTasks
-                                    dynamicStages = responseFromTasks
-                                    echo "dynamicStages = " + dynamicStages
-                                }
-                            }
-                        }
-                        stage('display') {
-                            steps {
-                                script {
-                                    displaytaske1.call()                                  
-                                }
-                            }
-                        } 
-                    }
-                }
-            }   
-        }
-    }
+    
     // pipeline {
     //     agent any
     //     // tools {
@@ -157,3 +123,39 @@ def call(body) {
     //     }
     // }
 }
+
+def generatePipeline() {
+        return {
+            def call(body) {
+                pipeline {
+                    agent any
+                    tools {
+                        maven 'maven'
+                    }
+                    stages {
+                        stage('scm checkout') {
+                            steps{
+                                cleanWs()
+                                script {
+                                    // temp logging //
+                                    echo "url $repoUrl"
+                                    echo "branch: $repoBranch"
+                                    def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
+                                    //echo "response checkout tasks: " + responseFromTasks
+                                    dynamicStages = responseFromTasks
+                                    echo "dynamicStages = " + dynamicStages
+                                }
+                            }
+                        }
+                        stage('display') {
+                            steps {
+                                script {
+                                    displaytaske1.call()                                  
+                                }
+                            }
+                        } 
+                    }
+                }
+            }   
+        }
+    }
