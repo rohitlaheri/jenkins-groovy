@@ -42,7 +42,10 @@ def call(body) {
                 }
             }
             stage(dsiplay) {
-                dynamicStages
+                steps {
+                    dynamicStages
+                }
+                
                 
                 // steps {
                 //     script {
