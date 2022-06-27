@@ -12,13 +12,25 @@ def call(Map param, String parent)
     echo "Factory Generated"
     checkOutCode.checkOut(param)
     stages = ["displaytaske1","displaytaske2"]
-    env.STAGES = stages
+    
     echo "STAGES = " + env.STAGES
     echo "Completed"
     echo "parent variable contains: " + parent
     //def ret = stages
-    return stages
+    return generatePipeline('displaytaske1')
 }
 
 
+def generatePipeline(string) {
+    return {
+        when {
+            allOf {
+                expression {stg.contains('displaytaske1')}
+            }
+        }
+        script {
+            displaytaske1.call()                                  
+        }
+    }
+}
 

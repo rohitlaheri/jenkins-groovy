@@ -63,10 +63,7 @@ def call(body) {
                         //  parallel parallelStages
                         dynamicStages.each { stg -> 
                             stage(stg) {
-                                script {
-                                    displaytaske1
-                                    
-                                }
+                                dynamicStages
                             }
                         }
                     }
