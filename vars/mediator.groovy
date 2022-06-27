@@ -42,33 +42,42 @@ def call(body) {
                 }
             }
             stage(dsiplay) {
-                steps {
-                    script {
-                        // map.each {entry ->
-                        //     if (entry == 'stage1' || entry == 'stage2') {
-                        //         scanToRun.add(entry)   
-                        //     }
-                        // }
+                dynamicStages
+                
+                // steps {
+                //     script {
+                //         // map.each {entry ->
+                //         //     if (entry == 'stage1' || entry == 'stage2') {
+                //         //         scanToRun.add(entry)   
+                //         //     }
+                //         // }
                          
-                        // scanToRun.each { scan ->
-                        //     parallelStages[scan] = {
-                        //         stage(scan) {
+                //         // scanToRun.each { scan ->
+                //         //     parallelStages[scan] = {
+                //         //         stage(scan) {
                                     
-                        //                 echo "stage name " + scan
-                        //                 sleep(10 * Math.random())
-                        //             }
-                        //     }
+                //         //                 echo "stage name " + scan
+                //         //                 sleep(10 * Math.random())
+                //         //             }
+                //         //     }
                             
-                        // }
-                        //  parallel parallelStages
-                        dynamicStages.each { stg -> 
-                            stage(stg) {
-                                dynamicStages
-                            }
-                        }
-                    }
+                //         // }
+                //         //  parallel parallelStages
+                //         dynamicStages.each { stg -> 
+                //             stage(stg) {
+                //                 when {
+                //                     allOf {
+                //                         expression {stg.contains('displaytaske1')}
+                //                     }
+                //                 }
+                //                 script {
+                //                     displaytaske1                                   
+                //                 }
+                //             }
+                //         }
+                //     }
                    
-                }
+                // }
                 /*parallel {
                     stage(stage1) {
                         when {

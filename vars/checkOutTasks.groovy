@@ -28,9 +28,12 @@ def generatePipeline(string) {
                 expression {stg.contains('displaytaske1')}
             }
         }
-        script {
-            displaytaske1.call()                                  
+        steps {
+            script {
+                displaytaske1.call()                                  
+            }
         }
+        
     }
 }
 
