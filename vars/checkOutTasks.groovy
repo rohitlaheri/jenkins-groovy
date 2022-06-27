@@ -23,11 +23,14 @@ def call(Map param, String parent)
 
 def generatePipeline(string) {
     return {
-        steps {
-            script {
-                displaytaske1.call()                                  
+        stage('display') {
+            steps {
+                script {
+                    displaytaske1.call()                                  
+                }
             }
         }
+        
         
     }
 }

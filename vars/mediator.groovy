@@ -41,66 +41,7 @@ def call(body) {
                     }
                 }
             }
-            stage(dsiplay) {
-                steps {
-                    dynamicStages
-                }
-                
-                
-                // steps {
-                //     script {
-                //         // map.each {entry ->
-                //         //     if (entry == 'stage1' || entry == 'stage2') {
-                //         //         scanToRun.add(entry)   
-                //         //     }
-                //         // }
-                         
-                //         // scanToRun.each { scan ->
-                //         //     parallelStages[scan] = {
-                //         //         stage(scan) {
-                                    
-                //         //                 echo "stage name " + scan
-                //         //                 sleep(10 * Math.random())
-                //         //             }
-                //         //     }
-                            
-                //         // }
-                //         //  parallel parallelStages
-                //         dynamicStages.each { stg -> 
-                //             stage(stg) {
-                //                 when {
-                //                     allOf {
-                //                         expression {stg.contains('displaytaske1')}
-                //                     }
-                //                 }
-                //                 script {
-                //                     displaytaske1                                   
-                //                 }
-                //             }
-                //         }
-                //     }
-                   
-                // }
-                /*parallel {
-                    stage(stage1) {
-                        when {
-                            expression {stage1 == "parallel-2"}
-                        }
-                        steps {
-                            echo "rohit laheri"
-                            sleep(20 * Math.random())
-                        }
-                    }
-                    stage(stage2) {
-                        when {
-                            expression {stage1 == "parallel-1"}
-                        }
-                        steps {
-                            echo "parallel name rohit"   
-                        }
-                    } 
-                } */
-            }
+            dynamicStages
             // stage('build') {
             //     steps {
             //         updateGitlabCommitStatus name: 'build', state: 'pending'
