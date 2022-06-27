@@ -17,7 +17,7 @@ def call(Map param, String parent)
     echo "Completed"
     echo "parent variable contains: " + parent
     //def ret = stages
-    return generatePipeline('displaytaske1')
+    //return generatePipeline('displaytaske1')
 }
 
 
@@ -29,9 +29,7 @@ def generatePipeline(string) {
                     displaytaske1.call()                                  
                 }
             }
-        }
-        
-        
+        }        
     }
 }
 
