@@ -22,10 +22,10 @@ def call(body) {
     //def dynamicStages = []
 
     def dynamicStage = generatePipeline
-    File file = new File('vars/pipeline.groovy')
-    file.write dynamicStage
-    pipeline.call()
-
+    // File file = new File('vars/pipeline.groovy')
+    // file.write dynamicStage
+    // pipeline.call()
+    dynamicStage
     
     // pipeline {
     //     agent any
@@ -126,8 +126,7 @@ def call(body) {
 
 def generatePipeline() {
         return {
-            "def call(body) {
-                pipeline {
+            pipeline {
                     agent any
                     tools {
                         maven 'maven'
@@ -155,7 +154,6 @@ def generatePipeline() {
                             }
                         } 
                     }
-                }
-            }"   
+                }  
+            }
         }
-    }
