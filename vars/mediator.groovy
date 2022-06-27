@@ -21,42 +21,46 @@ def call(body) {
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
     //def dynamicStages = []
 
-    def dynamicStage = return {
-        def call(body) {
-            pipeline {
-                agent any
-                tools {
-                    maven 'maven'
-                }
-                stages {
-                    stage('scm checkout') {
-                        steps{
-                            cleanWs()
-                            script {
-                                // temp logging //
-                                echo "url $repoUrl"
-                                echo "branch: $repoBranch"
-                                def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                                //echo "response checkout tasks: " + responseFromTasks
-                                dynamicStages = responseFromTasks
-                                echo "dynamicStages = " + dynamicStages
-                            }
-                        }
-                    }
-                    stage('display') {
-                        steps {
-                            script {
-                                displaytaske1.call()                                  
-                            }
-                        }
-                    } 
-                }
-            }
-        }   
-    }
+    def dynamicStage = generatePipeline
     File file = new File('vars/pipeline.groovy')
     file.write dynamicStage
     pipeline.call()
+
+    def generatePipeline() {
+        return {
+            def call(body) {
+                pipeline {
+                    agent any
+                    tools {
+                        maven 'maven'
+                    }
+                    stages {
+                        stage('scm checkout') {
+                            steps{
+                                cleanWs()
+                                script {
+                                    // temp logging //
+                                    echo "url $repoUrl"
+                                    echo "branch: $repoBranch"
+                                    def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
+                                    //echo "response checkout tasks: " + responseFromTasks
+                                    dynamicStages = responseFromTasks
+                                    echo "dynamicStages = " + dynamicStages
+                                }
+                            }
+                        }
+                        stage('display') {
+                            steps {
+                                script {
+                                    displaytaske1.call()                                  
+                                }
+                            }
+                        } 
+                    }
+                }
+            }   
+        }
+    }
     // pipeline {
     //     agent any
     //     // tools {
