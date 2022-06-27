@@ -21,7 +21,7 @@ def call(body) {
     def repoBranch = pipelineParams.branch ?: env.gitlabSourceBranch
     //def dynamicStages = []
 
-    def dynamicStage = generatePipeline
+    def dynamicStage = generatePipeline()
     // File file = new File('vars/pipeline.groovy')
     // file.write dynamicStage
     // pipeline.call()
