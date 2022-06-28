@@ -22,6 +22,7 @@ def call(body) {
     //def dynamicStages = []
 
     def dynamicStage = generatePipeline()
+    
     println(dynamicStage)
     File file = new File('vars/pipeline.groovy')
     file.createNewFile()
@@ -29,12 +30,20 @@ def call(body) {
     pipeline.call()
     
     
-    // pipeline {
-    //     agent any
-    //     // tools {
-    //     //     maven 'maven'
-    //     // }
-    //     stages {
+    pipeline {
+        agent any
+        tools {
+            maven 'maven'
+        }
+        stages {
+            stage("Triggering Build")
+            {
+                steps {
+                    generatePipeline()
+                }
+            }
+        }
+    }
     //         stage('scm checkout'){
     //             steps{
     //                 cleanWs()
@@ -128,36 +137,29 @@ def call(body) {
 
 def generatePipeline() {
         return {
-            'def call()'+ { 
-                pipeline {
-                    agent any
-                    tools {
-                        maven 'maven'
-                    }
-                    stages {
-                        stage('scm checkout') {
-                            steps{
-                                cleanWs()
-                                script {
-                                    // temp logging //
-                                    echo "url $repoUrl"
-                                    echo "branch: $repoBranch"
-                                    def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                                    //echo "response checkout tasks: " + responseFromTasks
-                                    dynamicStages = responseFromTasks
-                                    echo "dynamicStages = " + dynamicStages
-                                }
-                            }
+            stages {
+                stage('scm checkout') {
+                    steps{
+                        cleanWs()
+                        script {
+                            // temp logging //
+                            echo "url $repoUrl"
+                            echo "branch: $repoBranch"
+                            def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
+                            //echo "response checkout tasks: " + responseFromTasks
+                            dynamicStages = responseFromTasks
+                            echo "dynamicStages = " + dynamicStages
                         }
-                        stage('display') {
-                            steps {
-                                script {
-                                    displaytaske1.call()                                  
-                                }
-                            }
-                        } 
                     }
-                }  
+                }
+                stage('display') {
+                    steps {
+                        script {
+                            displaytaske1.call()                                  
+                        }
+                    }
+                } 
             }
-        }
+        }  
+        
     }
