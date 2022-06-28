@@ -31,7 +31,7 @@ def call(body) {
             stage("Triggering Build")
             {
                 steps {
-                    releasePipeline repoUrl repoBranch pipelineParams
+                    releasePipeline repoUrl, repoBranch, pipelineParams
                 }
             }
         }
