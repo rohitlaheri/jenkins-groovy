@@ -22,6 +22,7 @@ def call(body) {
     //def dynamicStages = []
 
     def dynamicStage = generatePipeline()
+    echo dynamicStage
     File file = new File('vars/pipeline.groovy')
     file.write dynamicStage
     pipeline.call()
@@ -128,34 +129,34 @@ def generatePipeline() {
         return {
             'def call()'+ { 
                 pipeline {
-                        agent any
-                        tools {
-                            maven 'maven'
-                        }
-                        stages {
-                            stage('scm checkout') {
-                                steps{
-                                    cleanWs()
-                                    script {
-                                        // temp logging //
-                                        echo "url $repoUrl"
-                                        echo "branch: $repoBranch"
-                                        def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                                        //echo "response checkout tasks: " + responseFromTasks
-                                        dynamicStages = responseFromTasks
-                                        echo "dynamicStages = " + dynamicStages
-                                    }
+                    agent any
+                    tools {
+                        maven 'maven'
+                    }
+                    stages {
+                        stage('scm checkout') {
+                            steps{
+                                cleanWs()
+                                script {
+                                    // temp logging //
+                                    echo "url $repoUrl"
+                                    echo "branch: $repoBranch"
+                                    def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
+                                    //echo "response checkout tasks: " + responseFromTasks
+                                    dynamicStages = responseFromTasks
+                                    echo "dynamicStages = " + dynamicStages
                                 }
                             }
-                            stage('display') {
-                                steps {
-                                    script {
-                                        displaytaske1.call()                                  
-                                    }
-                                }
-                            } 
                         }
-                    }  
-                }
+                        stage('display') {
+                            steps {
+                                script {
+                                    displaytaske1.call()                                  
+                                }
+                            }
+                        } 
+                    }
+                }  
             }
         }
+    }
