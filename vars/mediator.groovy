@@ -31,7 +31,7 @@ def call(body) {
             stage("Triggering Build")
             {
                 steps {
-                    generatePipeline(repoUrl, repoBranch, pipelineParams)
+                    releasePipeline repoUrl, repoBranch, pipelineParams
                 }
             }
         }
@@ -127,26 +127,5 @@ def call(body) {
     // }
 }
 
-def generatePipeline(def repoUrl, def repoBranch, def pipelineParams) {
-    script {       
-        stage('scm checkout') {
-            cleanWs()
-            script {
-                // temp logging //
-                echo "url $repoUrl"
-                echo "branch: $repoBranch"
-                 def parent="parent"
-                def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                //echo "response checkout tasks: " + responseFromTasks
-                dynamicStages = responseFromTasks
-                echo "dynamicStages = " + dynamicStages
-            }
-        }
-        stage('display') {
-            script {
-                displaytaske1.call()                                  
-            }
-        }
-    }
-}  
+
         
