@@ -128,30 +128,28 @@ def call(body) {
 }
 
 def generatePipeline() {
-        return {
-            stages {
-                stage('scm checkout') {
-                    steps{
-                        cleanWs()
-                        script {
-                            // temp logging //
-                            echo "url $repoUrl"
-                            echo "branch: $repoBranch"
-                            def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
-                            //echo "response checkout tasks: " + responseFromTasks
-                            dynamicStages = responseFromTasks
-                            echo "dynamicStages = " + dynamicStages
-                        }
-                    }
+    script {       
+        stage('scm checkout') {
+            steps{
+                cleanWs()
+                script {
+                    // temp logging //
+                    echo "url $repoUrl"
+                    echo "branch: $repoBranch"
+                    def responseFromTasks = checkOutTasks.call(pipelineParams, parent)
+                    //echo "response checkout tasks: " + responseFromTasks
+                    dynamicStages = responseFromTasks
+                    echo "dynamicStages = " + dynamicStages
                 }
-                stage('display') {
-                    steps {
-                        script {
-                            displaytaske1.call()                                  
-                        }
-                    }
-                } 
             }
-        }  
-        
+        }
+        stage('display') {
+            steps {
+                script {
+                    displaytaske1.call()                                  
+                }
+            }
+        }
     }
+}  
+        
