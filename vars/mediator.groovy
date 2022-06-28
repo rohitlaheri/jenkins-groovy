@@ -22,7 +22,7 @@ def call(body) {
     //def dynamicStages = []
 
     def dynamicStage = generatePipeline()
-    echo dynamicStage
+    println(dynamicStage)
     File file = new File('vars/pipeline.groovy')
     file.write dynamicStage
     pipeline.call()
