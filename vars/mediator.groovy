@@ -127,7 +127,7 @@ def call(body) {
     // }
 }
 
-def generatePipeline(def repoURL, def repoBranch) {
+def generatePipeline(def repoUrl, def repoBranch) {
     script {       
         stage('scm checkout') {
             cleanWs()
