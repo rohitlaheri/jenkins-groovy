@@ -22,5 +22,8 @@ def generatePipeline(def repoUrl, def repoBranch, def pipelineParams) {
 }  
 
 def call(def repoUrl, def repoBranch, def pipelineParams ) {
+    echo "repo-url " + repoUrl
+    echo "repo-branch " + repoBranch
+    echo "pipeline-param "+ pipelineParams
     generatePipeline(repoUrl, repoBranch, pipelineParams)
 }
