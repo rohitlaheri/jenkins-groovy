@@ -31,7 +31,7 @@ def call(body) {
             stage("Triggering Build")
             {
                 steps {
-                    generatePipeline()
+                    generatePipeline(repoURL, repoBranch)
                 }
             }
         }
@@ -127,7 +127,7 @@ def call(body) {
     // }
 }
 
-def generatePipeline() {
+def generatePipeline(def repoURL, def repoBranch) {
     script {       
         stage('scm checkout') {
             cleanWs()
